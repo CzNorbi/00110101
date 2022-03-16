@@ -11,8 +11,10 @@ public class MainApp extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        FXMLLoader loader = new FXMLLoader(MainApp.class.getResource("/hu/unideb/inf/view/FXMLStudentsScene.fxml"));
+        FXMLLoader loader = new FXMLLoader(MainApp.class.getResource("/view/FXMLStudentsScene.fxml"));
+        //FXMLLoader loader = new FXMLLoader(MainApp.class.getResource("/fxml/FXMLStudentsScene.fxml"));
         Scene scene = new Scene(loader.load());
+        scene.getStylesheets().add("/styles/Styles.css");
         stage.setTitle("Students Register");
         stage.setScene(scene);
         stage.show();
