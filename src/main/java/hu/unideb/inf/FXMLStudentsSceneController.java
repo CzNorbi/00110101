@@ -12,7 +12,7 @@ public class FXMLStudentsSceneController {
     private Label creditsLabel;
 
     @FXML
-    private Label helloLabel;
+    private Label statusLabel;
 
     @FXML
     private Label nameLabel;
@@ -25,7 +25,6 @@ public class FXMLStudentsSceneController {
     @FXML
     void handleButtonPushed(){
         System.out.println("Hello world!!!");
-        if (helloLabel.getText().equals("fekete")) helloLabel.setText("fehér");
-        else helloLabel.setText("fekete");
+        statusLabel.setText("Saved!");
     }
 }

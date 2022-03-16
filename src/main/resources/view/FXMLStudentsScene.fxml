@@ -24,7 +24,7 @@
                                         <Font size="23.0" />
                                     </font>
                                 </Button>
-                                <Label fx:id="helloLabel" alignment="CENTER" layoutX="469.0" layoutY="301.0" prefHeight="49.0" prefWidth="115.0" text="Prepare">
+                                <Label fx:id="statusLabel" alignment="CENTER" layoutX="469.0" layoutY="301.0" prefHeight="49.0" prefWidth="115.0" text="Not saved">
                                     <font>
                                         <Font size="18.0" />
                                     </font>
