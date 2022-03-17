@@ -2,6 +2,7 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Tab?>
@@ -54,6 +55,7 @@
                         <Rectangle arcHeight="5.0" arcWidth="5.0" height="10.0" layoutX="493.0" layoutY="213.0" stroke="BLACK" strokeType="INSIDE" width="26.0" />
                         <Rectangle arcHeight="5.0" arcWidth="5.0" height="10.0" layoutX="493.0" layoutY="121.0" stroke="BLACK" strokeType="INSIDE" width="26.0" />
                         <Rectangle arcHeight="5.0" arcWidth="5.0" height="10.0" layoutX="349.0" layoutY="213.0" stroke="BLACK" strokeType="INSIDE" width="26.0" />
+                        <Label layoutX="335.0" layoutY="87.0" text="Autó:" />
                             </children>
                         </AnchorPane>
                     </content>
@@ -64,8 +66,8 @@
                             <children>
                                 <GridPane layoutX="51.0" layoutY="101.0" prefHeight="169.0" prefWidth="498.0">
                                     <columnConstraints>
-                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                        <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="161.0" minWidth="10.0" prefWidth="109.5" />
+                                        <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="264.0" minWidth="10.0" prefWidth="222.5" />
                                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                                     </columnConstraints>
                                     <rowConstraints>
@@ -89,7 +91,7 @@
                                                 <Font size="24.0" />
                                             </font>
                                         </Label>
-                                        <Label text="Date of Birth:" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                        <Label text="Date of Incident:" GridPane.columnIndex="1" GridPane.rowIndex="2">
                                             <font>
                                                 <Font size="24.0" />
                                             </font>
@@ -120,6 +122,8 @@
                                         </Label>
                                     </children>
                                 </GridPane>
+                        <ChoiceBox fx:id="incidentPicker" layoutX="75.0" layoutY="42.0" prefWidth="150.0" />
+                        <Label layoutX="75.0" layoutY="14.0" text="Korábbi esetek:" />
                             </children>
                         </AnchorPane>
                     </content>
