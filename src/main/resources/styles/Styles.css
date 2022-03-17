@@ -20,10 +20,22 @@
     -fx-background: #ffffff;
 }
 
+.date-picker {
+    -fx-accent: -fx-primary-color;
+    -fx-background-color: -fx-grey-color, white;
+    -fx-background-insets: 0, 0 0 0 0;
+    -fx-background-radius: 0;
+}
+
+#statusBack {
+    -fx-background-color: #ffc9c9;
+    -fx-background-radius: 3px;
+}
+
 .text-field {
     -fx-accent: -fx-primary-color;
     -fx-background-color: -fx-grey-color, white;
-    -fx-background-insets: 0, 0 0 1 0;
+    -fx-background-insets: 0, 0 1 0 0;
     -fx-background-radius: 0;
 }
 

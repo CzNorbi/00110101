@@ -6,6 +6,7 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.Region;
 import javafx.scene.shape.Rectangle;
 
 public class FXMLStudentsSceneController {
@@ -26,6 +27,9 @@ public class FXMLStudentsSceneController {
 
     @FXML
     private ChoiceBox incidentPicker;
+
+    @FXML
+    private Region statusBack;
 
     @FXML
     private TextField crashCarName;
@@ -58,10 +62,10 @@ public class FXMLStudentsSceneController {
 
     @FXML
     void handleHoodClicked() {
-        if (hood.getStyle().equals("-fx-fill: red;")) {
+        if (hood.getStyle().equals("-fx-fill: #ffc2c2;")) {
             hood.setStyle("-fx-fill: white;");
         } else {
-            hood.setStyle("-fx-fill: red;");
+            hood.setStyle("-fx-fill: #ffc2c2;");
             // státusz mentése adatbázisra
         }
     }
@@ -69,6 +73,7 @@ public class FXMLStudentsSceneController {
     @FXML
     void handleButtonPushed(){
         System.out.println("Hello world!!!");
+        statusBack.setStyle("-fx-background-color: #d7facc;");
         statusLabel.setText("Saved!");
     }
 }
