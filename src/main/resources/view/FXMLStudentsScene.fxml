@@ -11,6 +11,7 @@
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hu.unideb.inf.FXMLStudentsSceneController">
@@ -36,12 +37,23 @@
                               <Font size="18.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="crashUserName" layoutX="34.0" layoutY="31.0" onAction="#handleCrashName" />
-                        <TextField fx:id="crashCarName" layoutX="34.0" layoutY="84.0" onAction="#handleCrashCarName" />
-                        <Label layoutX="34.0" layoutY="14.0" text="Károsult neve:" />
-                        <Label layoutX="34.0" layoutY="67.0" text="Autó típusa" />
-                        <DatePicker fx:id="datePicker" layoutX="196.0" layoutY="31.0" onAction="#handleCrashDate" />
-                        <Label layoutX="196.0" layoutY="14.0" text="Dátum:" />
+                        <TextField fx:id="crashUserName" layoutX="29.0" layoutY="42.0" onAction="#handleCrashName" />
+                        <TextField fx:id="crashCarName" layoutX="29.0" layoutY="95.0" onAction="#handleCrashCarName" />
+                        <Label layoutX="29.0" layoutY="25.0" text="Károsult neve:" />
+                        <Label layoutX="29.0" layoutY="78.0" text="Autó típusa" />
+                        <DatePicker fx:id="datePicker" layoutX="29.0" layoutY="147.0" onAction="#handleCrashDate" />
+                        <Label layoutX="29.0" layoutY="130.0" text="Dátum:" />
+                        <Rectangle fx:id="hood" arcHeight="5.0" arcWidth="5.0" fill="ALICEBLUE" height="80.0" layoutX="334.0" layoutY="132.0" stroke="BLACK" strokeType="INSIDE" width="55.0" />
+                        <Rectangle fx:id="frontRightDoor" arcHeight="5.0" arcWidth="5.0" fill="#f0f8ff" height="15.0" layoutX="388.0" layoutY="118.0" stroke="BLACK" strokeType="INSIDE" width="45.0" />
+                        <Rectangle fx:id="backRightDoor" arcHeight="5.0" arcWidth="5.0" fill="#f0f8ff" height="15.0" layoutX="433.0" layoutY="118.0" stroke="BLACK" strokeType="INSIDE" width="45.0" />
+                        <Rectangle fx:id="backLeftDoor" arcHeight="5.0" arcWidth="5.0" fill="#f0f8ff" height="15.0" layoutX="433.0" layoutY="212.0" stroke="BLACK" strokeType="INSIDE" width="45.0" />
+                        <Rectangle fx:id="frontLeftDoor" arcHeight="5.0" arcWidth="5.0" fill="#f0f8ff" height="15.0" layoutX="388.0" layoutY="212.0" stroke="BLACK" strokeType="INSIDE" width="45.0" />
+                        <Rectangle fx:id="trunk" arcHeight="5.0" arcWidth="5.0" fill="ALICEBLUE" height="80.0" layoutX="478.0" layoutY="132.0" stroke="BLACK" strokeType="INSIDE" width="55.0" />
+                        <Rectangle fx:id="roof" arcHeight="5.0" arcWidth="5.0" fill="ALICEBLUE" height="80.0" layoutX="413.0" layoutY="132.0" stroke="BLACK" strokeType="INSIDE" width="42.0" />
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" height="10.0" layoutX="349.0" layoutY="121.0" stroke="BLACK" strokeType="INSIDE" width="26.0" />
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" height="10.0" layoutX="493.0" layoutY="213.0" stroke="BLACK" strokeType="INSIDE" width="26.0" />
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" height="10.0" layoutX="493.0" layoutY="121.0" stroke="BLACK" strokeType="INSIDE" width="26.0" />
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" height="10.0" layoutX="349.0" layoutY="213.0" stroke="BLACK" strokeType="INSIDE" width="26.0" />
                             </children>
                         </AnchorPane>
                     </content>
