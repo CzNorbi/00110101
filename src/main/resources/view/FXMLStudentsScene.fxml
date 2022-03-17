@@ -5,6 +5,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -15,7 +16,7 @@
     <children>
         <TabPane prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <tabs>
-                <Tab text="DummyDemo">
+                <Tab text="Bejelentés">
                     <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                             <children>
@@ -34,11 +35,15 @@
                               <Font size="18.0" />
                            </font>
                         </Label>
+                        <TextField fx:id="crashUserName" layoutX="34.0" layoutY="31.0" />
+                        <TextField fx:id="crashCarName" layoutX="34.0" layoutY="84.0" />
+                        <Label layoutX="34.0" layoutY="14.0" text="Károsult neve:" />
+                        <Label layoutX="34.0" layoutY="67.0" text="Autó típusa" />
                             </children>
                         </AnchorPane>
                     </content>
                 </Tab>
-                <Tab text="Load Demo">
+                <Tab text="Korábbi jelentések">
                     <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                             <children>
@@ -59,12 +64,12 @@
                                                 <Font size="24.0" />
                                             </font>
                                         </Button>
-                                        <Label text="Name:" GridPane.columnIndex="1">
+                                        <Label text="Név:" GridPane.columnIndex="1">
                                             <font>
                                                 <Font size="24.0" />
                                             </font>
                                         </Label>
-                                        <Label text="Credits:" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                        <Label text="Autó:" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                             <font>
                                                 <Font size="24.0" />
                                             </font>

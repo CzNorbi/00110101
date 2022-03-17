@@ -14,7 +14,7 @@ public class MainApp extends Application {
         FXMLLoader loader = new FXMLLoader(MainApp.class.getResource("/view/FXMLStudentsScene.fxml"));
         Scene scene = new Scene(loader.load());
         scene.getStylesheets().add("/styles/Styles.css");
-        stage.setTitle("Students Register");
+        stage.setTitle("Kárbejelentő");
         stage.setScene(scene);
         stage.show();
     }
