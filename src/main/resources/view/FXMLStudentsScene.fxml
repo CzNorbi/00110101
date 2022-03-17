@@ -2,6 +2,7 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
@@ -35,10 +36,12 @@
                               <Font size="18.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="crashUserName" layoutX="34.0" layoutY="31.0" />
-                        <TextField fx:id="crashCarName" layoutX="34.0" layoutY="84.0" />
+                        <TextField fx:id="crashUserName" layoutX="34.0" layoutY="31.0" onAction="#handleCrashName" />
+                        <TextField fx:id="crashCarName" layoutX="34.0" layoutY="84.0" onAction="#handleCrashCarName" />
                         <Label layoutX="34.0" layoutY="14.0" text="Károsult neve:" />
                         <Label layoutX="34.0" layoutY="67.0" text="Autó típusa" />
+                        <DatePicker fx:id="datePicker" layoutX="196.0" layoutY="31.0" onAction="#handleCrashDate" />
+                        <Label layoutX="196.0" layoutY="14.0" text="Dátum:" />
                             </children>
                         </AnchorPane>
                     </content>
