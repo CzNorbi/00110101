@@ -1,15 +1,17 @@
-.button {
-    -fx-font-weight: bold;
+* {
+    -fx-primary-color: #007acc;
+    -fx-secondary-color: #4B6EAF;
+    -fx-grey-color: #b9b9b9;
+
+    -fx-focus-color: -fx-secondary-color;
 }
 
-.root {
-    -fx-font-size: 14px;
-    -fx-font-family: sans-serif;
-    -fx-background-color: #ffffff;
+.text-field {
+    -fx-accent: -fx-primary-color;
+    -fx-background-color: -fx-grey-color, white;
+    -fx-background-insets: 0, 0 0 1 0;
+    -fx-background-radius: 1;
 }
-
-.header-section {
-    -fx-padding: 10px;
-    -fx-font-size: 20px;
-    -fx-background-color: teal;
+.text-field:focused {
+    -fx-background-color: -fx-primary-color, white;
 }
