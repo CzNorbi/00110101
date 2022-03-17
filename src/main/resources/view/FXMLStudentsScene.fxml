@@ -23,7 +23,7 @@
                     <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                             <children>
-                                <Button layoutX="203.0" layoutY="300.0" mnemonicParsing="false" onAction="#handleButtonPushed" prefHeight="45.0" prefWidth="195.0" text="Jelentés">
+                                <Button id="mButton" fx:id="bigButton" layoutX="203.0" layoutY="300.0" mnemonicParsing="false" onAction="#handleButtonPushed" prefHeight="45.0" prefWidth="195.0" text="Jelentés">
                                     <font>
                                         <Font size="23.0" />
                                     </font>
@@ -44,7 +44,7 @@
                         <Label layoutX="29.0" layoutY="78.0" text="Autó típusa" />
                         <DatePicker fx:id="datePicker" layoutX="29.0" layoutY="147.0" onAction="#handleCrashDate" />
                         <Label layoutX="29.0" layoutY="130.0" text="Dátum:" />
-                        <Rectangle fx:id="hood" arcHeight="5.0" arcWidth="5.0" fill="ALICEBLUE" height="80.0" layoutX="334.0" layoutY="132.0" stroke="BLACK" strokeType="INSIDE" width="55.0" />
+                        <Rectangle id="hood" fx:id="hood" arcHeight="5.0" arcWidth="5.0" fill="ALICEBLUE" height="80.0" layoutX="334.0" layoutY="132.0" onMouseClicked="#handleHoodClicked" stroke="BLACK" strokeType="INSIDE" styleClass="Rectangle" width="55.0" />
                         <Rectangle fx:id="frontRightDoor" arcHeight="5.0" arcWidth="5.0" fill="#f0f8ff" height="15.0" layoutX="388.0" layoutY="118.0" stroke="BLACK" strokeType="INSIDE" width="45.0" />
                         <Rectangle fx:id="backRightDoor" arcHeight="5.0" arcWidth="5.0" fill="#f0f8ff" height="15.0" layoutX="433.0" layoutY="118.0" stroke="BLACK" strokeType="INSIDE" width="45.0" />
                         <Rectangle fx:id="backLeftDoor" arcHeight="5.0" arcWidth="5.0" fill="#f0f8ff" height="15.0" layoutX="433.0" layoutY="212.0" stroke="BLACK" strokeType="INSIDE" width="45.0" />
