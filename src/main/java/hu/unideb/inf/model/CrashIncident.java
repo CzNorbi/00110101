@@ -42,10 +42,9 @@ public class CrashIncident {
     // TODO: normálisan megformázni -> igy jelenik meg a drop-down menüben
     @Override
     public String toString() {
-        return "CrashIncident{" +
-                "crashClientName='" + crashClientName + '\'' +
-                ", crashCarName='" + crashCarName + '\'' +
-                ", dateOfCrash=" + dateOfCrash +
-                '}';
+        return "Bejelentés: " +
+                "Név: " + crashClientName + " " +
+                "Autó: " + crashCarName + " " +
+                "Dátum: " + dateOfCrash;
     }
 }
