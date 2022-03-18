@@ -41,13 +41,13 @@
                               <Font size="18.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="crashUserName" layoutX="29.0" layoutY="42.0" onAction="#handleCrashName" />
-                        <TextField fx:id="crashCarName" layoutX="29.0" layoutY="95.0" onAction="#handleCrashCarName" />
-                        <Label layoutX="29.0" layoutY="25.0" text="Károsult neve:" />
-                        <Label layoutX="29.0" layoutY="78.0" text="Autó típusa" />
-                        <DatePicker fx:id="datePicker" layoutX="29.0" layoutY="147.0" onAction="#handleCrashDate" />
-                        <Label layoutX="29.0" layoutY="130.0" text="Dátum:" />
-                        <Pane fx:id="auto" layoutX="334.0" layoutY="118.0">
+                        <TextField fx:id="crashUserName" layoutX="29.0" layoutY="46.0" onAction="#handleCrashName" />
+                        <TextField fx:id="crashCarName" layoutX="29.0" layoutY="106.0" onAction="#handleCrashCarName" />
+                        <Label layoutX="29.0" layoutY="22.0" text="Károsult neve:" />
+                        <Label layoutX="29.0" layoutY="82.0" text="Autó típusa:" />
+                        <DatePicker fx:id="datePicker" layoutX="29.0" layoutY="164.0" onAction="#handleCrashDate" />
+                        <Label layoutX="29.0" layoutY="140.0" text="Dátum:" />
+                        <Pane fx:id="auto" layoutX="333.0" layoutY="173.0" prefWidth="194.0">
                            <children>
                               <Rectangle id="hood" fx:id="hood" arcHeight="5.0" arcWidth="5.0" fill="ALICEBLUE" height="80.0" layoutY="14.0" onMouseClicked="#handleHoodClicked" stroke="BLACK" strokeType="INSIDE" styleClass="Rectangle" width="55.0" />
                               <Rectangle fx:id="frDoor" arcHeight="5.0" arcWidth="5.0" fill="#f0f8ff" height="15.0" layoutX="54.0" onMouseClicked="#handleFrontRightDoor" stroke="BLACK" strokeType="INSIDE" width="45.0" />
@@ -62,12 +62,14 @@
                               <Rectangle arcHeight="5.0" arcWidth="5.0" height="10.0" layoutX="15.0" layoutY="95.0" stroke="BLACK" strokeType="INSIDE" width="26.0" />
                            </children>
                         </Pane>
-                        <Label layoutX="335.0" layoutY="87.0" text="Autó:" />
+                        <Label layoutX="334.0" layoutY="142.0" text="Autó:" />
+                        <ChoiceBox fx:id="incidentPicker1" layoutX="333.0" layoutY="48.0" prefWidth="150.0" />
+                        <Label layoutX="333.0" layoutY="22.0" text="Korábbi esetek:" />
                             </children>
                         </AnchorPane>
                     </content>
                 </Tab>
-                <Tab text="Korábbi jelentések">
+                <Tab text="TBD">
                     <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                             <children>
