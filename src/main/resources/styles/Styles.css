@@ -41,6 +41,11 @@
 
 #hood {
     -fx-arc-height: 100px;
+    -fx-arc-width: 10px;
+}
+
+#trunk {
+    -fx-arc-height: 100px;
 }
 
 .text-field:focused {
