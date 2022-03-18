@@ -39,6 +39,12 @@ public class FXMLStudentsSceneController {
     @FXML
     private Rectangle trunk;
 
+    @FXML
+    private Rectangle fWindshield;
+
+    @FXML
+    private Rectangle bWindshield;
+
     // End of Car parts
 
     @FXML
@@ -146,9 +152,59 @@ public class FXMLStudentsSceneController {
     }
 
     @FXML
+    void handleFrontWindshield() {
+        if (fWindshield.getStyle().equals("-fx-fill: #ffc2c2;")) {
+            fWindshield.setStyle("-fx-fill: dodgerblue;");
+            System.out.println("Declicked!");
+        } else {
+            fWindshield.setStyle("-fx-fill: #ffc2c2;");
+            System.out.println("fWindshield Clicked!");
+        }
+    }
+
+    @FXML
+    void handleBackWindshield() {
+        if (bWindshield.getStyle().equals("-fx-fill: #ffc2c2;")) {
+            bWindshield.setStyle("-fx-fill: dodgerblue;");
+            System.out.println("Declicked!");
+        } else {
+            bWindshield.setStyle("-fx-fill: #ffc2c2;");
+            System.out.println("bWindshield Clicked!");
+        }
+    }
+
+    @FXML
     void handleButtonPushed(){
-        System.out.println("Hello world!!!");
-        statusBack.setStyle("-fx-background-color: #d7facc;");
-        statusLabel.setText("Saved!");
+        boolean valid = true;
+        if (crashUserName.getText().equals("")) {
+            crashUserName.setStyle("-fx-background-color: #ffc2c2;");
+            valid = false;
+        }
+        else {
+            crashUserName.setStyle("-fx-background-color: white;");
+        }
+        if (crashCarName.getText().equals("")) {
+            crashCarName.setStyle("-fx-background-color: #ffc2c2;");
+            valid = false;
+        }
+        else {
+            crashCarName.setStyle("-fx-background-color: white;");
+        }
+        if (datePicker.getValue() == null) {
+            datePicker.getEditor().setStyle("-fx-background-color: #ffc2c2;");
+            valid = false;
+        }
+        else {
+            datePicker.getEditor().setStyle("-fx-background-color: white;");
+        }
+
+        if (valid) {
+            System.out.println("Hello world!!!");
+            statusBack.setStyle("-fx-background-color: #d7facc;");
+            statusLabel.setText("Saved!");
+        }
+        else {
+            System.out.println("Not valid input!!!");
+        }
     }
 }
