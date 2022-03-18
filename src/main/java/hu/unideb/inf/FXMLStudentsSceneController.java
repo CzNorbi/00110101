@@ -1,7 +1,10 @@
 package hu.unideb.inf;
 
+import hu.unideb.inf.model.CrashIncident;
+import hu.unideb.inf.model.Incidents;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
@@ -9,15 +12,16 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.Region;
 import javafx.scene.shape.Rectangle;
 
-public class FXMLStudentsSceneController {
-    @FXML
-    private Label birthDayLabel;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-    @FXML
-    private Label creditsLabel;
+public class FXMLStudentsSceneController implements Initializable {
+    private Incidents incidents = new Incidents();
 
-    @FXML
-    private Label statusLabel;
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        incidentPicker.setItems(incidents.getListOfCrashIncidents());
+    }
 
     // Car parts:
 
@@ -48,10 +52,19 @@ public class FXMLStudentsSceneController {
     // End of Car parts
 
     @FXML
+    private Label loadDateOfIncidentLabel;
+
+    @FXML
+    private Label loadCarNameLabel;
+
+    @FXML
+    private Label statusLabel;
+
+    @FXML
     private TextField crashUserName;
 
     @FXML
-    private ChoiceBox incidentPicker;
+    private ChoiceBox<CrashIncident> incidentPicker;
 
     @FXML
     private Region statusBack;
@@ -60,14 +73,16 @@ public class FXMLStudentsSceneController {
     private TextField crashCarName;
 
     @FXML
-    private Label nameLabel;
+    private Label loadNameLabel;
 
     @FXML
     private DatePicker datePicker;
 
     @FXML
     void handleLoadButtonPushed(ActionEvent event) {
-
+        loadNameLabel.setText(incidentPicker.getValue().getCrashClientName());
+        loadCarNameLabel.setText(incidentPicker.getValue().getCrashCarName());
+        loadDateOfIncidentLabel.setText(incidentPicker.getValue().getDateOfCrash().toString());
     }
 
     @FXML
@@ -199,9 +214,11 @@ public class FXMLStudentsSceneController {
         }
 
         if (valid) {
-            System.out.println("Hello world!!!");
             statusBack.setStyle("-fx-background-color: #d7facc;");
             statusLabel.setText("Saved!");
+            System.out.println("Hello world!!!");
+            // Gomb funkcionalitás
+            incidents.addCrashIncident(new CrashIncident(crashUserName.getText(), crashCarName.getText(), datePicker.getValue()));
         }
         else {
             System.out.println("Not valid input!!!");

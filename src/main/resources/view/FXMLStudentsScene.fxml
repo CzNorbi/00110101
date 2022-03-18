@@ -107,7 +107,7 @@
                                                 <Font size="24.0" />
                                             </font>
                                         </Label>
-                                        <Label fx:id="nameLabel" text="Label" GridPane.columnIndex="2">
+                                        <Label fx:id="loadNameLabel" text="Label" GridPane.columnIndex="2">
                                             <font>
                                                 <Font size="24.0" />
                                             </font>
@@ -115,7 +115,7 @@
                                                 <Insets left="15.0" />
                                             </GridPane.margin>
                                         </Label>
-                                        <Label fx:id="creditsLabel" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                        <Label fx:id="loadCarNameLabel" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="1">
                                             <font>
                                                 <Font size="24.0" />
                                             </font>
@@ -123,7 +123,7 @@
                                                 <Insets left="15.0" />
                                             </GridPane.margin>
                                         </Label>
-                                        <Label fx:id="birthDayLabel" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                                        <Label fx:id="loadDateOfIncidentLabel" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="2">
                                             <font>
                                                 <Font size="24.0" />
                                             </font>
