@@ -60,6 +60,8 @@
                               <Rectangle arcHeight="5.0" arcWidth="5.0" height="10.0" layoutX="150.0" layoutY="95.0" stroke="BLACK" strokeType="INSIDE" width="26.0" />
                               <Rectangle arcHeight="5.0" arcWidth="5.0" height="10.0" layoutX="150.0" layoutY="3.0" stroke="BLACK" strokeType="INSIDE" width="26.0" />
                               <Rectangle arcHeight="5.0" arcWidth="5.0" height="10.0" layoutX="15.0" layoutY="95.0" stroke="BLACK" strokeType="INSIDE" width="26.0" />
+                              <Rectangle fx:id="fWindshield" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="80.0" layoutX="55.0" layoutY="15.0" onMouseClicked="#handleFrontWindshield" stroke="BLACK" strokeType="INSIDE" width="25.0" />
+                              <Rectangle fx:id="bWindshield" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="80.0" layoutX="121.0" layoutY="14.0" onMouseClicked="#handleBackWindshield" stroke="BLACK" strokeType="INSIDE" width="23.0" />
                            </children>
                         </Pane>
                         <Label layoutX="334.0" layoutY="142.0" text="Autó:" />
