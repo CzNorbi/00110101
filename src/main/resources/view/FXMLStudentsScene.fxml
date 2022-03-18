@@ -11,6 +11,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.Region?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.shape.Rectangle?>
@@ -40,29 +41,35 @@
                               <Font size="18.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="crashUserName" layoutX="29.0" layoutY="42.0" onAction="#handleCrashName" />
-                        <TextField fx:id="crashCarName" layoutX="29.0" layoutY="95.0" onAction="#handleCrashCarName" />
-                        <Label layoutX="29.0" layoutY="25.0" text="Károsult neve:" />
-                        <Label layoutX="29.0" layoutY="78.0" text="Autó típusa" />
-                        <DatePicker fx:id="datePicker" layoutX="29.0" layoutY="147.0" onAction="#handleCrashDate" />
-                        <Label layoutX="29.0" layoutY="130.0" text="Dátum:" />
-                        <Rectangle id="hood" fx:id="hood" arcHeight="5.0" arcWidth="5.0" fill="ALICEBLUE" height="80.0" layoutX="334.0" layoutY="132.0" onMouseClicked="#handleHoodClicked" stroke="BLACK" strokeType="INSIDE" styleClass="Rectangle" width="55.0" />
-                        <Rectangle fx:id="frontRightDoor" arcHeight="5.0" arcWidth="5.0" fill="#f0f8ff" height="15.0" layoutX="388.0" layoutY="118.0" stroke="BLACK" strokeType="INSIDE" width="45.0" />
-                        <Rectangle fx:id="backRightDoor" arcHeight="5.0" arcWidth="5.0" fill="#f0f8ff" height="15.0" layoutX="433.0" layoutY="118.0" stroke="BLACK" strokeType="INSIDE" width="45.0" />
-                        <Rectangle fx:id="backLeftDoor" arcHeight="5.0" arcWidth="5.0" fill="#f0f8ff" height="15.0" layoutX="433.0" layoutY="212.0" stroke="BLACK" strokeType="INSIDE" width="45.0" />
-                        <Rectangle fx:id="frontLeftDoor" arcHeight="5.0" arcWidth="5.0" fill="#f0f8ff" height="15.0" layoutX="388.0" layoutY="212.0" stroke="BLACK" strokeType="INSIDE" width="45.0" />
-                        <Rectangle fx:id="trunk" arcHeight="5.0" arcWidth="5.0" fill="ALICEBLUE" height="80.0" layoutX="478.0" layoutY="132.0" stroke="BLACK" strokeType="INSIDE" width="55.0" />
-                        <Rectangle fx:id="roof" arcHeight="5.0" arcWidth="5.0" fill="ALICEBLUE" height="80.0" layoutX="413.0" layoutY="132.0" stroke="BLACK" strokeType="INSIDE" width="42.0" />
-                        <Rectangle arcHeight="5.0" arcWidth="5.0" height="10.0" layoutX="349.0" layoutY="121.0" stroke="BLACK" strokeType="INSIDE" width="26.0" />
-                        <Rectangle arcHeight="5.0" arcWidth="5.0" height="10.0" layoutX="493.0" layoutY="213.0" stroke="BLACK" strokeType="INSIDE" width="26.0" />
-                        <Rectangle arcHeight="5.0" arcWidth="5.0" height="10.0" layoutX="493.0" layoutY="121.0" stroke="BLACK" strokeType="INSIDE" width="26.0" />
-                        <Rectangle arcHeight="5.0" arcWidth="5.0" height="10.0" layoutX="349.0" layoutY="213.0" stroke="BLACK" strokeType="INSIDE" width="26.0" />
-                        <Label layoutX="335.0" layoutY="87.0" text="Autó:" />
+                        <TextField fx:id="crashUserName" layoutX="29.0" layoutY="46.0" onAction="#handleCrashName" />
+                        <TextField fx:id="crashCarName" layoutX="29.0" layoutY="106.0" onAction="#handleCrashCarName" />
+                        <Label layoutX="29.0" layoutY="22.0" text="Károsult neve:" />
+                        <Label layoutX="29.0" layoutY="82.0" text="Autó típusa:" />
+                        <DatePicker fx:id="datePicker" layoutX="29.0" layoutY="164.0" onAction="#handleCrashDate" />
+                        <Label layoutX="29.0" layoutY="140.0" text="Dátum:" />
+                        <Pane fx:id="auto" layoutX="333.0" layoutY="173.0" prefWidth="194.0">
+                           <children>
+                              <Rectangle id="hood" fx:id="hood" arcHeight="5.0" arcWidth="5.0" fill="ALICEBLUE" height="80.0" layoutY="14.0" onMouseClicked="#handleHoodClicked" stroke="BLACK" strokeType="INSIDE" styleClass="Rectangle" width="55.0" />
+                              <Rectangle fx:id="frDoor" arcHeight="5.0" arcWidth="5.0" fill="#f0f8ff" height="15.0" layoutX="54.0" onMouseClicked="#handleFrontRightDoor" stroke="BLACK" strokeType="INSIDE" width="45.0" />
+                              <Rectangle fx:id="brDoor" arcHeight="5.0" arcWidth="5.0" fill="#f0f8ff" height="15.0" layoutX="99.0" onMouseClicked="#handleBackRightDoor" stroke="BLACK" strokeType="INSIDE" width="45.0" />
+                              <Rectangle fx:id="blDoor" arcHeight="5.0" arcWidth="5.0" fill="#f0f8ff" height="15.0" layoutX="99.0" layoutY="94.0" onMouseClicked="#handleBackLeftDoor" stroke="BLACK" strokeType="INSIDE" width="45.0" />
+                              <Rectangle fx:id="flDoor" arcHeight="5.0" arcWidth="5.0" fill="#f0f8ff" height="15.0" layoutX="54.0" layoutY="94.0" onMouseClicked="#handleFrontLeftDoor" stroke="BLACK" strokeType="INSIDE" width="45.0" />
+                              <Rectangle fx:id="trunk" arcHeight="5.0" arcWidth="5.0" fill="ALICEBLUE" height="80.0" layoutX="144.0" layoutY="14.0" onMouseClicked="#handleTrunkClicked" stroke="BLACK" strokeType="INSIDE" width="38.0" />
+                              <Rectangle fx:id="roof" arcHeight="5.0" arcWidth="5.0" fill="ALICEBLUE" height="80.0" layoutX="79.0" layoutY="14.0" stroke="BLACK" strokeType="INSIDE" width="42.0" />
+                              <Rectangle arcHeight="5.0" arcWidth="5.0" height="10.0" layoutX="15.0" layoutY="3.0" stroke="BLACK" strokeType="INSIDE" width="26.0" />
+                              <Rectangle arcHeight="5.0" arcWidth="5.0" height="10.0" layoutX="150.0" layoutY="95.0" stroke="BLACK" strokeType="INSIDE" width="26.0" />
+                              <Rectangle arcHeight="5.0" arcWidth="5.0" height="10.0" layoutX="150.0" layoutY="3.0" stroke="BLACK" strokeType="INSIDE" width="26.0" />
+                              <Rectangle arcHeight="5.0" arcWidth="5.0" height="10.0" layoutX="15.0" layoutY="95.0" stroke="BLACK" strokeType="INSIDE" width="26.0" />
+                           </children>
+                        </Pane>
+                        <Label layoutX="334.0" layoutY="142.0" text="Autó:" />
+                        <ChoiceBox fx:id="incidentPicker1" layoutX="333.0" layoutY="48.0" prefWidth="150.0" />
+                        <Label layoutX="333.0" layoutY="22.0" text="Korábbi esetek:" />
                             </children>
                         </AnchorPane>
                     </content>
                 </Tab>
-                <Tab text="Korábbi jelentések">
+                <Tab text="TBD">
                     <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                             <children>
