@@ -41,11 +41,11 @@
                               <Font size="18.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="crashUserName" layoutX="29.0" layoutY="46.0" onAction="#handleCrashName" />
-                        <TextField fx:id="crashCarName" layoutX="29.0" layoutY="106.0" onAction="#handleCrashCarName" />
+                        <TextField fx:id="crashUserName" layoutX="29.0" layoutY="46.0" onAction="#handleCrashName" onKeyTyped="#handleInputChange" />
+                        <TextField fx:id="crashCarName" layoutX="29.0" layoutY="106.0" onAction="#handleCrashCarName" onKeyTyped="#handleInputChange" />
                         <Label layoutX="29.0" layoutY="22.0" text="Károsult neve:" />
                         <Label layoutX="29.0" layoutY="82.0" text="Autó típusa:" />
-                        <DatePicker fx:id="datePicker" layoutX="29.0" layoutY="164.0" onAction="#handleCrashDate" />
+                        <DatePicker fx:id="datePicker" layoutX="29.0" layoutY="164.0" onAction="#handleCrashDate" onMouseClicked="#handleInputChange" promptText="YYYY.MM.DD" />
                         <Label layoutX="29.0" layoutY="140.0" text="Dátum:" />
                         <Pane fx:id="auto" layoutX="333.0" layoutY="173.0" prefWidth="194.0">
                            <children>

@@ -189,6 +189,12 @@ public class FXMLStudentsSceneController implements Initializable {
     }
 
     @FXML
+    void handleInputChange() {
+        statusBack.setStyle("-fx-background-color: #FFC2C2FF;");
+        statusLabel.setText("Not saved");
+    }
+
+    @FXML
     void handleButtonPushed(){
         boolean valid = true;
         if (crashUserName.getText().equals("")) {
@@ -221,6 +227,8 @@ public class FXMLStudentsSceneController implements Initializable {
             incidents.addCrashIncident(new CrashIncident(crashUserName.getText(), crashCarName.getText(), datePicker.getValue()));
         }
         else {
+            statusBack.setStyle("-fx-background-color: #FFC2C2FF;");
+            statusLabel.setText("Invalid input!");
             System.out.println("Not valid input!!!");
         }
     }
