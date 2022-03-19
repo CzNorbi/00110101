@@ -9,6 +9,7 @@ import java.util.Objects;
 public class testCrashIncident {
     public static void main(String[] args) {
         test_crashIncident();
+        //test_incident();
     }
     //tovabbi setterek es getterek tesztelese
 
@@ -18,9 +19,11 @@ public class testCrashIncident {
         if(test.getCrashClientName().equals("testName")) {
             System.out.println("NameOK");
         }
+
         if(test.getCrashCarName().equals("testCar")) {
             System.out.println("CarOK");
         }
+
         if(Objects.equals(test.getDateOfCrash(), LocalDate.now())) {
             System.out.println("DateOK");
         }
