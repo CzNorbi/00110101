@@ -2,7 +2,7 @@
 ## Szoftverfejlesztés mérnököknek projekt
 
 #### 1.1.2-SNAPSHOT Windshields, buttonhandle updates, <br /> CrashIncident processing & functions
-> Üzleti logikai funkciók alapjainak implementálásának megkezdése
+> Üzleti logikai funkció alapok implementálásának megkezdése
 <img width="420" alt="image" src="https://user-images.githubusercontent.com/78929870/159138146-40ac5605-6a08-49dc-a291-d252c7fb9598.png">
 
 
