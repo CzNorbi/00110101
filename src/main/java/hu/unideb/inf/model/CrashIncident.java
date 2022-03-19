@@ -39,6 +39,7 @@ public class CrashIncident {
         this.dateOfCrash = dateOfCrash;
     }
 
+
     // TODO: normálisan megformázni -> igy jelenik meg a drop-down menüben
     @Override
     public String toString() {
