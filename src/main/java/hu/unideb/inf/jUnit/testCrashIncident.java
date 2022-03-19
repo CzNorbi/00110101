@@ -9,6 +9,7 @@ import java.util.Objects;
 public class testCrashIncident {
     public static void main(String[] args) {
         test_crashIncident();
+        //test_incident();
     }
     //tovabbi setterek es getterek tesztelese
 
