@@ -41,11 +41,11 @@
                               <Font size="18.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="crashUserName" layoutX="29.0" layoutY="46.0" onAction="#handleCrashName" />
-                        <TextField fx:id="crashCarName" layoutX="29.0" layoutY="106.0" onAction="#handleCrashCarName" />
+                        <TextField fx:id="crashUserName" layoutX="29.0" layoutY="46.0" onAction="#handleCrashName" onKeyTyped="#handleInputChange" />
+                        <TextField fx:id="crashCarName" layoutX="29.0" layoutY="106.0" onAction="#handleCrashCarName" onKeyTyped="#handleInputChange" />
                         <Label layoutX="29.0" layoutY="22.0" text="Károsult neve:" />
                         <Label layoutX="29.0" layoutY="82.0" text="Autó típusa:" />
-                        <DatePicker fx:id="datePicker" layoutX="29.0" layoutY="164.0" onAction="#handleCrashDate" />
+                        <DatePicker fx:id="datePicker" layoutX="29.0" layoutY="164.0" onAction="#handleCrashDate" onMouseClicked="#handleInputChange" promptText="YYYY.MM.DD" />
                         <Label layoutX="29.0" layoutY="140.0" text="Dátum:" />
                         <Pane fx:id="auto" layoutX="333.0" layoutY="173.0" prefWidth="194.0">
                            <children>
@@ -65,21 +65,19 @@
                            </children>
                         </Pane>
                         <Label layoutX="334.0" layoutY="142.0" text="Autó:" />
-                        <ChoiceBox fx:id="incidentPicker1" layoutX="333.0" layoutY="48.0" prefWidth="150.0" />
-                        <Label layoutX="333.0" layoutY="22.0" text="Korábbi esetek:" />
+                        <Label layoutX="333.0" layoutY="22.0" />
                             </children>
                         </AnchorPane>
                     </content>
                 </Tab>
                 <Tab text="TBD">
                     <content>
-                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="698.0">
                             <children>
-                                <GridPane layoutX="51.0" layoutY="101.0" prefHeight="169.0" prefWidth="498.0">
+                                <GridPane layoutX="31.0" layoutY="96.0" prefHeight="169.0" prefWidth="349.0">
                                     <columnConstraints>
-                                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="161.0" minWidth="10.0" prefWidth="109.5" />
-                                        <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="264.0" minWidth="10.0" prefWidth="222.5" />
-                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="204.0" minWidth="10.0" prefWidth="120.0" />
+                                        <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="264.0" minWidth="10.0" prefWidth="229.0" />
                                     </columnConstraints>
                                     <rowConstraints>
                                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -87,27 +85,22 @@
                                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                     </rowConstraints>
                                     <children>
-                                        <Button mnemonicParsing="false" onAction="#handleLoadButtonPushed" text="Load">
-                                            <font>
-                                                <Font size="24.0" />
-                                            </font>
-                                        </Button>
-                                        <Label text="Név:" GridPane.columnIndex="1">
+                                        <Label text="Név:">
                                             <font>
                                                 <Font size="24.0" />
                                             </font>
                                         </Label>
-                                        <Label text="Autó:" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                        <Label text="Autó:" GridPane.rowIndex="1">
                                             <font>
                                                 <Font size="24.0" />
                                             </font>
                                         </Label>
-                                        <Label text="Date of Incident:" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                        <Label text="Dátum:" GridPane.rowIndex="2">
                                             <font>
                                                 <Font size="24.0" />
                                             </font>
                                         </Label>
-                                        <Label fx:id="nameLabel" text="Label" GridPane.columnIndex="2">
+                                        <Label fx:id="loadNameLabel" prefHeight="35.0" prefWidth="223.0" text="Label" GridPane.columnIndex="1">
                                             <font>
                                                 <Font size="24.0" />
                                             </font>
@@ -115,7 +108,7 @@
                                                 <Insets left="15.0" />
                                             </GridPane.margin>
                                         </Label>
-                                        <Label fx:id="creditsLabel" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                        <Label fx:id="loadCarNameLabel" prefHeight="35.0" prefWidth="223.0" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                             <font>
                                                 <Font size="24.0" />
                                             </font>
@@ -123,7 +116,7 @@
                                                 <Insets left="15.0" />
                                             </GridPane.margin>
                                         </Label>
-                                        <Label fx:id="birthDayLabel" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                                        <Label fx:id="loadDateOfIncidentLabel" prefHeight="35.0" prefWidth="219.0" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="2">
                                             <font>
                                                 <Font size="24.0" />
                                             </font>
@@ -133,8 +126,31 @@
                                         </Label>
                                     </children>
                                 </GridPane>
-                        <ChoiceBox fx:id="incidentPicker" layoutX="75.0" layoutY="42.0" prefWidth="150.0" />
-                        <Label layoutX="75.0" layoutY="14.0" text="Korábbi esetek:" />
+                        <ChoiceBox fx:id="incidentPicker" layoutX="31.0" layoutY="51.0" prefHeight="35.0" prefWidth="444.0" />
+                        <Label layoutX="31.0" layoutY="23.0" text="Korábbi esetek:" />
+                                  <Button layoutX="481.0" layoutY="36.0" mnemonicParsing="false" onAction="#handleLoadButtonPushed" text="Load">
+                                      <font>
+                                          <Font size="24.0" />
+                                      </font>
+                                  </Button>
+                        <Pane fx:id="auto1" layoutX="371.0" layoutY="139.0" prefWidth="194.0">
+                           <children>
+                              <Rectangle id="hood" fx:id="hood1" arcHeight="5.0" arcWidth="5.0" fill="ALICEBLUE" height="80.0" layoutY="14.0" onMouseClicked="#handleHoodClicked" stroke="BLACK" strokeType="INSIDE" styleClass="Rectangle" width="55.0" />
+                              <Rectangle fx:id="frDoor1" arcHeight="5.0" arcWidth="5.0" fill="#f0f8ff" height="15.0" layoutX="54.0" onMouseClicked="#handleFrontRightDoor" stroke="BLACK" strokeType="INSIDE" width="45.0" />
+                              <Rectangle fx:id="brDoor1" arcHeight="5.0" arcWidth="5.0" fill="#f0f8ff" height="15.0" layoutX="99.0" onMouseClicked="#handleBackRightDoor" stroke="BLACK" strokeType="INSIDE" width="45.0" />
+                              <Rectangle fx:id="blDoor1" arcHeight="5.0" arcWidth="5.0" fill="#f0f8ff" height="15.0" layoutX="99.0" layoutY="94.0" onMouseClicked="#handleBackLeftDoor" stroke="BLACK" strokeType="INSIDE" width="45.0" />
+                              <Rectangle fx:id="flDoor1" arcHeight="5.0" arcWidth="5.0" fill="#f0f8ff" height="15.0" layoutX="54.0" layoutY="94.0" onMouseClicked="#handleFrontLeftDoor" stroke="BLACK" strokeType="INSIDE" width="45.0" />
+                              <Rectangle fx:id="trunk1" arcHeight="5.0" arcWidth="5.0" fill="ALICEBLUE" height="80.0" layoutX="144.0" layoutY="14.0" onMouseClicked="#handleTrunkClicked" stroke="BLACK" strokeType="INSIDE" width="38.0" />
+                              <Rectangle fx:id="roof1" arcHeight="5.0" arcWidth="5.0" fill="ALICEBLUE" height="80.0" layoutX="79.0" layoutY="14.0" stroke="BLACK" strokeType="INSIDE" width="42.0" />
+                              <Rectangle arcHeight="5.0" arcWidth="5.0" height="10.0" layoutX="15.0" layoutY="3.0" stroke="BLACK" strokeType="INSIDE" width="26.0" />
+                              <Rectangle arcHeight="5.0" arcWidth="5.0" height="10.0" layoutX="150.0" layoutY="95.0" stroke="BLACK" strokeType="INSIDE" width="26.0" />
+                              <Rectangle arcHeight="5.0" arcWidth="5.0" height="10.0" layoutX="150.0" layoutY="3.0" stroke="BLACK" strokeType="INSIDE" width="26.0" />
+                              <Rectangle arcHeight="5.0" arcWidth="5.0" height="10.0" layoutX="15.0" layoutY="95.0" stroke="BLACK" strokeType="INSIDE" width="26.0" />
+                              <Rectangle fx:id="fWindshield1" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="80.0" layoutX="55.0" layoutY="15.0" onMouseClicked="#handleFrontWindshield" stroke="BLACK" strokeType="INSIDE" width="25.0" />
+                              <Rectangle fx:id="bWindshield1" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="80.0" layoutX="121.0" layoutY="14.0" onMouseClicked="#handleBackWindshield" stroke="BLACK" strokeType="INSIDE" width="23.0" />
+                           </children>
+                        </Pane>
+                        <Label layoutX="382.0" layoutY="114.0" text="Autó:" />
                             </children>
                         </AnchorPane>
                     </content>
