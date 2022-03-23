@@ -1,25 +1,27 @@
 package hu.unideb.inf;
 
-import hu.unideb.inf.model.CrashIncident;
 import hu.unideb.inf.model.Incidents;
+import hu.unideb.inf.model.CrashIncident;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Region;
 import javafx.scene.shape.Rectangle;
 
+import java.io.IOException;
 import java.net.URL;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
-public class FXMLStudentsSceneController implements Initializable {
-    private Incidents incidents = new Incidents();
+public class MainWindowController implements Initializable {
+    private Incidents incidents;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        incidents = new Incidents();
         incidentPicker.setItems(incidents.getListOfCrashIncidents());
     }
 
@@ -52,6 +54,9 @@ public class FXMLStudentsSceneController implements Initializable {
     // End of Car parts
 
     @FXML
+    private AnchorPane mainAnchorPane;
+
+    @FXML
     private Label loadDateOfIncidentLabel;
 
     @FXML
@@ -80,9 +85,7 @@ public class FXMLStudentsSceneController implements Initializable {
 
     @FXML
     void handleLoadButtonPushed(ActionEvent event) {
-        loadNameLabel.setText(incidentPicker.getValue().getCrashClientName());
-        loadCarNameLabel.setText(incidentPicker.getValue().getCrashCarName());
-        loadDateOfIncidentLabel.setText(incidentPicker.getValue().getDateOfCrash().toString());
+        // TODO
     }
 
     @FXML
@@ -224,12 +227,42 @@ public class FXMLStudentsSceneController implements Initializable {
             statusLabel.setText("Saved!");
             System.out.println("Hello world!!!");
             // Gomb funkcionalitás
-            incidents.addCrashIncident(new CrashIncident(crashUserName.getText(), crashCarName.getText(), datePicker.getValue()));
+            // TODO: Megváltozott
+            //incidents.addCrashIncident(new CrashIncident(crashUserName.getText(), crashCarName.getText(), datePicker.getValue()));
         }
         else {
             statusBack.setStyle("-fx-background-color: #FFC2C2FF;");
             statusLabel.setText("Invalid input!");
             System.out.println("Not valid input!!!");
+        }
+    }
+
+    @FXML
+    void handleButtonNewIncident() {
+        Dialog<ButtonType> dialog = new Dialog<>();
+        dialog.initOwner(mainAnchorPane.getScene().getWindow());
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        dialog.setTitle("Új baleset felvétele");
+        dialog.setHeaderText("Használd ezt az ablakot új baleset felvételéhez");
+        fxmlLoader.setLocation(getClass().getResource("/view/NewCrashDialog.fxml"));
+        try {
+            dialog.getDialogPane().setContent(fxmlLoader.load());
+        } catch (IOException e) {
+            System.out.println("Nem sikerült az új ablakot betölteni");
+            e.printStackTrace();
+            return;
+        }
+
+        dialog.getDialogPane().getButtonTypes().add(ButtonType.CANCEL);
+        dialog.getDialogPane().getButtonTypes().add(ButtonType.OK);
+
+        Optional<ButtonType> result = dialog.showAndWait();
+        if (result.isPresent() && result.get() == ButtonType.OK)
+        {
+            // Megadott adatok elmentése
+            NewCrashDialogController controller = fxmlLoader.getController();
+            CrashIncident newCrash = controller.processResult();
+            // TODO Listába beletenni
         }
     }
 }
