@@ -22,7 +22,7 @@
     <children>
         <TabPane prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <tabs>
-                <Tab text="Bejelentés" disable="true">
+                <Tab disable="true" text="Bejelentés">
                     <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                             <children>
@@ -71,7 +71,7 @@
                         </AnchorPane>
                     </content>
                 </Tab>
-                <Tab text="TBD" disable="true">
+                <Tab disable="true" text="TBD">
                     <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="698.0">
                             <children>
@@ -160,8 +160,8 @@
               <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <Button onAction="#handleButtonNewIncident" text="ÚJ BEJELENTÉS" layoutX="457.0" layoutY="323.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="129.0"/>
-                        <ListView layoutX="14.0" layoutY="14.0" prefHeight="346.0" prefWidth="200.0" />
+                        <Button layoutX="457.0" layoutY="312.0" mnemonicParsing="false" onAction="#handleButtonNewIncident" prefHeight="34.0" prefWidth="129.0" text="ÚJ BEJELENTÉS" />
+                        <ListView layoutX="14.0" layoutY="14.0" prefHeight="334.0" prefWidth="200.0" />
                      </children>
                   </AnchorPane>
               </content>

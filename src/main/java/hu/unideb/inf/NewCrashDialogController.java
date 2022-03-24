@@ -82,39 +82,101 @@ public class NewCrashDialogController implements Initializable {
     // TODO az alábbiakat megcsinálni | NE felejtsd el a carPart lista elemek sérültségét változtatni
 
     @FXML
-    public void handleHoodClicked() {
-
+    void handleHoodClicked() {
+        if (hood.getStyle().equals("-fx-fill: #ffc2c2;")) {
+            hood.setStyle("-fx-fill: white;");
+            System.out.println("Declicked!");
+        } else {
+            hood.setStyle("-fx-fill: #ffc2c2;");
+            System.out.println("Hood Clicked!");
+        }
     }
 
     @FXML
-    public void handleFrontRightDoor() {
+    void handleTrunkClicked() {
+        if (trunk.getStyle().equals("-fx-fill: #ffc2c2;")) {
+            trunk.setStyle("-fx-fill: white;");
+            System.out.println("Declicked!");
+        } else {
+            trunk.setStyle("-fx-fill: #ffc2c2;");
+            System.out.println("Trunk Clicked!");
+        }
     }
 
     @FXML
-    public void handleBackRightDoor() {
+    void handleFrontRightDoor() {
+        if (frDoor.getStyle().equals("-fx-fill: #ffc2c2;")) {
+            frDoor.setStyle("-fx-fill: white;");
+            System.out.println("Declicked!");
+        } else {
+            frDoor.setStyle("-fx-fill: #ffc2c2;");
+            System.out.println("frDoor Clicked!");
+        }
     }
 
     @FXML
-    public void handleBackLeftDoor() {
+    void handleFrontLeftDoor() {
+        if (flDoor.getStyle().equals("-fx-fill: #ffc2c2;")) {
+            flDoor.setStyle("-fx-fill: white;");
+            System.out.println("Declicked!");
+        } else {
+            flDoor.setStyle("-fx-fill: #ffc2c2;");
+            System.out.println("flDoor Clicked!");
+        }
     }
 
     @FXML
-    public void handleFrontLeftDoor() {
+    void handleBackRightDoor() {
+        if (brDoor.getStyle().equals("-fx-fill: #ffc2c2;")) {
+            brDoor.setStyle("-fx-fill: white;");
+            System.out.println("Declicked!");
+        } else {
+            brDoor.setStyle("-fx-fill: #ffc2c2;");
+            System.out.println("brDoor Clicked!");
+        }
     }
 
     @FXML
-    public void handleTrunkClicked() {
+    void handleBackLeftDoor() {
+        if (blDoor.getStyle().equals("-fx-fill: #ffc2c2;")) {
+            blDoor.setStyle("-fx-fill: white;");
+            System.out.println("Declicked!");
+        } else {
+            blDoor.setStyle("-fx-fill: #ffc2c2;");
+            System.out.println("blDoor Clicked!");
+        }
     }
 
     @FXML
-    public void handleFrontWindshield() {
+    void handleFrontWindshield() {
+        if (fWindshield.getStyle().equals("-fx-fill: #ffc2c2;")) {
+            fWindshield.setStyle("-fx-fill: dodgerblue;");
+            System.out.println("Declicked!");
+        } else {
+            fWindshield.setStyle("-fx-fill: #ffc2c2;");
+            System.out.println("fWindshield Clicked!");
+        }
     }
 
     @FXML
-    public void handleBackWindshield() {
+    void handleBackWindshield() {
+        if (bWindshield.getStyle().equals("-fx-fill: #ffc2c2;")) {
+            bWindshield.setStyle("-fx-fill: dodgerblue;");
+            System.out.println("Declicked!");
+        } else {
+            bWindshield.setStyle("-fx-fill: #ffc2c2;");
+            System.out.println("bWindshield Clicked!");
+        }
     }
 
     public void handleRoof() {
+        if (roof.getStyle().equals("-fx-fill: #ffc2c2;")) {
+            roof.setStyle("-fx-fill: white;");
+            System.out.println("Declicked!");
+        } else {
+            roof.setStyle("-fx-fill: #ffc2c2;");
+            System.out.println("blDoor Clicked!");
+        }
     }
 
     @FXML

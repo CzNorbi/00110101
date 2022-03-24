@@ -104,92 +104,31 @@ public class MainWindowController implements Initializable {
     }
 
     @FXML
-    void handleHoodClicked() {
-        if (hood.getStyle().equals("-fx-fill: #ffc2c2;")) {
-            hood.setStyle("-fx-fill: white;");
-            System.out.println("Declicked!");
-        } else {
-            hood.setStyle("-fx-fill: #ffc2c2;");
-            System.out.println("Hood Clicked!");
-        }
-    }
+    void handleHoodClicked() {}
 
     @FXML
-    void handleTrunkClicked() {
-        if (trunk.getStyle().equals("-fx-fill: #ffc2c2;")) {
-            trunk.setStyle("-fx-fill: white;");
-            System.out.println("Declicked!");
-        } else {
-            trunk.setStyle("-fx-fill: #ffc2c2;");
-            System.out.println("Trunk Clicked!");
-        }
-    }
+    void handleTrunkClicked() {}
 
     @FXML
-    void handleFrontRightDoor() {
-        if (frDoor.getStyle().equals("-fx-fill: #ffc2c2;")) {
-            frDoor.setStyle("-fx-fill: white;");
-            System.out.println("Declicked!");
-        } else {
-            frDoor.setStyle("-fx-fill: #ffc2c2;");
-            System.out.println("frDoor Clicked!");
-        }
-    }
+    void handleFrontRightDoor() {}
 
     @FXML
-    void handleFrontLeftDoor() {
-        if (flDoor.getStyle().equals("-fx-fill: #ffc2c2;")) {
-            flDoor.setStyle("-fx-fill: white;");
-            System.out.println("Declicked!");
-        } else {
-            flDoor.setStyle("-fx-fill: #ffc2c2;");
-            System.out.println("flDoor Clicked!");
-        }
-    }
+    void handleFrontLeftDoor() {}
 
     @FXML
-    void handleBackRightDoor() {
-        if (brDoor.getStyle().equals("-fx-fill: #ffc2c2;")) {
-            brDoor.setStyle("-fx-fill: white;");
-            System.out.println("Declicked!");
-        } else {
-            brDoor.setStyle("-fx-fill: #ffc2c2;");
-            System.out.println("brDoor Clicked!");
-        }
-    }
+    void handleBackRightDoor() {}
 
     @FXML
-    void handleBackLeftDoor() {
-        if (blDoor.getStyle().equals("-fx-fill: #ffc2c2;")) {
-            blDoor.setStyle("-fx-fill: white;");
-            System.out.println("Declicked!");
-        } else {
-            blDoor.setStyle("-fx-fill: #ffc2c2;");
-            System.out.println("blDoor Clicked!");
-        }
-    }
+    void handleBackLeftDoor() {}
 
     @FXML
-    void handleFrontWindshield() {
-        if (fWindshield.getStyle().equals("-fx-fill: #ffc2c2;")) {
-            fWindshield.setStyle("-fx-fill: dodgerblue;");
-            System.out.println("Declicked!");
-        } else {
-            fWindshield.setStyle("-fx-fill: #ffc2c2;");
-            System.out.println("fWindshield Clicked!");
-        }
-    }
+    void handleFrontWindshield() {}
 
     @FXML
-    void handleBackWindshield() {
-        if (bWindshield.getStyle().equals("-fx-fill: #ffc2c2;")) {
-            bWindshield.setStyle("-fx-fill: dodgerblue;");
-            System.out.println("Declicked!");
-        } else {
-            bWindshield.setStyle("-fx-fill: #ffc2c2;");
-            System.out.println("bWindshield Clicked!");
-        }
-    }
+    void handleBackWindshield() {}
+
+    @FXML
+    void handleRoof() {}
 
     @FXML
     void handleInputChange() {
