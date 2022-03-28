@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="478.0" prefWidth="690.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hu.unideb.inf.LoginWindowController">
+<AnchorPane prefHeight="470.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hu.unideb.inf.LoginWindowController">
    <children>
       <Label layoutX="206.0" layoutY="27.0" prefHeight="78.0" prefWidth="278.0" text="Czier's Incidence" textAlignment="CENTER">
          <font>
@@ -43,7 +43,7 @@
                   </VBox>
                </children>
             </HBox>
-            <Label prefHeight="37.0" prefWidth="194.0" text="Név:">
+            <Label prefHeight="38.0" prefWidth="218.0" text="E-mail:">
                <font>
                   <Font size="14.0" />
                </font>
