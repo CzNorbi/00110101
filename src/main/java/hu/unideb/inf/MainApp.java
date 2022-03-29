@@ -11,9 +11,9 @@ public class MainApp extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        FXMLLoader loader = new FXMLLoader(MainApp.class.getResource("/view/FXMLStudentsScene.fxml"));
+        FXMLLoader loader = new FXMLLoader(MainApp.class.getResource("/view/LoginWindow.fxml"));
         Scene scene = new Scene(loader.load());
-        scene.getStylesheets().add("/styles/Styles.css");
+        // scene.getStylesheets().add("/styles/Styles.css");
         stage.setTitle("Kárbejelentő");
         stage.setScene(scene);
         stage.show();

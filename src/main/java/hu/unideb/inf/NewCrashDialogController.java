@@ -1,27 +1,54 @@
 package hu.unideb.inf;
 
+import hu.unideb.inf.model.CarPart;
 import hu.unideb.inf.model.CrashIncident;
-import hu.unideb.inf.model.Incidents;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DatePicker;
-import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.Region;
 import javafx.scene.shape.Rectangle;
 
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 
-public class FXMLStudentsSceneController implements Initializable {
-    private Incidents incidents = new Incidents();
+// TODO Autórészeken a kattintásokat megcsinálni
+
+public class NewCrashDialogController implements Initializable {
+
+    List<CarPart> listOfCarParts;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        incidentPicker.setItems(incidents.getListOfCrashIncidents());
+        listOfCarParts = CarPart.initCarPartList();
+
+        //TODO: Márkákat, típusokat és hajtásláncot felvinni a ChoiceBoxokba
     }
+
+    @FXML
+    public TextField nameField;
+
+    @FXML
+    public TextField cityField;
+
+    @FXML
+    public TextField phoneNumberField;
+
+    @FXML
+    public TextField licensePlateField;
+
+    @FXML
+    public ChoiceBox<String> brandChoiceBox;
+
+    @FXML
+    public ChoiceBox<String> typeChoiceBox;
+
+    @FXML
+    public ChoiceBox<String> powertrainChoiceBox;
+
+    @FXML
+    public DatePicker dateOfCrashPicker;
 
     // Car parts:
 
@@ -44,61 +71,15 @@ public class FXMLStudentsSceneController implements Initializable {
     private Rectangle trunk;
 
     @FXML
+    private Rectangle roof;
+
+    @FXML
     private Rectangle fWindshield;
 
     @FXML
     private Rectangle bWindshield;
 
-    // End of Car parts
-
-    @FXML
-    private Label loadDateOfIncidentLabel;
-
-    @FXML
-    private Label loadCarNameLabel;
-
-    @FXML
-    private Label statusLabel;
-
-    @FXML
-    private TextField crashUserName;
-
-    @FXML
-    private ChoiceBox<CrashIncident> incidentPicker;
-
-    @FXML
-    private Region statusBack;
-
-    @FXML
-    private TextField crashCarName;
-
-    @FXML
-    private Label loadNameLabel;
-
-    @FXML
-    private DatePicker datePicker;
-
-    @FXML
-    void handleLoadButtonPushed(ActionEvent event) {
-        loadNameLabel.setText(incidentPicker.getValue().getCrashClientName());
-        loadCarNameLabel.setText(incidentPicker.getValue().getCrashCarName());
-        loadDateOfIncidentLabel.setText(incidentPicker.getValue().getDateOfCrash().toString());
-    }
-
-    @FXML
-    void handleCrashDate() {
-
-    }
-
-    @FXML
-    void handleCrashName() {
-
-    }
-
-    @FXML
-    void handleCrashCarName() {
-
-    }
+    // TODO az alábbiakat megcsinálni | NE felejtsd el a carPart lista elemek sérültségét változtatni
 
     @FXML
     void handleHoodClicked() {
@@ -188,48 +169,25 @@ public class FXMLStudentsSceneController implements Initializable {
         }
     }
 
-    @FXML
-    void handleInputChange() {
-        statusBack.setStyle("-fx-background-color: #FFC2C2FF;");
-        statusLabel.setText("Not saved");
+    public void handleRoof() {
+        if (roof.getStyle().equals("-fx-fill: #ffc2c2;")) {
+            roof.setStyle("-fx-fill: white;");
+            System.out.println("Declicked!");
+        } else {
+            roof.setStyle("-fx-fill: #ffc2c2;");
+            System.out.println("blDoor Clicked!");
+        }
     }
 
     @FXML
-    void handleButtonPushed(){
-        boolean valid = true;
-        if (crashUserName.getText().equals("")) {
-            crashUserName.setStyle("-fx-background-color: #ffc2c2;");
-            valid = false;
-        }
-        else {
-            crashUserName.setStyle("-fx-background-color: white;");
-        }
-        if (crashCarName.getText().equals("")) {
-            crashCarName.setStyle("-fx-background-color: #ffc2c2;");
-            valid = false;
-        }
-        else {
-            crashCarName.setStyle("-fx-background-color: white;");
-        }
-        if (datePicker.getValue() == null) {
-            datePicker.getEditor().setStyle("-fx-background-color: #ffc2c2;");
-            valid = false;
-        }
-        else {
-            datePicker.getEditor().setStyle("-fx-background-color: white;");
-        }
+    public CrashIncident processResult() {
+        CrashIncident result = new CrashIncident(nameField.getText(), cityField.getText(), phoneNumberField.getText(),
+                                            licensePlateField.getText().toUpperCase(),
+                                            brandChoiceBox.getSelectionModel().getSelectedItem(),
+                                            typeChoiceBox.getSelectionModel().getSelectedItem(),
+                                            powertrainChoiceBox.getSelectionModel().getSelectedItem(),
+                                            dateOfCrashPicker.getValue(), listOfCarParts);
 
-        if (valid) {
-            statusBack.setStyle("-fx-background-color: #d7facc;");
-            statusLabel.setText("Saved!");
-            System.out.println("Hello world!!!");
-            // Gomb funkcionalitás
-            incidents.addCrashIncident(new CrashIncident(crashUserName.getText(), crashCarName.getText(), datePicker.getValue()));
-        }
-        else {
-            statusBack.setStyle("-fx-background-color: #FFC2C2FF;");
-            statusLabel.setText("Invalid input!");
-            System.out.println("Not valid input!!!");
-        }
+        return result;
     }
 }
