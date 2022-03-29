@@ -1,21 +1,56 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DialogPane?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="470.0" prefWidth="699.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hu.unideb.inf.RegistrationWindowController">
-   <children>
-      <VBox layoutX="139.0" prefHeight="470.0" prefWidth="400.0">
-         <children>
-            <Label text="Registration:">
-               <font>
-                  <Font size="24.0" />
-               </font>
-            </Label>
-         </children>
-      </VBox>
-   </children>
-</AnchorPane>
+<DialogPane prefHeight="400.0" prefWidth="440.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+   <header>
+      <Label text="Registráció:">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+   </header>
+   <content>
+      <BorderPane prefHeight="200.0" prefWidth="200.0">
+         <left>
+            <Pane prefHeight="294.0" prefWidth="99.0" BorderPane.alignment="CENTER" />
+         </left>
+         <right>
+            <Pane prefHeight="294.0" prefWidth="152.0" BorderPane.alignment="CENTER" />
+         </right>
+         <center>
+            <VBox prefHeight="186.0" prefWidth="119.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Label text="Név: " />
+                  <TextField />
+                  <Label text="E-Mail:" />
+                  <TextField />
+                  <Label text="Lakcím:" />
+                  <TextField />
+                  <Label text="Telefonszám:" />
+                  <TextField />
+                  <Label text="Születési Dátum:" />
+                  <HBox prefHeight="36.0" prefWidth="169.0">
+                     <children>
+                        <ChoiceBox prefHeight="26.0" prefWidth="60.0" />
+                        <ChoiceBox prefHeight="26.0" prefWidth="54.0" />
+                        <ChoiceBox prefHeight="26.0" prefWidth="54.0" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </center>
+         <bottom>
+            <HBox prefHeight="30.0" prefWidth="400.0" BorderPane.alignment="CENTER" />
+         </bottom>
+      </BorderPane>
+   </content>
+</DialogPane>
