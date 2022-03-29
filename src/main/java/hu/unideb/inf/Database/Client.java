@@ -1,4 +1,4 @@
-package hu.unideb.inf.model;
+package hu.unideb.inf.Database;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

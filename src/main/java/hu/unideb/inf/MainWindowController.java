@@ -1,6 +1,5 @@
 package hu.unideb.inf;
 
-import hu.unideb.inf.model.Client;
 import hu.unideb.inf.model.Incidents;
 import hu.unideb.inf.model.CrashIncident;
 import javafx.event.ActionEvent;
@@ -12,9 +11,6 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Region;
 import javafx.scene.shape.Rectangle;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 import java.io.IOException;
 import java.net.URL;
 import java.util.Optional;

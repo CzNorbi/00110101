@@ -1,6 +1,6 @@
 package hu.unideb.inf;
 
-import hu.unideb.inf.model.Client;
+import hu.unideb.inf.Database.Client;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -56,7 +56,7 @@ public class LoginWindowController {
     public void handleLoginButton() throws IOException {
         final EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("cziers.incident");
         final EntityManager entityManager = entityManagerFactory.createEntityManager();
-
+        // Teszt miatt hoztam létre itt, természetesen majd a reportnál kell clientet létrehozni, illetve később a Registernél!
         Client c = new Client();
         c.setName("John Smith");
         c.setCity("Debrecen");

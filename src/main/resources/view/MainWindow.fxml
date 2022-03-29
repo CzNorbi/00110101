@@ -5,9 +5,10 @@
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
@@ -161,7 +162,13 @@
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
                         <Button layoutX="457.0" layoutY="312.0" mnemonicParsing="false" onAction="#handleButtonNewIncident" prefHeight="34.0" prefWidth="129.0" text="ÚJ BEJELENTÉS" />
-                        <ListView layoutX="14.0" layoutY="14.0" prefHeight="334.0" prefWidth="200.0" />
+                        <TableView layoutX="14.0" layoutY="15.0" prefHeight="342.0" prefWidth="247.0">
+                          <columns>
+                            <TableColumn prefWidth="75.0" text="Név" />
+                            <TableColumn prefWidth="75.0" text="Lakhely" />
+                              <TableColumn prefWidth="96.0" text="Phone" />
+                          </columns>
+                        </TableView>
                      </children>
                   </AnchorPane>
               </content>
