@@ -6,6 +6,11 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import org.h2.tools.Server;
+
 
 public class MainApp extends Application {
 
@@ -28,7 +33,25 @@ public class MainApp extends Application {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        try {
+            startDatabase();
+        } catch (SQLException ex) {
+            Logger.getLogger(MainApp.class.getName()).log(Level.SEVERE, null, ex);
+            return;
+        }
         launch(args);
+        stopDatabase();
+        launch(args);
+    }
+
+    private static Server s = new Server();
+
+    private static void startDatabase() throws SQLException {
+        s.runTool("-tcp", "-web", "-ifNotExists");
+    }
+
+    private static void stopDatabase()  {
+        s.shutdown();
     }
 
 }
