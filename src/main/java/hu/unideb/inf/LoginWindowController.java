@@ -1,5 +1,6 @@
 package hu.unideb.inf;
 
+import hu.unideb.inf.model.Client;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -10,6 +11,9 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 import java.io.IOException;
 
 public class LoginWindowController {
@@ -50,6 +54,18 @@ public class LoginWindowController {
 
     @FXML
     public void handleLoginButton() throws IOException {
+        final EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("cziers.incident");
+        final EntityManager entityManager = entityManagerFactory.createEntityManager();
+
+        Client c = new Client();
+        c.setName("John Smith");
+        c.setCity("Debrecen");
+        c.setPhone("062069420");
+
+        entityManager.getTransaction().begin();
+        entityManager.persist(c);
+        entityManager.getTransaction().commit();
+
         loadMainWindow();
     }
 }

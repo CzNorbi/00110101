@@ -41,7 +41,6 @@ public class MainApp extends Application {
         }
         launch(args);
         stopDatabase();
-        launch(args);
     }
 
     private static Server s = new Server();

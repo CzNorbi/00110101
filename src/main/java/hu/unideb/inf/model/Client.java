@@ -15,7 +15,7 @@ public class Client {
     private int id;
     private String name;
     private String city;
-    private int phone;
+    private String phone;
 
     public int getId() {
         return id;
@@ -41,11 +41,11 @@ public class Client {
         this.city = city;
     }
 
-    public int getPhone() {
+    public String getPhone() {
         return phone;
     }
 
-    public void setPhone(int phone) {
+    public void setPhone(String phone) {
         this.phone = phone;
     }
 }
