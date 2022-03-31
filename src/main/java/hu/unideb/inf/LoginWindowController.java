@@ -60,8 +60,7 @@ public class LoginWindowController {
         Dialog<ButtonType> dialog = new Dialog<>();
         dialog.initOwner(loginAnchorPane.getScene().getWindow());
         FXMLLoader fxmlLoader = new FXMLLoader();
-        dialog.setTitle("Új baleset felvétele");
-        dialog.setHeaderText("Használd ezt az ablakot új baleset felvételéhez");
+        dialog.setTitle("Regisztráció");
         fxmlLoader.setLocation(getClass().getResource("/view/RegistrationWindow.fxml"));
         try {
             dialog.getDialogPane().setContent(fxmlLoader.load());
@@ -77,10 +76,7 @@ public class LoginWindowController {
         Optional<ButtonType> result = dialog.showAndWait();
         if (result.isPresent() && result.get() == ButtonType.OK)
         {
-            // Megadott adatok elmentése
-            NewCrashDialogController controller = fxmlLoader.getController();
-            CrashIncident newCrash = controller.processResult();
-            // TODO Listába beletenni
+            // TODO adat eltárolása
         }
     }
 
