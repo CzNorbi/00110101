@@ -1,5 +1,6 @@
 package hu.unideb.inf;
 
+import hu.unideb.inf.Database.Client;
 import hu.unideb.inf.model.CarPart;
 import hu.unideb.inf.model.CrashIncident;
 import javafx.fxml.FXML;
@@ -9,6 +10,9 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.scene.shape.Rectangle;
 
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -187,6 +191,17 @@ public class NewCrashDialogController implements Initializable {
                                             typeChoiceBox.getSelectionModel().getSelectedItem(),
                                             powertrainChoiceBox.getSelectionModel().getSelectedItem(),
                                             dateOfCrashPicker.getValue(), listOfCarParts);
+        final EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("cziers.incident");
+        final EntityManager entityManager = entityManagerFactory.createEntityManager();
+        // Teszt miatt hoztam létre itt, természetesen majd a reportnál kell clientet létrehozni, illetve később a Registernél!
+        Client c = new Client();
+        c.setName(nameField.getText());
+        c.setCity(cityField.getText());
+        c.setPhone(phoneNumberField.getText());
+
+        entityManager.getTransaction().begin();
+        entityManager.persist(c);
+        entityManager.getTransaction().commit();
 
         return result;
     }
