@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="470.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hu.unideb.inf.LoginWindowController">
+<AnchorPane fx:id="loginAnchorPane" prefHeight="470.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hu.unideb.inf.LoginWindowController">
    <children>
       <Label layoutX="206.0" layoutY="27.0" prefHeight="78.0" prefWidth="278.0" text="Czier's Incidence" textAlignment="CENTER">
          <font>
@@ -57,8 +57,8 @@
             <TextField fx:id="Password" />
             <HBox alignment="CENTER" prefHeight="62.0" prefWidth="246.0">
                <children>
-                  <Button mnemonicParsing="false" text="Register" />
-                  <Button fx:id="LoginButton" mnemonicParsing="false" onAction="#handleLoginButton" prefHeight="26.0" prefWidth="60.0" text="Login" />
+                  <Button onAction="#handleRegistrationButton" prefHeight="26.0" prefWidth="95.0" text="Regisztáció" />
+                  <Button fx:id="LoginButton" mnemonicParsing="false" onAction="#handleLoginButton" prefHeight="26.0" prefWidth="95.0" text="Bejelentkezés" />
                </children>
                <opaqueInsets>
                   <Insets />

@@ -12,7 +12,7 @@
 
 <DialogPane prefHeight="400.0" prefWidth="440.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
    <header>
-      <Label text="Registráció:">
+      <Label text="    Registráció:">
          <font>
             <Font size="24.0" />
          </font>
@@ -21,13 +21,13 @@
    <content>
       <BorderPane prefHeight="200.0" prefWidth="200.0">
          <left>
-            <Pane prefHeight="294.0" prefWidth="99.0" BorderPane.alignment="CENTER" />
+            <Pane prefHeight="250.0" prefWidth="100.0" BorderPane.alignment="CENTER" />
          </left>
          <right>
-            <Pane prefHeight="294.0" prefWidth="152.0" BorderPane.alignment="CENTER" />
+            <Pane prefHeight="250.0" prefWidth="100.0" BorderPane.alignment="CENTER" />
          </right>
          <center>
-            <VBox prefHeight="186.0" prefWidth="119.0" BorderPane.alignment="CENTER">
+            <VBox prefHeight="250.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                <children>
                   <Label text="Név: " />
                   <TextField />
@@ -48,9 +48,6 @@
                </children>
             </VBox>
          </center>
-         <bottom>
-            <HBox prefHeight="30.0" prefWidth="400.0" BorderPane.alignment="CENTER" />
-         </bottom>
       </BorderPane>
    </content>
 </DialogPane>
