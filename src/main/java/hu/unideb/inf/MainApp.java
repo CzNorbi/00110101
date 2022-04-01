@@ -14,7 +14,7 @@ public class MainApp extends Application {
         FXMLLoader loader = new FXMLLoader(MainApp.class.getResource("/view/LoginWindow.fxml"));
         Scene scene = new Scene(loader.load());
         // scene.getStylesheets().add("/styles/Styles.css");
-        stage.setTitle("Kárbejelentő");
+        stage.setTitle("Login");
         stage.setScene(scene);
         stage.show();
     }

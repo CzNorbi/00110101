@@ -1,14 +1,119 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DialogPane?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="hu.unideb.inf.RegistrationWindowController"
-            prefHeight="400.0" prefWidth="600.0">
-
-</AnchorPane>
+<?import javafx.collections.FXCollections?>
+<?import java.lang.Integer?>
+<?import javafx.scene.control.ComboBox?>
+<DialogPane prefHeight="400.0" prefWidth="440.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+   <header>
+      <Label text="    Registráció:">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+   </header>
+   <content>
+      <BorderPane prefHeight="200.0" prefWidth="200.0">
+         <left>
+            <Pane prefHeight="250.0" prefWidth="100.0" BorderPane.alignment="CENTER" />
+         </left>
+         <right>
+            <Pane prefHeight="250.0" prefWidth="100.0" BorderPane.alignment="CENTER" />
+         </right>
+         <center>
+            <VBox prefHeight="250.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Label text="Név: " />
+                  <TextField fx:id="Name" />
+                  <Label text="E-Mail:" />
+                  <TextField fx:id="E_Mail" />
+                  <Label text="Lakcím:" />
+                  <TextField fx:id="Address" />
+                  <Label text="Telefonszám:" />
+                  <TextField fx:id="Phonenumber" />
+                  <Label text="Születési Dátum:" />
+                  <HBox prefHeight="36.0" prefWidth="169.0">
+                     <children>
+                        <ComboBox fx:id="Year" prefHeight="26.0" prefWidth="70.0" value="2022">
+                           <items>
+                              <FXCollections fx:factory="observableArrayList">
+                                 <Integer fx:value="2022" />
+                                 <Integer fx:value="2021" />
+                                 <Integer fx:value="2020" />
+                              </FXCollections>
+                           </items>
+                        </ComboBox>
+                        <ComboBox fx:id="Month" prefHeight="26.0" prefWidth="55.0" value="1">
+                           <items>
+                              <FXCollections fx:factory="observableArrayList">
+                                 <Integer fx:value="1" />
+                                 <Integer fx:value="2" />
+                                 <Integer fx:value="3" />
+                                 <Integer fx:value="4" />
+                                 <Integer fx:value="5" />
+                                 <Integer fx:value="6" />
+                                 <Integer fx:value="7" />
+                                 <Integer fx:value="8" />
+                                 <Integer fx:value="9" />
+                                 <Integer fx:value="10" />
+                                 <Integer fx:value="11" />
+                                 <Integer fx:value="12" />
+                              </FXCollections>
+                           </items>
+                        </ComboBox>
+                        <ComboBox fx:id="Day" prefHeight="26.0" prefWidth="55.0" value="1">
+                           <items>
+                              <FXCollections fx:factory="observableArrayList">
+                                 <Integer fx:value="1" />
+                                 <Integer fx:value="2" />
+                                 <Integer fx:value="3" />
+                                 <Integer fx:value="4" />
+                                 <Integer fx:value="5" />
+                                 <Integer fx:value="6" />
+                                 <Integer fx:value="7" />
+                                 <Integer fx:value="8" />
+                                 <Integer fx:value="9" />
+                                 <Integer fx:value="10" />
+                                 <Integer fx:value="11" />
+                                 <Integer fx:value="12" />
+                                 <Integer fx:value="13" />
+                                 <Integer fx:value="14" />
+                                 <Integer fx:value="15" />
+                                 <Integer fx:value="16" />
+                                 <Integer fx:value="17" />
+                                 <Integer fx:value="18" />
+                                 <Integer fx:value="19" />
+                                 <Integer fx:value="20" />
+                                 <Integer fx:value="21" />
+                                 <Integer fx:value="22" />
+                                 <Integer fx:value="23" />
+                                 <Integer fx:value="24" />
+                                 <Integer fx:value="25" />
+                                 <Integer fx:value="26" />
+                                 <Integer fx:value="27" />
+                                 <Integer fx:value="28" />
+                                 <Integer fx:value="29" />
+                                 <Integer fx:value="30" />
+                                 <Integer fx:value="31" />
+                              </FXCollections>
+                           </items>
+                        </ComboBox>
+                     </children>
+                  </HBox>
+                  <Label text="Jelszó:" />
+                  <TextField fx:id="Password" />
+               </children>
+            </VBox>
+         </center>
+      </BorderPane>
+   </content>
+</DialogPane>
