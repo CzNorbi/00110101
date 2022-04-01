@@ -1,13 +1,11 @@
 package hu.unideb.inf;
 
-import hu.unideb.inf.Database.Client;
+import hu.unideb.inf.model.CrashIncident;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
@@ -15,11 +13,12 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import java.io.IOException;
+import java.util.Optional;
 
 public class LoginWindowController {
 
     @FXML
-    private AnchorPane mainAnchorPane;
+    private AnchorPane loginAnchorPane;
 
     @FXML
     private RadioButton AdminMode;
@@ -54,6 +53,34 @@ public class LoginWindowController {
 
     @FXML
     public void handleLoginButton() throws IOException {
-        loadMainWindow();
+        if (checkInput(Name, Password)) {
+            loadMainWindow();
+        }
     }
+
+    @FXML
+    void handleRegistrationButton() {
+        Dialog<ButtonType> dialog = new Dialog<>();
+        dialog.initOwner(loginAnchorPane.getScene().getWindow());
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        dialog.setTitle("Regisztráció");
+        fxmlLoader.setLocation(getClass().getResource("/view/RegistrationWindow.fxml"));
+        try {
+            dialog.getDialogPane().setContent(fxmlLoader.load());
+        } catch (IOException e) {
+            System.out.println("Nem sikerült az új ablakot betölteni");
+            e.printStackTrace();
+            return;
+        }
+
+        dialog.getDialogPane().getButtonTypes().add(ButtonType.CANCEL);
+        dialog.getDialogPane().getButtonTypes().add(ButtonType.OK);
+
+        Optional<ButtonType> result = dialog.showAndWait();
+        if (result.isPresent() && result.get() == ButtonType.OK)
+        {
+            // TODO adat eltárolása
+        }
+    }
+
 }

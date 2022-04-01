@@ -20,7 +20,7 @@ public class MainApp extends Application {
         Scene scene = new Scene(loader.load());
         // TODO: css ismételt használata
         // scene.getStylesheets().add("/styles/Styles.css");
-        stage.setTitle("Kárbejelentő");
+        stage.setTitle("Login");
         stage.setScene(scene);
         stage.show();
     }
