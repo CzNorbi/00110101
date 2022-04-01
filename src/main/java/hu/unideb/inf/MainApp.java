@@ -18,6 +18,7 @@ public class MainApp extends Application {
     public void start(Stage stage) throws Exception {
         FXMLLoader loader = new FXMLLoader(MainApp.class.getResource("/view/LoginWindow.fxml"));
         Scene scene = new Scene(loader.load());
+        // TODO: css ismételt használata
         // scene.getStylesheets().add("/styles/Styles.css");
         stage.setTitle("Kárbejelentő");
         stage.setScene(scene);
