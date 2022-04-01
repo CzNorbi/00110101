@@ -1,5 +1,7 @@
 package hu.unideb.inf;
 
+import hu.unideb.inf.Database.Client;
+import hu.unideb.inf.Database.Incident;
 import hu.unideb.inf.model.CarPart;
 import hu.unideb.inf.model.CrashIncident;
 import javafx.fxml.FXML;
@@ -9,6 +11,9 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.scene.shape.Rectangle;
 
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -187,6 +192,21 @@ public class NewCrashDialogController implements Initializable {
                                             typeChoiceBox.getSelectionModel().getSelectedItem(),
                                             powertrainChoiceBox.getSelectionModel().getSelectedItem(),
                                             dateOfCrashPicker.getValue(), listOfCarParts);
+
+        // Az alábbi "final"-al kezdődő két sorral volt korábban probléma random módon.
+        final EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("cziers.incident");
+        final EntityManager entityManager = entityManagerFactory.createEntityManager();
+
+        Client c = new Client();
+        // TODO: Incident inc = new Incident(); // stb, ha kész az osztály!
+        c.setName(nameField.getText());
+        c.setCity(cityField.getText());
+        c.setPhone(phoneNumberField.getText());
+
+        entityManager.getTransaction().begin();
+        entityManager.persist(c);
+        // entityManager.persist(inc);
+        entityManager.getTransaction().commit();
 
         return result;
     }
