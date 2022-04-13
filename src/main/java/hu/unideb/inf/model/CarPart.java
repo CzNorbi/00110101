@@ -5,8 +5,8 @@ import java.util.List;
 
 public class CarPart {
 
-    private String partName;
-    private Level damageLevel;
+    private String PartName;
+    private Level DamageLevel;
 
     public enum Level {
         NONE,
@@ -26,24 +26,28 @@ public class CarPart {
         result.add(new CarPart("roof", Level.NONE));
         result.add(new CarPart("fWindshield", Level.NONE));
         result.add(new CarPart("bWindshield", Level.NONE));
+        result.add(new CarPart("frWheel", Level.NONE));
+        result.add(new CarPart("flWheel", Level.NONE));
+        result.add(new CarPart("brWheel", Level.NONE));
+        result.add(new CarPart("blWheel", Level.NONE));
 
         return result;
     }
 
     public CarPart(String partName, Level damageLevel) {
-        this.partName = partName;
-        this.damageLevel = damageLevel;
+        this.PartName = partName;
+        this.DamageLevel = damageLevel;
     }
 
     public String getPartName() {
-        return partName;
+        return PartName;
     }
 
     public Level getDamageLevel() {
-        return damageLevel;
+        return DamageLevel;
     }
 
     public void setDamageLevel(Level damageLevel) {
-        this.damageLevel = damageLevel;
+        this.DamageLevel = damageLevel;
     }
 }

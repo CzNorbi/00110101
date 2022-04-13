@@ -1,7 +1,5 @@
 package hu.unideb.inf;
 
-import hu.unideb.inf.model.Incidents;
-import hu.unideb.inf.model.CrashIncident;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -17,12 +15,10 @@ import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class MainWindowController implements Initializable {
-    private Incidents incidents;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        incidents = new Incidents();
-        incidentPicker.setItems(incidents.getListOfCrashIncidents());
+
     }
 
     // Car parts:
@@ -68,8 +64,8 @@ public class MainWindowController implements Initializable {
     @FXML
     private TextField crashUserName;
 
-    @FXML
-    private ChoiceBox<CrashIncident> incidentPicker;
+    //@FXML
+    //private ChoiceBox<CrashIncident> incidentPicker;
 
     @FXML
     private Region statusBack;
@@ -200,7 +196,7 @@ public class MainWindowController implements Initializable {
         {
             // Megadott adatok elmentése
             NewCrashDialogController controller = fxmlLoader.getController();
-            CrashIncident newCrash = controller.processResult();
+            // CrashIncident newCrash = controller.processResult();
             // TODO Listába beletenni
         }
     }
