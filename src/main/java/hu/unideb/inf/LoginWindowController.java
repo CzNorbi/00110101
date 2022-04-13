@@ -63,8 +63,8 @@ public class LoginWindowController {
         Dialog<ButtonType> dialog = new Dialog<>();
         dialog.initOwner(loginAnchorPane.getScene().getWindow());
         FXMLLoader fxmlLoader = new FXMLLoader();
-        dialog.setTitle("Regisztráció");
-        fxmlLoader.setLocation(getClass().getResource("/view/RegistrationWindow.fxml"));
+        dialog.setTitle("Új baleset bejelentés");
+        fxmlLoader.setLocation(getClass().getResource("/view/NewIncidentDialog.fxml"));
         try {
             dialog.getDialogPane().setContent(fxmlLoader.load());
         } catch (IOException e) {
