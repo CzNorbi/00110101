@@ -7,14 +7,14 @@
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.shape.Rectangle?>
 <DialogPane prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hu.unideb.inf.NewIncidentDialogController">
    <content>
       <ScrollPane prefHeight="800.0" prefWidth="200.0">
@@ -31,13 +31,13 @@
                <children>
                   <VBox prefHeight="150.0" prefWidth="100.0">
                      <children>
-                         <Label prefHeight="18.0" prefWidth="207.0" text=" Baleset időpontja(Dátum, óra, perc): " />
+                         <Label fx:id="timeOfIncident" prefHeight="18.0" prefWidth="207.0" text=" Baleset időpontja(Dátum, óra, perc): " />
                         <DatePicker prefHeight="26.0" prefWidth="202.0" />
                      </children>
                   </VBox>
                   <VBox prefHeight="150.0" prefWidth="100.0" GridPane.columnIndex="1">
                      <children>
-                        <Label prefHeight="18.0" prefWidth="133.0" text="Baleset Helyszíne: " />
+                        <Label fx:id="locationOfIncident" prefHeight="18.0" prefWidth="133.0" text="Baleset Helyszíne: " />
                         <TextArea prefHeight="50.0" />
                      </children>
                   </VBox>
@@ -55,31 +55,31 @@
                         <VBox prefHeight="600.0" prefWidth="318.0" style="-fx-background-color: #FFFFFF">
                            <children>
                               <Label alignment="CENTER_LEFT" text="Név:" />
-                              <TextField />
+                              <TextField fx:id="aName" />
                               <Label alignment="CENTER_LEFT" text="Cím:" />
-                              <TextArea prefHeight="64.0"/>
+                              <TextArea fx:id="aAddress" prefHeight="64.0" />
                               <Label alignment="CENTER_LEFT" text="Telefon:" />
-                              <TextField />
+                              <TextField fx:id="aPhone" />
                               <Label alignment="CENTER_LEFT" text="Felelőségbiztosító:" />
-                              <TextArea prefHeight="64.0" />
+                              <TextArea fx:id="aInsurer" prefHeight="64.0" />
                               <Label alignment="CENTER_LEFT" text="Megjegyzések:" />
-                              <TextArea prefHeight="64.0"/>
+                              <TextArea fx:id="aComment" prefHeight="64.0" />
                               <Label alignment="CENTER_LEFT" text="Sérült részek:" />
-                              <AnchorPane prefHeight="200.0" prefWidth="300.0" style="-fx-border-color: BLACK">
+                              <AnchorPane prefHeight="150.0" prefWidth="300.0" style="-fx-border-color: BLACK">
                                  <children>
-                                    <Rectangle id="hood" fx:id="Ahood" arcHeight="5.0" arcWidth="5.0" fill="ALICEBLUE" height="80.0" layoutY="14.0"  stroke="BLACK" strokeType="INSIDE" width="55.0" />
-                                    <Rectangle fx:id="AfrDoor" arcHeight="5.0" arcWidth="5.0" fill="#f0f8ff" height="15.0" layoutX="54.0" stroke="BLACK" strokeType="INSIDE" width="45.0" />
-                                    <Rectangle fx:id="AbrDoor" arcHeight="5.0" arcWidth="5.0" fill="#f0f8ff" height="15.0" layoutX="99.0"  stroke="BLACK" strokeType="INSIDE" width="45.0" />
-                                    <Rectangle fx:id="AblDoor" arcHeight="5.0" arcWidth="5.0" fill="#f0f8ff" height="15.0" layoutX="99.0" layoutY="94.0"  stroke="BLACK" strokeType="INSIDE" width="45.0" />
-                                    <Rectangle fx:id="AflDoor" arcHeight="5.0" arcWidth="5.0" fill="#f0f8ff" height="15.0" layoutX="54.0" layoutY="94.0"  stroke="BLACK" strokeType="INSIDE" width="45.0" />
-                                    <Rectangle fx:id="Atrunk" arcHeight="5.0" arcWidth="5.0" fill="ALICEBLUE" height="80.0" layoutX="144.0" layoutY="14.0"  stroke="BLACK" strokeType="INSIDE" width="38.0" />
-                                    <Rectangle fx:id="Aroof" arcHeight="5.0" arcWidth="5.0" fill="ALICEBLUE" height="80.0" layoutX="79.0" layoutY="14.0" stroke="BLACK" strokeType="INSIDE" width="42.0" />
-                                    <Rectangle arcHeight="5.0" arcWidth="5.0" height="10.0" layoutX="15.0" layoutY="3.0" stroke="BLACK" strokeType="INSIDE" width="26.0" />
-                                    <Rectangle arcHeight="5.0" arcWidth="5.0" height="10.0" layoutX="150.0" layoutY="95.0" stroke="BLACK" strokeType="INSIDE" width="26.0" />
-                                    <Rectangle arcHeight="5.0" arcWidth="5.0" height="10.0" layoutX="150.0" layoutY="3.0" stroke="BLACK" strokeType="INSIDE" width="26.0" />
-                                    <Rectangle arcHeight="5.0" arcWidth="5.0" height="10.0" layoutX="15.0" layoutY="95.0" stroke="BLACK" strokeType="INSIDE" width="26.0" />
-                                    <Rectangle fx:id="AfWindshield" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="80.0" layoutX="55.0" layoutY="15.0" stroke="BLACK" strokeType="INSIDE" width="25.0" />
-                                    <Rectangle fx:id="AbWindshield" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="80.0" layoutX="121.0" layoutY="14.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
+                                    <Rectangle fx:id="aHood" arcHeight="5.0" arcWidth="5.0" fill="ALICEBLUE" height="80.0" layoutX="50" layoutY="34.0" onMouseClicked="#handleAHoodClicked" stroke="BLACK" strokeType="INSIDE" width="55.0" />
+                                    <Rectangle fx:id="aFrontRightDoor" arcHeight="5.0" arcWidth="5.0" fill="#f0f8ff" height="15.0" layoutX="104.0" layoutY="20" onMouseClicked="#handleAFrontRightDoorClicked" stroke="BLACK" strokeType="INSIDE" width="45.0" />
+                                    <Rectangle fx:id="aBackRightDoor" arcHeight="5.0" arcWidth="5.0" fill="#f0f8ff" height="15.0" layoutX="149.0" layoutY="20" onMouseClicked="#handleABackRightDoorClicked" stroke="BLACK" strokeType="INSIDE" width="45.0" />
+                                    <Rectangle fx:id="aBackLeftDoor" arcHeight="5.0" arcWidth="5.0" fill="#f0f8ff" height="15.0" layoutX="149.0" layoutY="114.0" onMouseClicked="#handleABackLeftDoorClick" stroke="BLACK" strokeType="INSIDE" width="45.0" />
+                                    <Rectangle fx:id="aFrontLeftDoor" arcHeight="5.0" arcWidth="5.0" fill="#f0f8ff" height="15.0" layoutX="104.0" layoutY="114.0" onMouseClicked="#handleAFrontLeftDoorClick" stroke="BLACK" strokeType="INSIDE" width="45.0" />
+                                    <Rectangle fx:id="aTrunk" arcHeight="5.0" arcWidth="5.0" fill="ALICEBLUE" height="80.0" layoutX="194.0" layoutY="34.0" onMouseClicked="#handleATrunkClicked" stroke="BLACK" strokeType="INSIDE" width="38.0" />
+                                    <Rectangle fx:id="aRoof" arcHeight="5.0" arcWidth="5.0" fill="ALICEBLUE" height="80.0" layoutX="129.0" layoutY="34.0" onMouseClicked="#handleARoofClicked" stroke="BLACK" strokeType="INSIDE" width="42.0" />
+                                    <Rectangle fx:id="aFrontRightWheel" arcHeight="5.0" arcWidth="5.0" height="10.0" layoutX="65.0" layoutY="23.0" onMouseClicked="#handleAFrontRightWheelClicked" stroke="BLACK" strokeType="INSIDE" width="26.0" />
+                                    <Rectangle fx:id="aBackLeftWheel" arcHeight="5.0" arcWidth="5.0" height="10.0" layoutX="200.0" layoutY="115.0" onMouseClicked="#handleABackLeftWheelClick" stroke="BLACK" strokeType="INSIDE" width="26.0" />
+                                    <Rectangle fx:id="aBackRightWheel" arcHeight="5.0" arcWidth="5.0" height="10.0" layoutX="200.0" layoutY="23.0" onMouseClicked="#handleABackRightWheelClicked" stroke="BLACK" strokeType="INSIDE" width="26.0" />
+                                    <Rectangle fx:id="aFrontLeftWheel" arcHeight="5.0" arcWidth="5.0" height="10.0" layoutX="65.0" layoutY="115.0" onMouseClicked="#handleAFrontLeftWheelClicked" stroke="BLACK" strokeType="INSIDE" width="26.0" />
+                                    <Rectangle fx:id="aFrontWindshield" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="80.0" layoutX="105.0" layoutY="35.0" onMouseClicked="#handleAFrontWindshieldClicked" stroke="BLACK" strokeType="INSIDE" width="25.0" />
+                                    <Rectangle fx:id="aBackWindshield" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="80.0" layoutX="171.0" layoutY="34.0" onMouseClicked="#handleABackWindshieldClicked" stroke="BLACK" strokeType="INSIDE" width="23.0" />
                                  </children>
                               </AnchorPane>
                            </children>
@@ -100,31 +100,31 @@
                         <VBox prefHeight="600.0" prefWidth="318.0" style="-fx-background-color: #FFFFFF">
                            <children>
                               <Label alignment="CENTER_LEFT" text="Név:" />
-                              <TextField />
+                              <TextField fx:id="bName" />
                               <Label alignment="CENTER_LEFT" text="Cím:" />
-                              <TextArea prefHeight="64.0" />
+                              <TextArea fx:id="bAddress" prefHeight="64.0" />
                               <Label alignment="CENTER_LEFT" text="Telefon:" />
-                              <TextField />
+                              <TextField fx:id="bPhone" />
                               <Label alignment="CENTER_LEFT" text="Felelőségbiztosító:" />
-                              <TextArea prefHeight="64.0"/>
+                              <TextArea fx:id="bInsurer" prefHeight="64.0" />
                               <Label alignment="CENTER_LEFT" text="Megjegyzések:" />
-                              <TextArea prefHeight="64.0"/>
+                              <TextArea fx:id="bComment" prefHeight="64.0" />
                               <Label alignment="CENTER_LEFT" text="Sérült részek:" />
-                              <AnchorPane prefHeight="200.0" prefWidth="300.0" style="-fx-border-color: BLACK">
+                              <AnchorPane prefHeight="150.0" prefWidth="300.0" style="-fx-border-color: BLACK">
                                  <children>
-                                    <Rectangle id="hood" fx:id="hood" arcHeight="5.0" arcWidth="5.0" fill="ALICEBLUE" height="80.0" layoutY="14.0"  stroke="BLACK" strokeType="INSIDE" width="55.0" />
-                                    <Rectangle fx:id="frDoor" arcHeight="5.0" arcWidth="5.0" fill="#f0f8ff" height="15.0" layoutX="54.0" stroke="BLACK" strokeType="INSIDE" width="45.0" />
-                                    <Rectangle fx:id="brDoor" arcHeight="5.0" arcWidth="5.0" fill="#f0f8ff" height="15.0" layoutX="99.0"  stroke="BLACK" strokeType="INSIDE" width="45.0" />
-                                    <Rectangle fx:id="blDoor" arcHeight="5.0" arcWidth="5.0" fill="#f0f8ff" height="15.0" layoutX="99.0" layoutY="94.0"  stroke="BLACK" strokeType="INSIDE" width="45.0" />
-                                    <Rectangle fx:id="flDoor" arcHeight="5.0" arcWidth="5.0" fill="#f0f8ff" height="15.0" layoutX="54.0" layoutY="94.0"  stroke="BLACK" strokeType="INSIDE" width="45.0" />
-                                    <Rectangle fx:id="trunk" arcHeight="5.0" arcWidth="5.0" fill="ALICEBLUE" height="80.0" layoutX="144.0" layoutY="14.0"  stroke="BLACK" strokeType="INSIDE" width="38.0" />
-                                    <Rectangle fx:id="roof" arcHeight="5.0" arcWidth="5.0" fill="ALICEBLUE" height="80.0" layoutX="79.0" layoutY="14.0" stroke="BLACK" strokeType="INSIDE" width="42.0" />
-                                    <Rectangle arcHeight="5.0" arcWidth="5.0" height="10.0" layoutX="15.0" layoutY="3.0" stroke="BLACK" strokeType="INSIDE" width="26.0" />
-                                    <Rectangle arcHeight="5.0" arcWidth="5.0" height="10.0" layoutX="150.0" layoutY="95.0" stroke="BLACK" strokeType="INSIDE" width="26.0" />
-                                    <Rectangle arcHeight="5.0" arcWidth="5.0" height="10.0" layoutX="150.0" layoutY="3.0" stroke="BLACK" strokeType="INSIDE" width="26.0" />
-                                    <Rectangle arcHeight="5.0" arcWidth="5.0" height="10.0" layoutX="15.0" layoutY="95.0" stroke="BLACK" strokeType="INSIDE" width="26.0" />
-                                    <Rectangle fx:id="fWindshield" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="80.0" layoutX="55.0" layoutY="15.0" stroke="BLACK" strokeType="INSIDE" width="25.0" />
-                                    <Rectangle fx:id="bWindshield" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="80.0" layoutX="121.0" layoutY="14.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
+                                    <Rectangle fx:id="bHood" arcHeight="5.0" arcWidth="5.0" fill="ALICEBLUE" height="80.0" layoutX="50" layoutY="34.0" onMouseClicked="#handleBHoodClicked" stroke="BLACK" strokeType="INSIDE" width="55.0" />
+                                    <Rectangle fx:id="bFrontRightDoor" arcHeight="5.0" arcWidth="5.0" fill="#f0f8ff" height="15.0" layoutX="104.0" layoutY="20" onMouseClicked="#handleBFrontRightDoorClicked" stroke="BLACK" strokeType="INSIDE" width="45.0" />
+                                    <Rectangle fx:id="bBackRightDoor" arcHeight="5.0" arcWidth="5.0" fill="#f0f8ff" height="15.0" layoutX="149.0" layoutY="20" onMouseClicked="#handleBBackRightDoorClicked" stroke="BLACK" strokeType="INSIDE" width="45.0" />
+                                    <Rectangle fx:id="bBackLeftDoor" arcHeight="5.0" arcWidth="5.0" fill="#f0f8ff" height="15.0" layoutX="149.0" layoutY="114.0" onMouseClicked="#handleBBackLeftDoorClick" stroke="BLACK" strokeType="INSIDE" width="45.0" />
+                                    <Rectangle fx:id="bFrontLeftDoor" arcHeight="5.0" arcWidth="5.0" fill="#f0f8ff" height="15.0" layoutX="104.0" layoutY="114.0" onMouseClicked="#handleBFrontLeftDoorClick" stroke="BLACK" strokeType="INSIDE" width="45.0" />
+                                    <Rectangle fx:id="bTrunk" arcHeight="5.0" arcWidth="5.0" fill="ALICEBLUE" height="80.0" layoutX="194.0" layoutY="34.0" onMouseClicked="#handleBTrunkClicked" stroke="BLACK" strokeType="INSIDE" width="38.0" />
+                                    <Rectangle fx:id="bRoof" arcHeight="5.0" arcWidth="5.0" fill="ALICEBLUE" height="80.0" layoutX="129.0" layoutY="34.0" onMouseClicked="#handleBRoofClicked" stroke="BLACK" strokeType="INSIDE" width="42.0" />
+                                    <Rectangle fx:id="bFrontRightWheel" arcHeight="5.0" arcWidth="5.0" height="10.0" layoutX="65.0" layoutY="23.0" onMouseClicked="#handleBFrontRightWheelClicked" stroke="BLACK" strokeType="INSIDE" width="26.0" />
+                                    <Rectangle fx:id="bBackLeftWheel" arcHeight="5.0" arcWidth="5.0" height="10.0" layoutX="200.0" layoutY="115.0" onMouseClicked="#handleBBackLeftWheelClick" stroke="BLACK" strokeType="INSIDE" width="26.0" />
+                                    <Rectangle fx:id="bBackRightWheel" arcHeight="5.0" arcWidth="5.0" height="10.0" layoutX="200.0" layoutY="23.0" onMouseClicked="#handleBBackRightWheelClicked" stroke="BLACK" strokeType="INSIDE" width="26.0" />
+                                    <Rectangle fx:id="bFrontLeftWheel" arcHeight="5.0" arcWidth="5.0" height="10.0" layoutX="65.0" layoutY="115.0" onMouseClicked="#handleBFrontLeftWheelClicked" stroke="BLACK" strokeType="INSIDE" width="26.0" />
+                                    <Rectangle fx:id="bFrontWindshield" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="80.0" layoutX="105.0" layoutY="35.0" onMouseClicked="#handleBFrontWindshieldClicked" stroke="BLACK" strokeType="INSIDE" width="25.0" />
+                                    <Rectangle fx:id="bBackWindshield" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="80.0" layoutX="171.0" layoutY="34.0" onMouseClicked="#handleBBackWindshieldClicked" stroke="BLACK" strokeType="INSIDE" width="23.0" />
                                  </children>
                               </AnchorPane>
                            </children>
