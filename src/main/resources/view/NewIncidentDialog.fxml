@@ -15,9 +15,9 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<DialogPane prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hu.unideb.inf.NewIncidentDialogController">
+<DialogPane prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hu.unideb.inf.NewIncidentDialogController">
    <content>
-      <ScrollPane prefHeight="800.0" prefWidth="200.0">
+      <ScrollPane minHeight="700.0" minWidth="705.0" prefHeight="700.0" prefWidth="701.0">
          <content>
             <GridPane alignment="TOP_CENTER" prefHeight="900.0" prefWidth="660.0">
               <columnConstraints>
@@ -38,7 +38,7 @@
                   <VBox prefHeight="150.0" prefWidth="100.0" GridPane.columnIndex="1">
                      <children>
                         <Label fx:id="locationOfIncident" prefHeight="18.0" prefWidth="133.0" text="Baleset Helyszíne: " />
-                        <TextArea prefHeight="50.0" />
+                        <TextArea maxWidth="320.0" minWidth="270.0" prefHeight="50.0" prefWidth="325.0" />
                      </children>
                   </VBox>
                   <!-- A jármű -->
