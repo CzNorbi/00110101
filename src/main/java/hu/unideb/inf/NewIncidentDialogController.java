@@ -153,6 +153,10 @@ public class NewIncidentDialogController {
             aHood.setStyle("-fx-fill: white;");
             System.out.println("Level0");
         }
+        else{
+            aHood.setStyle("-fx-fill: white;");
+            System.out.println("Level0");
+        }
     }
 
     @FXML
