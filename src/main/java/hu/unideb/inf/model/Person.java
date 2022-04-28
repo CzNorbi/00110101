@@ -3,97 +3,97 @@ package hu.unideb.inf.model;
 import java.time.LocalDate;
 
 public class Person {
-    private String FirstName;
-    private String LastName;
-    private LocalDate DateOfBirth;
-    private String CityOfBirth;
-    private long LicenseNumber;
-    private long ZipCode;
-    private String City;
-    private String Street;
-    private long HouseNumber;
+    private String firstName;
+    private String lastName;
+    private LocalDate dateOfBirth;
+    private String cityOfBirth;
+    private String drivingLicenseNumber;
+    private long zipCode;
+    private String city;
+    private String street;
+    private long houseNumber;
 
-    public Person(String firstName, String lastName, LocalDate dateOfBirth, String cityOfBirth, long licenseNumber, long zipCode, String city, String street, long houseNumber) {
-        FirstName = firstName;
-        LastName = lastName;
-        DateOfBirth = dateOfBirth;
-        CityOfBirth = cityOfBirth;
-        LicenseNumber = licenseNumber;
-        ZipCode = zipCode;
-        City = city;
-        Street = street;
-        HouseNumber = houseNumber;
+    public Person(String firstName, String lastName, LocalDate dateOfBirth, String cityOfBirth, String drivingLicenseNumber, long zipCode, String city, String street, long houseNumber) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.dateOfBirth = dateOfBirth;
+        this.cityOfBirth = cityOfBirth;
+        this.drivingLicenseNumber = drivingLicenseNumber;
+        this.zipCode = zipCode;
+        this.city = city;
+        this.street = street;
+        this.houseNumber = houseNumber;
     }
 
     public String getFirstName() {
-        return FirstName;
+        return firstName;
     }
 
     public void setFirstName(String firstName) {
-        FirstName = firstName;
+        this.firstName = firstName;
     }
 
     public String getLastName() {
-        return LastName;
+        return lastName;
     }
 
     public void setLastName(String lastName) {
-        LastName = lastName;
+        this.lastName = lastName;
     }
 
     public LocalDate getDateOfBirth() {
-        return DateOfBirth;
+        return dateOfBirth;
     }
 
     public void setDateOfBirth(LocalDate dateOfBirth) {
-        DateOfBirth = dateOfBirth;
+        this.dateOfBirth = dateOfBirth;
     }
 
     public String getCityOfBirth() {
-        return CityOfBirth;
+        return cityOfBirth;
     }
 
     public void setCityOfBirth(String cityOfBirth) {
-        CityOfBirth = cityOfBirth;
+        this.cityOfBirth = cityOfBirth;
     }
 
-    public long getLicenseNumber() {
-        return LicenseNumber;
+    public String getDrivingLicenseNumber() {
+        return drivingLicenseNumber;
     }
 
-    public void setLicenseNumber(long licenseNumber) {
-        LicenseNumber = licenseNumber;
+    public void setDrivingLicenseNumber(String drivingLicenseNumber) {
+        this.drivingLicenseNumber = drivingLicenseNumber;
     }
 
     public long getZipCode() {
-        return ZipCode;
+        return zipCode;
     }
 
     public void setZipCode(long zipCode) {
-        ZipCode = zipCode;
+        this.zipCode = zipCode;
     }
 
     public String getCity() {
-        return City;
+        return city;
     }
 
     public void setCity(String city) {
-        City = city;
+        this.city = city;
     }
 
     public String getStreet() {
-        return Street;
+        return street;
     }
 
     public void setStreet(String street) {
-        Street = street;
+        this.street = street;
     }
 
     public long getHouseNumber() {
-        return HouseNumber;
+        return houseNumber;
     }
 
     public void setHouseNumber(long houseNumber) {
-        HouseNumber = houseNumber;
+        this.houseNumber = houseNumber;
     }
 }

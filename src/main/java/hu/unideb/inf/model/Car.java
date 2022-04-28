@@ -3,42 +3,42 @@ package hu.unideb.inf.model;
 import java.util.List;
 
 public class Car {
-    private String Brand;
-    private String Type;
-    private String LicensePlate;
+    private String brand;
+    private String type;
+    private String licensePlate;
     private String VIN;
-    private List<CarPart> Parts;
+    private final List<CarPart> carPartsList;
 
     public Car(String brand, String type, String licensePlate, String VIN, List<CarPart> parts) {
-        Brand = brand;
-        Type = type;
-        LicensePlate = licensePlate;
+        this.brand = brand;
+        this.type = type;
+        this.licensePlate = licensePlate;
         this.VIN = VIN;
-        Parts = CarPart.initCarPartList();
+        this.carPartsList = CarPart.initCarPartList();
     }
 
     public String getBrand() {
-        return Brand;
+        return brand;
     }
 
     public void setBrand(String brand) {
-        Brand = brand;
+        this.brand = brand;
     }
 
     public String getType() {
-        return Type;
+        return type;
     }
 
     public void setType(String type) {
-        Type = type;
+        this.type = type;
     }
 
     public String getLicensePlate() {
-        return LicensePlate;
+        return licensePlate;
     }
 
     public void setLicensePlate(String licensePlate) {
-        LicensePlate = licensePlate;
+        this.licensePlate = licensePlate;
     }
 
     public String getVIN() {
@@ -50,6 +50,6 @@ public class Car {
     }
 
     public List<CarPart> getParts() {
-        return Parts;
+        return carPartsList;
     }
 }
