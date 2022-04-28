@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.DialogPane?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
@@ -15,18 +17,18 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<DialogPane prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hu.unideb.inf.NewIncidentDialogController">
+<DialogPane prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hu.unideb.inf.NewIncidentDialogController">
    <content>
-      <ScrollPane minHeight="700.0" minWidth="705.0" prefHeight="700.0" prefWidth="701.0">
+      <ScrollPane minHeight="500.0" minWidth="705.0" prefHeight="700.0" prefWidth="701.0">
          <content>
-            <GridPane alignment="TOP_CENTER" prefHeight="900.0" prefWidth="660.0">
+            <GridPane alignment="TOP_CENTER" prefHeight="800.0" prefWidth="660.0">
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
               </columnConstraints>
               <rowConstraints>
                 <RowConstraints maxHeight="80.0" minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="10.0" prefHeight="600.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="700.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
                   <VBox prefHeight="150.0" prefWidth="100.0">
@@ -42,7 +44,7 @@
                      </children>
                   </VBox>
                   <!-- A jármű -->
-                  <VBox prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #238BDF" GridPane.rowIndex="1">
+                  <VBox prefHeight="600.0" prefWidth="100.0" style="-fx-background-color: #238BDF" GridPane.rowIndex="1">
                      <padding>
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </padding>
@@ -52,7 +54,7 @@
                               <Font size="18.0" />
                            </font>
                         </Label>
-                        <VBox prefHeight="600.0" prefWidth="318.0" style="-fx-background-color: #FFFFFF">
+                        <VBox prefHeight="700.0" prefWidth="318.0" style="-fx-background-color: #FFFFFF">
                            <children>
                               <Label alignment="CENTER_LEFT" text="Név:" />
                               <TextField fx:id="aName" />
@@ -82,12 +84,15 @@
                                     <Rectangle fx:id="aBackWindshield" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="80.0" layoutX="171.0" layoutY="34.0" onMouseClicked="#handleABackWindshieldClicked" stroke="BLACK" strokeType="INSIDE" width="23.0" />
                                  </children>
                               </AnchorPane>
+                              <Label text="Kép feltöltése:" />
+                              <Button fx:id="aFileUploadButton" mnemonicParsing="false" onMouseClicked="#handleAFileUploadButton" text="Állomány feltöltése" />
+                              <ListView fx:id="aFiles" prefHeight="100.0" prefWidth="200.0" />
                            </children>
                         </VBox>
                      </children>
                   </VBox>
                   <!-- B jármű -->
-                  <VBox prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #F1F143" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                  <VBox prefHeight="600.0" prefWidth="100.0" style="-fx-background-color: #F1F143" GridPane.columnIndex="1" GridPane.rowIndex="1">
                      <padding>
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </padding>
@@ -97,7 +102,7 @@
                               <Font size="18.0" />
                            </font>
                         </Label>
-                        <VBox prefHeight="600.0" prefWidth="318.0" style="-fx-background-color: #FFFFFF">
+                        <VBox prefHeight="700.0" prefWidth="318.0" style="-fx-background-color: #FFFFFF">
                            <children>
                               <Label alignment="CENTER_LEFT" text="Név:" />
                               <TextField fx:id="bName" />
@@ -127,6 +132,9 @@
                                     <Rectangle fx:id="bBackWindshield" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="80.0" layoutX="171.0" layoutY="34.0" onMouseClicked="#handleBBackWindshieldClicked" stroke="BLACK" strokeType="INSIDE" width="23.0" />
                                  </children>
                               </AnchorPane>
+                              <Label text="Kép feltöltése:" />
+                              <Button fx:id="bFileUploadButton" mnemonicParsing="false" onMouseClicked="#handleBFileUploadButton" text="Állomány feltöltése" />
+                              <ListView fx:id="bFiles" prefHeight="100.0" prefWidth="200.0" />
                            </children>
                         </VBox>
                      </children>

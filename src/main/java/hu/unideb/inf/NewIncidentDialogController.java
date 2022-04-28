@@ -1,12 +1,14 @@
 package hu.unideb.inf;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.scene.shape.Rectangle;
+import javafx.stage.FileChooser;
+
+import java.io.File;
+import java.util.List;
 
 public class NewIncidentDialogController {
 
@@ -129,6 +131,19 @@ public class NewIncidentDialogController {
     @FXML
     private Rectangle bTrunk;
 
+    //Other
+    @FXML
+    private ListView<String> aFiles;
+
+    @FXML
+    private Button aFileUploadButton;
+
+    @FXML
+    private ListView<String> bFiles;
+
+    @FXML
+    private Button bFileUploadButton;
+
     @FXML
     int damageLevel(Rectangle carPart)
     {
@@ -166,6 +181,38 @@ public class NewIncidentDialogController {
     }
 
     // A Events
+    @FXML
+    void handleAFileUploadButton(MouseEvent event) {
+        FileChooser fc = new FileChooser();
+        fc.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("Image File", "*.jpg"),
+                                        new FileChooser.ExtensionFilter("Image File", "*.png"),
+                                        new FileChooser.ExtensionFilter("Image File", "*.jpeg"));
+        List<File> files = fc.showOpenMultipleDialog(null);
+
+        if (files != null){
+            for (File file : files)
+            {
+                aFiles.getItems().add(file.getName());
+            }
+        }
+    }
+
+    @FXML
+    void handleBFileUploadButton(MouseEvent event) {
+        FileChooser fc = new FileChooser();
+        fc.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("Image File", "*.jpg"),
+                                        new FileChooser.ExtensionFilter("Image File", "*.png"),
+                                        new FileChooser.ExtensionFilter("Image File", "*.jpeg"));
+        List<File> files = fc.showOpenMultipleDialog(null);
+
+        if (files != null){
+            for (File file : files)
+            {
+                bFiles.getItems().add(file.getName());
+            }
+        }
+    }
+
     @FXML
     void handleAHoodClicked(MouseEvent event) {
         System.out.println(damageLevel(aHood));
