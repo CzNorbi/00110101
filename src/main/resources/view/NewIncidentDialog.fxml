@@ -42,7 +42,7 @@
                      </children>
                   </VBox>
                   <!-- A jármű -->
-                  <VBox fx:id="A_car" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #238BDF" GridPane.rowIndex="1">
+                  <VBox prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #238BDF" GridPane.rowIndex="1">
                      <padding>
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </padding>
@@ -68,9 +68,9 @@
                               <AnchorPane prefHeight="150.0" prefWidth="300.0" style="-fx-border-color: BLACK">
                                  <children>
                                     <Rectangle fx:id="aHood" arcHeight="5.0" arcWidth="5.0" fill="ALICEBLUE" height="80.0" layoutX="50" layoutY="34.0" onMouseClicked="#handleAHoodClicked" stroke="BLACK" strokeType="INSIDE" width="55.0" />
-                                    <Rectangle fx:id="aFrontRightDoor" arcHeight="5.0" arcWidth="5.0" fill="#f0f8ff" height="15.0" layoutX="104.0" layoutY="20" onMouseClicked="#handleAFrontRightDoorClicked" stroke="BLACK" strokeType="INSIDE" width="45.0" />
-                                    <Rectangle fx:id="aBackRightDoor" arcHeight="5.0" arcWidth="5.0" fill="#f0f8ff" height="15.0" layoutX="149.0" layoutY="20" onMouseClicked="#handleABackRightDoorClicked" stroke="BLACK" strokeType="INSIDE" width="45.0" />
-                                    <Rectangle fx:id="aBackLeftDoor" arcHeight="5.0" arcWidth="5.0" fill="#f0f8ff" height="15.0" layoutX="149.0" layoutY="114.0" onMouseClicked="#handleABackLeftDoorClick" stroke="BLACK" strokeType="INSIDE" width="45.0" />
+                                    <Rectangle fx:id="aFrontRightDoor" arcHeight="5.0" arcWidth="5.0" fill="#ffffff" height="15.0" layoutX="104.0" layoutY="20" onMouseClicked="#handleAFrontRightDoorClicked" stroke="BLACK" strokeType="INSIDE" width="45.0" />
+                                    <Rectangle fx:id="aBackRightDoor" arcHeight="5.0" arcWidth="5.0" fill="#ffffff" height="15.0" layoutX="149.0" layoutY="20" onMouseClicked="#handleABackRightDoorClicked" stroke="BLACK" strokeType="INSIDE" width="45.0" />
+                                    <Rectangle fx:id="aBackLeftDoor" arcHeight="5.0" arcWidth="5.0" fill="#ffffff" height="15.0" layoutX="149.0" layoutY="114.0" onMouseClicked="#handleABackLeftDoorClick" stroke="BLACK" strokeType="INSIDE" width="45.0" />
                                     <Rectangle fx:id="aFrontLeftDoor" arcHeight="5.0" arcWidth="5.0" fill="#f0f8ff" height="15.0" layoutX="104.0" layoutY="114.0" onMouseClicked="#handleAFrontLeftDoorClick" stroke="BLACK" strokeType="INSIDE" width="45.0" />
                                     <Rectangle fx:id="aTrunk" arcHeight="5.0" arcWidth="5.0" fill="ALICEBLUE" height="80.0" layoutX="194.0" layoutY="34.0" onMouseClicked="#handleATrunkClicked" stroke="BLACK" strokeType="INSIDE" width="38.0" />
                                     <Rectangle fx:id="aRoof" arcHeight="5.0" arcWidth="5.0" fill="ALICEBLUE" height="80.0" layoutX="129.0" layoutY="34.0" onMouseClicked="#handleARoofClicked" stroke="BLACK" strokeType="INSIDE" width="42.0" />
@@ -87,7 +87,7 @@
                      </children>
                   </VBox>
                   <!-- B jármű -->
-                  <VBox fx:id="B_car" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #F1F143" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                  <VBox prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #F1F143" GridPane.columnIndex="1" GridPane.rowIndex="1">
                      <padding>
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </padding>
