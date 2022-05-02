@@ -6,14 +6,14 @@ public class Car {
     private String brand;
     private String type;
     private String licensePlate;
-    private String VIN;
+    private String nameOfInsurer;
     private final List<CarPart> carPartsList;
 
-    public Car(String brand, String type, String licensePlate, String VIN, List<CarPart> parts) {
+    public Car(String brand, String type, String licensePlate, String nameOfInsurer, List<CarPart> carPartsList) {
         this.brand = brand;
         this.type = type;
         this.licensePlate = licensePlate;
-        this.VIN = VIN;
+        this.nameOfInsurer = nameOfInsurer;
         this.carPartsList = CarPart.initCarPartList();
     }
 
@@ -41,15 +41,15 @@ public class Car {
         this.licensePlate = licensePlate;
     }
 
-    public String getVIN() {
-        return VIN;
+    public String getNameOfInsurer() {
+        return nameOfInsurer;
     }
 
-    public void setVIN(String VIN) {
-        this.VIN = VIN;
+    public void setNameOfInsurer(String nameOfInsurer) {
+        this.nameOfInsurer = nameOfInsurer;
     }
 
-    public List<CarPart> getParts() {
+    public List<CarPart> getCarPartsList() {
         return carPartsList;
     }
 }

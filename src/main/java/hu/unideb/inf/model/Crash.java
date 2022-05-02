@@ -5,17 +5,21 @@ public class Crash {
     private Person personB;
     private Car carA;
     private Car carB;
-    // TODO: DateTimePicker mezőt felvenni, ha megvan
     private String commentA;
     private String commentB;
+    private String crashAddress;
+    private DateTimePicker dateOfCrash;
+    // TODO: kép tárolása
 
-    public Crash(Person personA, Person personB, Car carA, Car carB, String commentA, String commentB) {
+    public Crash(Person personA, Person personB, Car carA, Car carB, String commentA, String commentB, String crashAddress, DateTimePicker dateOfCrash) {
         this.personA = personA;
         this.personB = personB;
         this.carA = carA;
         this.carB = carB;
         this.commentA = commentA;
         this.commentB = commentB;
+        this.crashAddress = crashAddress;
+        this.dateOfCrash = dateOfCrash;
     }
 
     public Person getPersonA() {
@@ -66,9 +70,29 @@ public class Crash {
         this.commentB = commentB;
     }
 
+    public String getCrashAddress() {
+        return crashAddress;
+    }
+
+    public void setCrashAddress(String crashAddress) {
+        this.crashAddress = crashAddress;
+    }
+
+    public DateTimePicker getDateOfCrash() {
+        return dateOfCrash;
+    }
+
+    public void setDateOfCrash(DateTimePicker dateOfCrash) {
+        this.dateOfCrash = dateOfCrash;
+    }
+
     @Override
     public String toString() {
-        return String.format("%s %s - %s %s Dátum: %s", personA.getLastName(), personA.getFirstName(),
-            personB.getLastName(), personB.getFirstName(), "TODO: DateTimePicker");
+        return "Crash{" +
+                "personA=" + personA.getFirstName() +
+                ", personB=" + personB.getFirstName() +
+                ", crashAddress='" + crashAddress + '\'' +
+                ", dateOfCrash=" + dateOfCrash +
+                '}';
     }
 }
