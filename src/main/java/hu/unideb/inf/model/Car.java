@@ -1,19 +1,20 @@
 package hu.unideb.inf.model;
 
+import java.time.Year;
 import java.util.List;
 
 public class Car {
     private String brand;
     private String type;
     private String licensePlate;
-    private String VIN;
+    private Year year;
     private final List<CarPart> carPartsList;
 
-    public Car(String brand, String type, String licensePlate, String VIN, List<CarPart> parts) {
+    public Car(String brand, String type, String licensePlate, Year year, List<CarPart> carPartsList) {
         this.brand = brand;
         this.type = type;
         this.licensePlate = licensePlate;
-        this.VIN = VIN;
+        this.year = year;
         this.carPartsList = CarPart.initCarPartList();
     }
 
@@ -41,15 +42,15 @@ public class Car {
         this.licensePlate = licensePlate;
     }
 
-    public String getVIN() {
-        return VIN;
+    public Year getYear() {
+        return year;
     }
 
-    public void setVIN(String VIN) {
-        this.VIN = VIN;
+    public void setYear(Year year) {
+        this.year = year;
     }
 
-    public List<CarPart> getParts() {
+    public List<CarPart> getCarPartsList() {
         return carPartsList;
     }
 }
