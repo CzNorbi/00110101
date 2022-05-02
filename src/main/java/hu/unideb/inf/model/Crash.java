@@ -68,6 +68,7 @@ public class Crash {
 
     @Override
     public String toString() {
-        return String.format("%s %s - Dátum: %s", personA.getName(), personB.getName(), "TODO datepicker");
+        return String.format("%s %s - %s %s Dátum: %s", personA.getLastName(), personA.getFirstName(),
+            personB.getLastName(), personB.getFirstName(), "TODO: DateTimePicker");
     }
 }
