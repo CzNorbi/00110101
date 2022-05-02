@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.DialogPane?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<?import hu.unideb.inf.DateTimePicker?>
+<DialogPane prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hu.unideb.inf.NewIncidentDialogController">
+   <content>
+      <ScrollPane minHeight="500.0" minWidth="705.0" prefHeight="1500.0" prefWidth="701.0">
+         <content>
+            <GridPane alignment="TOP_CENTER" prefHeight="1100.0" prefWidth="660.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="80.0"  prefHeight="50.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="1200.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <VBox prefHeight="150.0" prefWidth="100.0">
+                     <children>
+                         <Label prefHeight="18.0" prefWidth="207.0" text=" Baleset időpontja(Dátum, óra, perc): " />
+                        <DateTimePicker fx:id="timeOfIncident" prefHeight="26.0" prefWidth="202.0" />
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="150.0" prefWidth="100.0" GridPane.columnIndex="1">
+                     <children>
+                        <Label prefHeight="18.0" prefWidth="133.0" text="Baleset Helyszíne: " />
+                        <TextArea fx:id="locationOfIncident" maxWidth="320.0" minWidth="270.0" prefHeight="50.0" prefWidth="325.0" />
+                     </children>
+                  </VBox>
+                  <!-- A jármű -->
+                  <VBox prefHeight="900.0" prefWidth="100.0" style="-fx-background-color: #238BDF" GridPane.rowIndex="1">
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </padding>
+                     <children>
+                        <Label alignment="CENTER" prefHeight="27.0" prefWidth="337.0" text="A jármű">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <VBox prefHeight="900.0" prefWidth="318.0" style="-fx-background-color: #FFFFFF">
+                           <children>
+                              <Label alignment="CENTER_LEFT" text="Kersztnév:" />
+                              <TextField fx:id="aFirstName" />
+                              <Label alignment="CENTER_LEFT" text="Vezetéknév:" />
+                              <TextField fx:id="aLastName" />
+                              <Label alignment="CENTER_LEFT" text="Születési dátum:" />
+                              <DatePicker fx:id="aDateOfBirth" />
+                              <Label alignment="CENTER_LEFT" text="Lakcím:" />
+                              <TextArea fx:id="aAddress" prefHeight="64.0" />
+                              <Label alignment="CENTER_LEFT" text="Jogosítvány szám:" />
+                              <TextField fx:id="aDrivingLicenseNumber" />
+                              <Label alignment="CENTER_LEFT" text="Telefon:" />
+                              <TextField fx:id="aPhone" />
+                              <Label alignment="CENTER_LEFT" text="Jármű gyártmánya:" />
+                              <TextField fx:id="aCarBrand" />
+                              <Label alignment="CENTER_LEFT" text="Jármű típusa:" />
+                              <TextField fx:id="aCarType" />
+                              <Label alignment="CENTER_LEFT" text="Rendszám:" />
+                              <TextField fx:id="aCarLicensePlate" />
+                              <Label alignment="CENTER_LEFT" text="Felelőségbiztosító:" />
+                              <TextArea fx:id="aInsurer" prefHeight="64.0" />
+                              <Label alignment="CENTER_LEFT" text="Megjegyzések:" />
+                              <TextArea fx:id="aComment" prefHeight="64.0" />
+                              <Label alignment="CENTER_LEFT" text="Sérült részek:" />
+                              <AnchorPane prefHeight="150.0" prefWidth="300.0" style="-fx-border-color: BLACK">
+                                 <children>
+                                    <Rectangle fx:id="aHood" arcHeight="5.0" arcWidth="5.0" fill="ALICEBLUE" height="80.0" layoutX="50" layoutY="34.0" onMouseClicked="#handleAHoodClicked" stroke="BLACK" strokeType="INSIDE" width="55.0" />
+                                    <Rectangle fx:id="aFrontRightDoor" arcHeight="5.0" arcWidth="5.0" fill="#ffffff" height="15.0" layoutX="104.0" layoutY="20" onMouseClicked="#handleAFrontRightDoorClicked" stroke="BLACK" strokeType="INSIDE" width="45.0" />
+                                    <Rectangle fx:id="aBackRightDoor" arcHeight="5.0" arcWidth="5.0" fill="#ffffff" height="15.0" layoutX="149.0" layoutY="20" onMouseClicked="#handleABackRightDoorClicked" stroke="BLACK" strokeType="INSIDE" width="45.0" />
+                                    <Rectangle fx:id="aBackLeftDoor" arcHeight="5.0" arcWidth="5.0" fill="#ffffff" height="15.0" layoutX="149.0" layoutY="114.0" onMouseClicked="#handleABackLeftDoorClick" stroke="BLACK" strokeType="INSIDE" width="45.0" />
+                                    <Rectangle fx:id="aFrontLeftDoor" arcHeight="5.0" arcWidth="5.0" fill="#f0f8ff" height="15.0" layoutX="104.0" layoutY="114.0" onMouseClicked="#handleAFrontLeftDoorClick" stroke="BLACK" strokeType="INSIDE" width="45.0" />
+                                    <Rectangle fx:id="aTrunk" arcHeight="5.0" arcWidth="5.0" fill="ALICEBLUE" height="80.0" layoutX="194.0" layoutY="34.0" onMouseClicked="#handleATrunkClicked" stroke="BLACK" strokeType="INSIDE" width="38.0" />
+                                    <Rectangle fx:id="aRoof" arcHeight="5.0" arcWidth="5.0" fill="ALICEBLUE" height="80.0" layoutX="129.0" layoutY="34.0" onMouseClicked="#handleARoofClicked" stroke="BLACK" strokeType="INSIDE" width="42.0" />
+                                    <Rectangle fx:id="aFrontRightWheel" arcHeight="5.0" arcWidth="5.0" height="10.0" layoutX="65.0" layoutY="23.0" onMouseClicked="#handleAFrontRightWheelClicked" stroke="BLACK" strokeType="INSIDE" width="26.0" />
+                                    <Rectangle fx:id="aBackLeftWheel" arcHeight="5.0" arcWidth="5.0" height="10.0" layoutX="200.0" layoutY="115.0" onMouseClicked="#handleABackLeftWheelClick" stroke="BLACK" strokeType="INSIDE" width="26.0" />
+                                    <Rectangle fx:id="aBackRightWheel" arcHeight="5.0" arcWidth="5.0" height="10.0" layoutX="200.0" layoutY="23.0" onMouseClicked="#handleABackRightWheelClicked" stroke="BLACK" strokeType="INSIDE" width="26.0" />
+                                    <Rectangle fx:id="aFrontLeftWheel" arcHeight="5.0" arcWidth="5.0" height="10.0" layoutX="65.0" layoutY="115.0" onMouseClicked="#handleAFrontLeftWheelClicked" stroke="BLACK" strokeType="INSIDE" width="26.0" />
+                                    <Rectangle fx:id="aFrontWindshield" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="80.0" layoutX="105.0" layoutY="35.0" onMouseClicked="#handleAFrontWindshieldClicked" stroke="BLACK" strokeType="INSIDE" width="25.0" />
+                                    <Rectangle fx:id="aBackWindshield" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="80.0" layoutX="171.0" layoutY="34.0" onMouseClicked="#handleABackWindshieldClicked" stroke="BLACK" strokeType="INSIDE" width="23.0" />
+                                 </children>
+                              </AnchorPane>
+                              <Label text="Kép feltöltése:" />
+                              <Button fx:id="aFileUploadButton" mnemonicParsing="false" onMouseClicked="#handleAFileUploadButton" text="Állomány feltöltése" />
+                              <ListView fx:id="aFiles" prefHeight="100.0" prefWidth="200.0" />
+                           </children>
+                        </VBox>
+                     </children>
+                  </VBox>
+                  <!-- B jármű -->
+                  <VBox prefHeight="900.0" prefWidth="100.0" style="-fx-background-color: #F1F143" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </padding>
+                     <children>
+                        <Label alignment="CENTER" prefHeight="27.0" prefWidth="341.0" text="B jármű">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <VBox prefHeight="900.0" prefWidth="318.0" style="-fx-background-color: #FFFFFF">
+                           <children>
+                              <Label alignment="CENTER_LEFT" text="Kersztnév:" />
+                              <TextField fx:id="bFirstName" />
+                              <Label alignment="CENTER_LEFT" text="Vezetéknév:" />
+                              <TextField fx:id="bLastName" />
+                              <Label alignment="CENTER_LEFT" text="Születési dátum:" />
+                              <DatePicker fx:id="bDateOfBirth" />
+                              <Label alignment="CENTER_LEFT" text="Lakcím:" />
+                              <TextArea fx:id="bAddress" prefHeight="64.0" />
+                              <Label alignment="CENTER_LEFT" text="Jogosítvány szám:" />
+                              <TextField fx:id="bDrivingLicenseNumber" />
+                              <Label alignment="CENTER_LEFT" text="Telefon:" />
+                              <TextField fx:id="bPhone" />
+                              <Label alignment="CENTER_LEFT" text="Jármű gyártmánya:" />
+                              <TextField fx:id="bCarBrand" />
+                              <Label alignment="CENTER_LEFT" text="Jármű típusa:" />
+                              <TextField fx:id="bCarType" />
+                              <Label alignment="CENTER_LEFT" text="Rendszám:" />
+                              <TextField fx:id="bCarLicensePlate" />
+                              <Label alignment="CENTER_LEFT" text="Felelőségbiztosító:" />
+                              <TextArea fx:id="bInsurer" prefHeight="64.0" />
+                              <Label alignment="CENTER_LEFT" text="Megjegyzések:" />
+                              <TextArea fx:id="bComment" prefHeight="64.0" />
+                              <Label alignment="CENTER_LEFT" text="Sérült részek:" />
+                              <AnchorPane prefHeight="150.0" prefWidth="300.0" style="-fx-border-color: BLACK">
+                                 <children>
+                                    <Rectangle fx:id="bHood" arcHeight="5.0" arcWidth="5.0" fill="ALICEBLUE" height="80.0" layoutX="50" layoutY="34.0" onMouseClicked="#handleBHoodClicked" stroke="BLACK" strokeType="INSIDE" width="55.0" />
+                                    <Rectangle fx:id="bFrontRightDoor" arcHeight="5.0" arcWidth="5.0" fill="#f0f8ff" height="15.0" layoutX="104.0" layoutY="20" onMouseClicked="#handleBFrontRightDoorClicked" stroke="BLACK" strokeType="INSIDE" width="45.0" />
+                                    <Rectangle fx:id="bBackRightDoor" arcHeight="5.0" arcWidth="5.0" fill="#f0f8ff" height="15.0" layoutX="149.0" layoutY="20" onMouseClicked="#handleBBackRightDoorClicked" stroke="BLACK" strokeType="INSIDE" width="45.0" />
+                                    <Rectangle fx:id="bBackLeftDoor" arcHeight="5.0" arcWidth="5.0" fill="#f0f8ff" height="15.0" layoutX="149.0" layoutY="114.0" onMouseClicked="#handleBBackLeftDoorClick" stroke="BLACK" strokeType="INSIDE" width="45.0" />
+                                    <Rectangle fx:id="bFrontLeftDoor" arcHeight="5.0" arcWidth="5.0" fill="#f0f8ff" height="15.0" layoutX="104.0" layoutY="114.0" onMouseClicked="#handleBFrontLeftDoorClick" stroke="BLACK" strokeType="INSIDE" width="45.0" />
+                                    <Rectangle fx:id="bTrunk" arcHeight="5.0" arcWidth="5.0" fill="ALICEBLUE" height="80.0" layoutX="194.0" layoutY="34.0" onMouseClicked="#handleBTrunkClicked" stroke="BLACK" strokeType="INSIDE" width="38.0" />
+                                    <Rectangle fx:id="bRoof" arcHeight="5.0" arcWidth="5.0" fill="ALICEBLUE" height="80.0" layoutX="129.0" layoutY="34.0" onMouseClicked="#handleBRoofClicked" stroke="BLACK" strokeType="INSIDE" width="42.0" />
+                                    <Rectangle fx:id="bFrontRightWheel" arcHeight="5.0" arcWidth="5.0" height="10.0" layoutX="65.0" layoutY="23.0" onMouseClicked="#handleBFrontRightWheelClicked" stroke="BLACK" strokeType="INSIDE" width="26.0" />
+                                    <Rectangle fx:id="bBackLeftWheel" arcHeight="5.0" arcWidth="5.0" height="10.0" layoutX="200.0" layoutY="115.0" onMouseClicked="#handleBBackLeftWheelClick" stroke="BLACK" strokeType="INSIDE" width="26.0" />
+                                    <Rectangle fx:id="bBackRightWheel" arcHeight="5.0" arcWidth="5.0" height="10.0" layoutX="200.0" layoutY="23.0" onMouseClicked="#handleBBackRightWheelClicked" stroke="BLACK" strokeType="INSIDE" width="26.0" />
+                                    <Rectangle fx:id="bFrontLeftWheel" arcHeight="5.0" arcWidth="5.0" height="10.0" layoutX="65.0" layoutY="115.0" onMouseClicked="#handleBFrontLeftWheelClicked" stroke="BLACK" strokeType="INSIDE" width="26.0" />
+                                    <Rectangle fx:id="bFrontWindshield" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="80.0" layoutX="105.0" layoutY="35.0" onMouseClicked="#handleBFrontWindshieldClicked" stroke="BLACK" strokeType="INSIDE" width="25.0" />
+                                    <Rectangle fx:id="bBackWindshield" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="80.0" layoutX="171.0" layoutY="34.0" onMouseClicked="#handleBBackWindshieldClicked" stroke="BLACK" strokeType="INSIDE" width="23.0" />
+                                 </children>
+                              </AnchorPane>
+                              <Label text="Kép feltöltése:" />
+                              <Button fx:id="bFileUploadButton" mnemonicParsing="false" onMouseClicked="#handleBFileUploadButton" text="Állomány feltöltése" />
+                              <ListView fx:id="bFiles" prefHeight="100.0" prefWidth="200.0" />
+                           </children>
+                        </VBox>
+                     </children>
+                  </VBox>
+               </children>
+            </GridPane>
+         </content>
+      </ScrollPane>
+   </content>
+   <header>
+      <Label alignment="CENTER" contentDisplay="CENTER" text="Új baleset bejelentés" textAlignment="CENTER">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+   </header>
+</DialogPane>
