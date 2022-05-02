@@ -1,5 +1,8 @@
 package hu.unideb.inf;
 
+import hu.unideb.inf.model.Crash;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -16,9 +19,11 @@ import java.util.ResourceBundle;
 
 public class MainWindowController implements Initializable {
 
+    ObservableList<Crash> crashes;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+        crashes = FXCollections.observableArrayList();
     }
 
     // Car parts:
@@ -195,9 +200,8 @@ public class MainWindowController implements Initializable {
         if (result.isPresent() && result.get() == ButtonType.OK)
         {
             // Megadott adatok elmentése
-            NewCrashDialogController controller = fxmlLoader.getController();
-            // CrashIncident newCrash = controller.processResult();
-            // TODO Listába beletenni
+            NewIncidentDialogController controller = fxmlLoader.getController();
+            crashes.add(controller.processResult());
         }
     }
 }

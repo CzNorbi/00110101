@@ -1,5 +1,7 @@
 package hu.unideb.inf.model;
 
+import java.time.LocalDateTime;
+
 public class Crash {
     private Person personA;
     private Person personB;
@@ -8,10 +10,10 @@ public class Crash {
     private String commentA;
     private String commentB;
     private String crashAddress;
-    private DateTimePicker dateOfCrash;
+    private LocalDateTime dateOfCrash;
     // TODO: kép tárolása
 
-    public Crash(Person personA, Person personB, Car carA, Car carB, String commentA, String commentB, String crashAddress, DateTimePicker dateOfCrash) {
+    public Crash(Person personA, Person personB, Car carA, Car carB, String commentA, String commentB, String crashAddress, LocalDateTime dateOfCrash) {
         this.personA = personA;
         this.personB = personB;
         this.carA = carA;
@@ -78,11 +80,11 @@ public class Crash {
         this.crashAddress = crashAddress;
     }
 
-    public DateTimePicker getDateOfCrash() {
+    public LocalDateTime getDateOfCrash() {
         return dateOfCrash;
     }
 
-    public void setDateOfCrash(DateTimePicker dateOfCrash) {
+    public void setDateOfCrash(LocalDateTime dateOfCrash) {
         this.dateOfCrash = dateOfCrash;
     }
 

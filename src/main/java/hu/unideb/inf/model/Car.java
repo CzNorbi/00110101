@@ -7,14 +7,14 @@ public class Car {
     private String type;
     private String licensePlate;
     private String nameOfInsurer;
-    private final List<CarPart> carPartsList;
+    private final CarParts parts;
 
-    public Car(String brand, String type, String licensePlate, String nameOfInsurer, List<CarPart> carPartsList) {
+    public Car(String brand, String type, String licensePlate, String nameOfInsurer, CarParts parts) {
         this.brand = brand;
         this.type = type;
         this.licensePlate = licensePlate;
         this.nameOfInsurer = nameOfInsurer;
-        this.carPartsList = CarPart.initCarPartList();
+        this.parts = parts;
     }
 
     public String getBrand() {
@@ -49,7 +49,7 @@ public class Car {
         this.nameOfInsurer = nameOfInsurer;
     }
 
-    public List<CarPart> getCarPartsList() {
-        return carPartsList;
+    public CarParts getParts() {
+        return parts;
     }
 }

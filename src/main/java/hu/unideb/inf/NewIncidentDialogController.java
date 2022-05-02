@@ -1,5 +1,6 @@
 package hu.unideb.inf;
 
+import hu.unideb.inf.model.*;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
@@ -10,6 +11,11 @@ import java.io.File;
 import java.util.List;
 
 public class NewIncidentDialogController {
+
+    // CarParts
+
+    CarParts aParts = new CarParts();
+    CarParts bParts = new CarParts();
 
     //Incident data
     @FXML
@@ -181,6 +187,8 @@ public class NewIncidentDialogController {
     @FXML
     private Button bFileUploadButton;
 
+    // TODO: nem minding level 0 a kezdő sérülés pl.: betöltéskor
+    // TODO: Observer, ami változtatja a színt a jelenlegi damage Level alapján
     @FXML
     int damageLevel(Rectangle carPart)
     {
@@ -252,133 +260,174 @@ public class NewIncidentDialogController {
     // A Events
     @FXML
     void handleAHoodClicked(MouseEvent event) {
-        System.out.println(damageLevel(aHood));
+        //System.out.println(damageLevel(aHood));
+        aParts.setHood(CarParts.next(aParts.getHood()));
+        System.out.println(aParts.getHood());
     }
 
     @FXML
     void handleARoofClicked(MouseEvent event) {
         System.out.println(damageLevel(aRoof));
+        aParts.setRoof(CarParts.next(aParts.getRoof()));
     }
 
     @FXML
     void handleATrunkClicked(MouseEvent event) {
         System.out.println(damageLevel(aTrunk));
+        aParts.setTrunk(CarParts.next(aParts.getTrunk()));
     }
 
     @FXML
     void handleABackLeftDoorClick(MouseEvent event) {
         System.out.println(damageLevel(aBackLeftDoor));
+        aParts.setBlDoor(CarParts.next(aParts.getBlDoor()));
     }
 
     @FXML
     void handleABackRightDoorClicked(MouseEvent event) {
         System.out.println(damageLevel(aBackRightDoor));
+        aParts.setBrDoor(CarParts.next(aParts.getBrDoor()));
     }
 
     @FXML
     void handleAFrontLeftDoorClick(MouseEvent event) {
         System.out.println(damageLevel(aFrontLeftDoor));
+        aParts.setFlDoor(CarParts.next(aParts.getFlDoor()));
     }
 
     @FXML
     void handleAFrontRightDoorClicked(MouseEvent event) {
         System.out.println(damageLevel(aFrontRightDoor));
+        aParts.setFrDoor(CarParts.next(aParts.getFrDoor()));
     }
 
     @FXML
     void handleABackLeftWheelClick(MouseEvent event) {
         System.out.println(damageLevel(aBackLeftWheel));
+        aParts.setBlWheel(CarParts.next(aParts.getBlWheel()));
     }
 
     @FXML
     void handleABackRightWheelClicked(MouseEvent event) {
         System.out.println(damageLevel(aFrontRightWheel));
+        aParts.setBrWheel(CarParts.next(aParts.getBrWheel()));
     }
 
     @FXML
     void handleAFrontLeftWheelClicked(MouseEvent event) {
         System.out.println(damageLevel(aFrontLeftWheel));
+        aParts.setFlWheel(CarParts.next(aParts.getFlWheel()));
     }
 
     @FXML
     void handleAFrontRightWheelClicked(MouseEvent event) {
         System.out.println(damageLevel(aBackLeftWheel));
+        aParts.setFrWheel(CarParts.next(aParts.getFrWheel()));
     }
 
     @FXML
     void handleABackWindshieldClicked(MouseEvent event) {
         System.out.println(damageLevel(aBackWindshield));
+        aParts.setbWindshield(CarParts.next(aParts.getbWindshield()));
     }
 
     @FXML
     void handleAFrontWindshieldClicked(MouseEvent event) {
         System.out.println(damageLevel(aBackLeftWheel));
+        aParts.setfWindshield(CarParts.next(aParts.getfWindshield()));
     }
 
     // B Events
     @FXML
     void handleBHoodClicked(MouseEvent event) {
         System.out.println(damageLevel(bHood));
+        bParts.setHood(CarParts.next(bParts.getHood()));
     }
 
     @FXML
     void handleBRoofClicked(MouseEvent event) {
         System.out.println(damageLevel(bRoof));
+        bParts.setRoof(CarParts.next(bParts.getRoof()));
     }
 
     @FXML
     void handleBTrunkClicked(MouseEvent event) {
         System.out.println(damageLevel(bTrunk));
+        bParts.setTrunk(CarParts.next(bParts.getTrunk()));
     }
 
     @FXML
     void handleBBackLeftDoorClick(MouseEvent event) {
         System.out.println(damageLevel(bBackLeftDoor));
+        bParts.setBlDoor(CarParts.next(bParts.getBlDoor()));
     }
 
     @FXML
     void handleBBackRightDoorClicked(MouseEvent event) {
         System.out.println(damageLevel(bBackRightDoor));
+        bParts.setBrDoor(CarParts.next(bParts.getBrDoor()));
     }
 
     @FXML
     void handleBFrontLeftDoorClick(MouseEvent event) {
         System.out.println(damageLevel(bFrontLeftDoor));
+        bParts.setFlDoor(CarParts.next(bParts.getFlDoor()));
     }
 
     @FXML
     void handleBFrontRightDoorClicked(MouseEvent event) {
         System.out.println(damageLevel(bFrontRightDoor));
+        bParts.setFrDoor(CarParts.next(bParts.getFrDoor()));
     }
 
     @FXML
     void handleBBackLeftWheelClick(MouseEvent event) {
         System.out.println(damageLevel(bBackLeftWheel));
+        bParts.setBlWheel(CarParts.next(bParts.getBlWheel()));
     }
 
     @FXML
     void handleBBackRightWheelClicked(MouseEvent event) {
         System.out.println(damageLevel(bBackRightWheel));
+        bParts.setBrWheel(CarParts.next(bParts.getBrWheel()));
     }
 
     @FXML
     void handleBFrontLeftWheelClicked(MouseEvent event) {
         System.out.println(damageLevel(bFrontLeftWheel));
+        bParts.setFlWheel(CarParts.next(bParts.getFlWheel()));
     }
 
     @FXML
     void handleBFrontRightWheelClicked(MouseEvent event) {
         System.out.println(damageLevel(bFrontRightWheel));
+        bParts.setFrWheel(CarParts.next(bParts.getFrWheel()));
     }
 
     @FXML
     void handleBBackWindshieldClicked(MouseEvent event) {
         System.out.println(damageLevel(bBackWindshield));
+        bParts.setbWindshield(CarParts.next(bParts.getbWindshield()));
     }
 
     @FXML
     void handleBFrontWindshieldClicked(MouseEvent event) {
         System.out.println(damageLevel(bFrontWindshield));
+        bParts.setfWindshield(CarParts.next(bParts.getfWindshield()));
+    }
+
+    //TODO bemenet ellenőrzés
+
+    @FXML
+    public Crash processResult() {
+        Person personA = new Person(aFirstName.getText().trim(), aLastName.getText().trim(), aDateOfBirth.getValue(), aDrivingLicenseNumber.getText().trim().toUpperCase(), aAddress.getText().trim(), aPhone.getText().trim());
+        Person personB = new Person(bFirstName.getText().trim(), bLastName.getText().trim(), bDateOfBirth.getValue(), bDrivingLicenseNumber.getText().trim().toUpperCase(), bAddress.getText().trim(), bPhone.getText().trim());
+
+
+        Car carA = new Car(aCarBrand.getText().trim(), aCarType.getText().trim(), aCarLicensePlate.getText().trim(), aInsurer.getText().trim(), aParts);
+        Car carB = new Car(bCarBrand.getText().trim(), bCarType.getText().trim(), bCarLicensePlate.getText().trim(), bInsurer.getText().trim(), bParts);
+
+        return new Crash(personA, personB, carA, carB, aComment.getText(), bComment.getText(), locationOfIncident.getText().trim(), timeOfIncident.getDateTimeValue());
     }
 
 }
