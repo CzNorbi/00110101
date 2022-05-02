@@ -1,0 +1,98 @@
+package hu.unideb.inf.model;
+
+public class Crash {
+    private Person personA;
+    private Person personB;
+    private Car carA;
+    private Car carB;
+    private String commentA;
+    private String commentB;
+    private String crashAddress;
+    private DateTimePicker dateOfCrash;
+    // TODO: kép tárolása
+
+    public Crash(Person personA, Person personB, Car carA, Car carB, String commentA, String commentB, String crashAddress, DateTimePicker dateOfCrash) {
+        this.personA = personA;
+        this.personB = personB;
+        this.carA = carA;
+        this.carB = carB;
+        this.commentA = commentA;
+        this.commentB = commentB;
+        this.crashAddress = crashAddress;
+        this.dateOfCrash = dateOfCrash;
+    }
+
+    public Person getPersonA() {
+        return personA;
+    }
+
+    public void setPersonA(Person personA) {
+        this.personA = personA;
+    }
+
+    public Person getPersonB() {
+        return personB;
+    }
+
+    public void setPersonB(Person personB) {
+        this.personB = personB;
+    }
+
+    public Car getCarA() {
+        return carA;
+    }
+
+    public void setCarA(Car carA) {
+        this.carA = carA;
+    }
+
+    public Car getCarB() {
+        return carB;
+    }
+
+    public void setCarB(Car carB) {
+        this.carB = carB;
+    }
+
+    public String getCommentA() {
+        return commentA;
+    }
+
+    public void setCommentA(String commentA) {
+        this.commentA = commentA;
+    }
+
+    public String getCommentB() {
+        return commentB;
+    }
+
+    public void setCommentB(String commentB) {
+        this.commentB = commentB;
+    }
+
+    public String getCrashAddress() {
+        return crashAddress;
+    }
+
+    public void setCrashAddress(String crashAddress) {
+        this.crashAddress = crashAddress;
+    }
+
+    public DateTimePicker getDateOfCrash() {
+        return dateOfCrash;
+    }
+
+    public void setDateOfCrash(DateTimePicker dateOfCrash) {
+        this.dateOfCrash = dateOfCrash;
+    }
+
+    @Override
+    public String toString() {
+        return "Crash{" +
+                "personA=" + personA.getFirstName() +
+                ", personB=" + personB.getFirstName() +
+                ", crashAddress='" + crashAddress + '\'' +
+                ", dateOfCrash=" + dateOfCrash +
+                '}';
+    }
+}

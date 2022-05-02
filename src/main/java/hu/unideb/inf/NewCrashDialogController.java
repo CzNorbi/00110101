@@ -1,9 +1,7 @@
 package hu.unideb.inf;
 
 import hu.unideb.inf.Database.Client;
-import hu.unideb.inf.Database.Incident;
 import hu.unideb.inf.model.CarPart;
-import hu.unideb.inf.model.CrashIncident;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ChoiceBox;

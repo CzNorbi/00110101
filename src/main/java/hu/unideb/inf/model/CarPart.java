@@ -26,6 +26,10 @@ public class CarPart {
         result.add(new CarPart("roof", Level.NONE));
         result.add(new CarPart("fWindshield", Level.NONE));
         result.add(new CarPart("bWindshield", Level.NONE));
+        result.add(new CarPart("frWheel", Level.NONE));
+        result.add(new CarPart("flWheel", Level.NONE));
+        result.add(new CarPart("brWheel", Level.NONE));
+        result.add(new CarPart("blWheel", Level.NONE));
 
         return result;
     }
