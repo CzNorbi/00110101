@@ -1,6 +1,7 @@
 package hu.unideb.inf.model;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class Crash {
     private Person personA;
@@ -90,11 +91,9 @@ public class Crash {
 
     @Override
     public String toString() {
-        return "Crash{" +
-                "personA=" + personA.getFirstName() +
-                ", personB=" + personB.getFirstName() +
-                ", crashAddress='" + crashAddress + '\'' +
-                ", dateOfCrash=" + dateOfCrash +
-                '}';
+        return String.format("%s %s: %s és %s %s: %s - %s %s",
+                personA.getLastName(), personA.getFirstName(), carA.getLicensePlate(),
+                personB.getLastName(), personB.getFirstName(), carB.getLicensePlate(),
+                crashAddress, dateOfCrash.format(DateTimeFormatter.ofPattern("yyyy MM dd - HH:mm")));
     }
 }

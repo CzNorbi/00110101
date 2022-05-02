@@ -19,6 +19,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
+<?import javafx.scene.control.ListView?>
 <AnchorPane fx:id="mainAnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hu.unideb.inf.MainWindowController">
     <children>
         <TabPane prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
@@ -162,15 +163,7 @@
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
                         <Button layoutX="457.0" layoutY="312.0" mnemonicParsing="false" onAction="#handleButtonNewIncident" prefHeight="34.0" prefWidth="129.0" text="ÚJ BEJELENTÉS" />
-                        <TableView layoutX="14.0" layoutY="15.0" prefHeight="342.0" prefWidth="426.0">
-                          <columns>
-                            <TableColumn prefWidth="75.0" text="Név" />
-                            <TableColumn prefWidth="75.0" text="Lakhely" />
-                              <TableColumn prefWidth="76.0" text="Tel" />
-                              <TableColumn text="Autó típus" />
-                              <TableColumn prefWidth="119.0" text="Sérült részek" />
-                          </columns>
-                        </TableView>
+                         <ListView fx:id="crashListView" layoutX="14.0" layoutY="15.0" prefHeight="342.0" prefWidth="426.0"></ListView>
                      </children>
                   </AnchorPane>
               </content>

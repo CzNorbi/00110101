@@ -24,6 +24,9 @@ public class MainWindowController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         crashes = FXCollections.observableArrayList();
+
+        crashListView.setItems(crashes);
+        crashListView.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
     }
 
     // Car parts:
@@ -85,6 +88,9 @@ public class MainWindowController implements Initializable {
     private DatePicker datePicker;
 
     @FXML
+    private ListView<Crash> crashListView;
+
+    @FXML
     void handleLoadButtonPushed(ActionEvent event) {
         // TODO
     }
@@ -137,6 +143,8 @@ public class MainWindowController implements Initializable {
         statusLabel.setText("Not saved");
     }
 
+
+    // ???
     @FXML
     void handleButtonPushed(){
         boolean valid = true;
