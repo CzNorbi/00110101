@@ -16,11 +16,11 @@ public class MainApp extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        FXMLLoader loader = new FXMLLoader(MainApp.class.getResource("/view/LoginWindow.fxml"));
+        FXMLLoader loader = new FXMLLoader(MainApp.class.getResource("/view/MainWindow.fxml"));
         Scene scene = new Scene(loader.load());
         // TODO: css ismételt használata
         // scene.getStylesheets().add("/styles/Styles.css");
-        stage.setTitle("Login");
+        stage.setTitle("Czier's Incident");
         stage.setScene(scene);
         stage.show();
     }

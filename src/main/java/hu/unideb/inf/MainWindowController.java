@@ -183,7 +183,7 @@ public class MainWindowController implements Initializable {
         FXMLLoader fxmlLoader = new FXMLLoader();
         dialog.setTitle("Új baleset felvétele");
         dialog.setHeaderText("Használd ezt az ablakot új baleset felvételéhez");
-        fxmlLoader.setLocation(getClass().getResource("/view/NewCrashDialog.fxml"));
+        fxmlLoader.setLocation(getClass().getResource("/view/NewIncidentDialog.fxml"));
         try {
             dialog.getDialogPane().setContent(fxmlLoader.load());
         } catch (IOException e) {

@@ -3,7 +3,6 @@ package hu.unideb.inf;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.VBox;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.FileChooser;
 
@@ -14,20 +13,39 @@ public class NewIncidentDialogController {
 
     //Incident data
     @FXML
-    private Label locationOfIncident;
+    private TextArea locationOfIncident;
 
     @FXML
-    private Label timeOfIncident;
+    private DateTimePicker timeOfIncident;
 
     // Person A data
     @FXML
-    private TextField aName;
+    private TextField aFirstName;
+
+    @FXML
+    private TextField aLastName;
+
+    @FXML
+    private DatePicker aDateOfBirth;
 
     @FXML
     private TextArea aAddress;
 
     @FXML
+    private TextField aDrivingLicenseNumber;
+
+    @FXML
     private TextField aPhone;
+
+    //Car A data
+    @FXML
+    private TextField aCarBrand;
+
+    @FXML
+    private TextField aCarType;
+
+    @FXML
+    private TextField aCarLicensePlate;
 
     @FXML
     private TextArea aInsurer;
@@ -77,16 +95,35 @@ public class NewIncidentDialogController {
 
     //Person B data
     @FXML
-    private TextArea bInsurer;
+    private TextField bFirstName;
 
     @FXML
-    private TextField bName;
+    private TextField bLastName;
+
+    @FXML
+    private DatePicker bDateOfBirth;
+
+    @FXML
+    private TextArea bAddress;
+
+    @FXML
+    private TextField bDrivingLicenseNumber;
 
     @FXML
     private TextField bPhone;
 
+    //Car B data
     @FXML
-    private TextArea bAddress;
+    private TextField bCarBrand;
+
+    @FXML
+    private TextField bCarType;
+
+    @FXML
+    private TextField bCarLicensePlate;
+
+    @FXML
+    private TextArea bInsurer;
 
     @FXML
     private TextArea bComment;
@@ -131,7 +168,7 @@ public class NewIncidentDialogController {
     @FXML
     private Rectangle bTrunk;
 
-    //Other
+    //File upload
     @FXML
     private ListView<String> aFiles;
 
@@ -180,7 +217,6 @@ public class NewIncidentDialogController {
         return level;
     }
 
-    // A Events
     @FXML
     void handleAFileUploadButton(MouseEvent event) {
         FileChooser fc = new FileChooser();
@@ -213,6 +249,7 @@ public class NewIncidentDialogController {
         }
     }
 
+    // A Events
     @FXML
     void handleAHoodClicked(MouseEvent event) {
         System.out.println(damageLevel(aHood));

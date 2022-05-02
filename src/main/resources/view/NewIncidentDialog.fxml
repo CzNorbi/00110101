@@ -17,34 +17,35 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
+<?import hu.unideb.inf.DateTimePicker?>
 <DialogPane prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hu.unideb.inf.NewIncidentDialogController">
    <content>
-      <ScrollPane minHeight="500.0" minWidth="705.0" prefHeight="700.0" prefWidth="701.0">
+      <ScrollPane minHeight="500.0" minWidth="705.0" prefHeight="1500.0" prefWidth="701.0">
          <content>
-            <GridPane alignment="TOP_CENTER" prefHeight="800.0" prefWidth="660.0">
+            <GridPane alignment="TOP_CENTER" prefHeight="1100.0" prefWidth="660.0">
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
               </columnConstraints>
               <rowConstraints>
-                <RowConstraints maxHeight="80.0" minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="10.0" prefHeight="700.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="80.0"  prefHeight="50.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="1200.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
                   <VBox prefHeight="150.0" prefWidth="100.0">
                      <children>
-                         <Label fx:id="timeOfIncident" prefHeight="18.0" prefWidth="207.0" text=" Baleset időpontja(Dátum, óra, perc): " />
-                        <DatePicker prefHeight="26.0" prefWidth="202.0" />
+                         <Label prefHeight="18.0" prefWidth="207.0" text=" Baleset időpontja(Dátum, óra, perc): " />
+                        <DateTimePicker fx:id="timeOfIncident" prefHeight="26.0" prefWidth="202.0" />
                      </children>
                   </VBox>
                   <VBox prefHeight="150.0" prefWidth="100.0" GridPane.columnIndex="1">
                      <children>
-                        <Label fx:id="locationOfIncident" prefHeight="18.0" prefWidth="133.0" text="Baleset Helyszíne: " />
-                        <TextArea maxWidth="320.0" minWidth="270.0" prefHeight="50.0" prefWidth="325.0" />
+                        <Label prefHeight="18.0" prefWidth="133.0" text="Baleset Helyszíne: " />
+                        <TextArea fx:id="locationOfIncident" maxWidth="320.0" minWidth="270.0" prefHeight="50.0" prefWidth="325.0" />
                      </children>
                   </VBox>
                   <!-- A jármű -->
-                  <VBox prefHeight="600.0" prefWidth="100.0" style="-fx-background-color: #238BDF" GridPane.rowIndex="1">
+                  <VBox prefHeight="900.0" prefWidth="100.0" style="-fx-background-color: #238BDF" GridPane.rowIndex="1">
                      <padding>
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </padding>
@@ -54,14 +55,26 @@
                               <Font size="18.0" />
                            </font>
                         </Label>
-                        <VBox prefHeight="700.0" prefWidth="318.0" style="-fx-background-color: #FFFFFF">
+                        <VBox prefHeight="900.0" prefWidth="318.0" style="-fx-background-color: #FFFFFF">
                            <children>
-                              <Label alignment="CENTER_LEFT" text="Név:" />
-                              <TextField fx:id="aName" />
-                              <Label alignment="CENTER_LEFT" text="Cím:" />
+                              <Label alignment="CENTER_LEFT" text="Kersztnév:" />
+                              <TextField fx:id="aFirstName" />
+                              <Label alignment="CENTER_LEFT" text="Vezetéknév:" />
+                              <TextField fx:id="aLastName" />
+                              <Label alignment="CENTER_LEFT" text="Születési dátum:" />
+                              <DatePicker fx:id="aDateOfBirth" />
+                              <Label alignment="CENTER_LEFT" text="Lakcím:" />
                               <TextArea fx:id="aAddress" prefHeight="64.0" />
+                              <Label alignment="CENTER_LEFT" text="Jogosítvány szám:" />
+                              <TextField fx:id="aDrivingLicenseNumber" />
                               <Label alignment="CENTER_LEFT" text="Telefon:" />
                               <TextField fx:id="aPhone" />
+                              <Label alignment="CENTER_LEFT" text="Jármű gyártmánya:" />
+                              <TextField fx:id="aCarBrand" />
+                              <Label alignment="CENTER_LEFT" text="Jármű típusa:" />
+                              <TextField fx:id="aCarType" />
+                              <Label alignment="CENTER_LEFT" text="Rendszám:" />
+                              <TextField fx:id="aCarLicensePlate" />
                               <Label alignment="CENTER_LEFT" text="Felelőségbiztosító:" />
                               <TextArea fx:id="aInsurer" prefHeight="64.0" />
                               <Label alignment="CENTER_LEFT" text="Megjegyzések:" />
@@ -92,7 +105,7 @@
                      </children>
                   </VBox>
                   <!-- B jármű -->
-                  <VBox prefHeight="600.0" prefWidth="100.0" style="-fx-background-color: #F1F143" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                  <VBox prefHeight="900.0" prefWidth="100.0" style="-fx-background-color: #F1F143" GridPane.columnIndex="1" GridPane.rowIndex="1">
                      <padding>
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </padding>
@@ -102,14 +115,26 @@
                               <Font size="18.0" />
                            </font>
                         </Label>
-                        <VBox prefHeight="700.0" prefWidth="318.0" style="-fx-background-color: #FFFFFF">
+                        <VBox prefHeight="900.0" prefWidth="318.0" style="-fx-background-color: #FFFFFF">
                            <children>
-                              <Label alignment="CENTER_LEFT" text="Név:" />
-                              <TextField fx:id="bName" />
-                              <Label alignment="CENTER_LEFT" text="Cím:" />
+                              <Label alignment="CENTER_LEFT" text="Kersztnév:" />
+                              <TextField fx:id="bFirstName" />
+                              <Label alignment="CENTER_LEFT" text="Vezetéknév:" />
+                              <TextField fx:id="bLastName" />
+                              <Label alignment="CENTER_LEFT" text="Születési dátum:" />
+                              <DatePicker fx:id="bDateOfBirth" />
+                              <Label alignment="CENTER_LEFT" text="Lakcím:" />
                               <TextArea fx:id="bAddress" prefHeight="64.0" />
+                              <Label alignment="CENTER_LEFT" text="Jogosítvány szám:" />
+                              <TextField fx:id="bDrivingLicenseNumber" />
                               <Label alignment="CENTER_LEFT" text="Telefon:" />
                               <TextField fx:id="bPhone" />
+                              <Label alignment="CENTER_LEFT" text="Jármű gyártmánya:" />
+                              <TextField fx:id="bCarBrand" />
+                              <Label alignment="CENTER_LEFT" text="Jármű típusa:" />
+                              <TextField fx:id="bCarType" />
+                              <Label alignment="CENTER_LEFT" text="Rendszám:" />
+                              <TextField fx:id="bCarLicensePlate" />
                               <Label alignment="CENTER_LEFT" text="Felelőségbiztosító:" />
                               <TextArea fx:id="bInsurer" prefHeight="64.0" />
                               <Label alignment="CENTER_LEFT" text="Megjegyzések:" />
