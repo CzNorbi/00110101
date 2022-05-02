@@ -292,7 +292,7 @@ public class NewIncidentDialogController {
 
     @FXML
     void handleABackRightWheelClicked(MouseEvent event) {
-        System.out.println(damageLevel(aBackRightWheel));
+        System.out.println(damageLevel(aFrontRightWheel));
     }
 
     @FXML
