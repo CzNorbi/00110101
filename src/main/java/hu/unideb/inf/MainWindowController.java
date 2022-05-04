@@ -31,9 +31,9 @@ public class MainWindowController implements Initializable {
         crashTableView.getSelectionModel().selectFirst();
 
         // Populate TableViewColumns
-        tableColumnNameA.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getPersonA().getFirstName()));
+        tableColumnNameA.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getPersonA().getLastName() + " " + cellData.getValue().getPersonA().getFirstName()));
         tableColumnLicensePlateA.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getCarA().getLicensePlate()));
-        tableColumnNameB.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getPersonB().getFirstName()));
+        tableColumnNameB.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getPersonB().getLastName() + " " + cellData.getValue().getPersonB().getFirstName()));
         tableColumnLicensePlateB.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getCarB().getLicensePlate()));
         tableColumnCrashLocation.setCellValueFactory(new PropertyValueFactory<>("crashAddress"));
         tableColumnCrashDate.setCellValueFactory(new PropertyValueFactory<>("dateOfCrash"));
