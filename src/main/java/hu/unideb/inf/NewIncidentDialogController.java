@@ -190,9 +190,9 @@ public class NewIncidentDialogController {
     // TODO: nem minding level 0 a kezdő sérülés pl.: betöltéskor
     // TODO: Observer, ami változtatja a színt a jelenlegi damage Level alapján
     @FXML
-    int damageLevel(Rectangle carPart)
+    CarParts.Level damageLevel(Rectangle carPart)
     {
-        int level = 0;
+        CarParts.Level level = CarParts.Level.NONE;
         String basicFill = "-fx-fill: white";
 
         if (carPart.equals(aBackWindshield) || carPart.equals(aFrontWindshield) || carPart.equals(bBackWindshield) ||
@@ -207,20 +207,20 @@ public class NewIncidentDialogController {
 
         if (carPart.getStyle().equals("-fx-fill: #ff0000;")) {
             carPart.setStyle(basicFill);
-            level = 0;
+            level = CarParts.Level.NONE;
         }
         else if (carPart.getStyle().equals("-fx-fill: #ff5c5c;")){
             carPart.setStyle("-fx-fill: #ff0000;");
-            level = 3;
+            level = CarParts.Level.SEVERE;
         }
         else if (carPart.getStyle().equals("-fx-fill: #ffc2c2;"))
         {
             carPart.setStyle("-fx-fill: #ff5c5c;");
-            level = 2;
+            level = CarParts.Level.MODERATE;
         }
         else {
             carPart.setStyle("-fx-fill: #ffc2c2;");
-            level = 1;
+            level = CarParts.Level.MINOR;
         }
         return level;
     }
@@ -260,8 +260,7 @@ public class NewIncidentDialogController {
     // A Events
     @FXML
     void handleAHoodClicked(MouseEvent event) {
-        //System.out.println(damageLevel(aHood));
-        aParts.setHood(CarParts.next(aParts.getHood()));
+        aParts.setHood(damageLevel(aHood));
         System.out.println(aParts.getHood());
     }
 
@@ -309,7 +308,7 @@ public class NewIncidentDialogController {
 
     @FXML
     void handleABackRightWheelClicked(MouseEvent event) {
-        System.out.println(damageLevel(aFrontRightWheel));
+        System.out.println(damageLevel(aBackRightWheel));
         aParts.setBrWheel(CarParts.next(aParts.getBrWheel()));
     }
 
@@ -321,7 +320,7 @@ public class NewIncidentDialogController {
 
     @FXML
     void handleAFrontRightWheelClicked(MouseEvent event) {
-        System.out.println(damageLevel(aBackLeftWheel));
+        System.out.println(damageLevel(aFrontRightWheel));
         aParts.setFrWheel(CarParts.next(aParts.getFrWheel()));
     }
 
@@ -333,7 +332,7 @@ public class NewIncidentDialogController {
 
     @FXML
     void handleAFrontWindshieldClicked(MouseEvent event) {
-        System.out.println(damageLevel(aBackLeftWheel));
+        System.out.println(damageLevel(aFrontWindshield));
         aParts.setfWindshield(CarParts.next(aParts.getfWindshield()));
     }
 
@@ -416,6 +415,38 @@ public class NewIncidentDialogController {
         bParts.setfWindshield(CarParts.next(bParts.getfWindshield()));
     }
 
+    @FXML
+    void setColorByDamageLevel(Rectangle carPart, CarParts.Level level)
+    {
+        if (level == CarParts.Level.NONE)
+        {
+            if (carPart.equals(aBackWindshield) || carPart.equals(aFrontWindshield) || carPart.equals(bBackWindshield) ||
+                    carPart.equals(bFrontWindshield)){
+                carPart.setStyle("-fx-fill: dodgerblue;");
+            }
+            else if (carPart.equals(aBackLeftWheel) || carPart.equals(aBackRightWheel) || carPart.equals(aFrontLeftWheel) ||
+                    carPart.equals(aFrontRightWheel) || carPart.equals(bBackLeftWheel) || carPart.equals(bBackRightWheel) ||
+                    carPart.equals(bFrontLeftWheel) || carPart.equals(bFrontRightWheel)) {
+                carPart.setStyle("-fx-fill: black;");
+            }
+            else {
+                carPart.setStyle("-fx-fill: white;");
+            }
+        }
+        else if (level == CarParts.Level.MINOR)
+        {
+            carPart.setStyle("-fx-fill: #ffc2c2;");
+        }
+        else if (level == CarParts.Level.MODERATE)
+        {
+            carPart.setStyle("-fx-fill: #ff5c5c;");
+        }
+        else
+        {
+            carPart.setStyle("-fx-fill: #ff0000;");
+        }
+    }
+
     //TODO bemenet ellenőrzés
 
     @FXML
@@ -432,7 +463,69 @@ public class NewIncidentDialogController {
 
     public void loadCrash(Crash crash) {
         // TODO betölteni szépen minden mezőt
+        locationOfIncident.setText(crash.getCrashAddress());
+        timeOfIncident.setDateTimeValue(crash.getDateOfCrash());
+        // A
         aFirstName.setText(crash.getPersonA().getFirstName());
+        aLastName.setText(crash.getPersonA().getLastName());
+        aAddress.setText(crash.getPersonA().getAddress());
+        aDrivingLicenseNumber.setText(crash.getPersonA().getDrivingLicenseNumber());
+        aDateOfBirth.setValue(crash.getPersonA().getDateOfBirth());
+        aPhone.setText(crash.getPersonA().getTelNum());
+        aInsurer.setText(crash.getCarA().getNameOfInsurer());
+        aCarLicensePlate.setText(crash.getCarA().getLicensePlate());
+        aCarBrand.setText(crash.getCarA().getBrand());
+        aCarType.setText(crash.getCarA().getType());
+        aComment.setText(crash.getCommentA());
+
+        // A car parts
+        setColorByDamageLevel(aHood, crash.getCarA().getParts().getHood());
+        setColorByDamageLevel(aTrunk, crash.getCarA().getParts().getTrunk());
+        setColorByDamageLevel(aRoof, crash.getCarA().getParts().getRoof());
+        setColorByDamageLevel(aBackRightDoor, crash.getCarA().getParts().getBrDoor());
+        setColorByDamageLevel(aBackLeftDoor, crash.getCarA().getParts().getBlDoor());
+        setColorByDamageLevel(aFrontRightDoor, crash.getCarA().getParts().getFrDoor());
+        setColorByDamageLevel(aFrontLeftDoor, crash.getCarA().getParts().getFlDoor());
+        setColorByDamageLevel(aBackRightWheel, crash.getCarA().getParts().getBrWheel());
+        setColorByDamageLevel(aBackLeftWheel, crash.getCarA().getParts().getBlWheel());
+        setColorByDamageLevel(aFrontRightWheel, crash.getCarA().getParts().getFrWheel());
+        setColorByDamageLevel(aFrontLeftWheel, crash.getCarA().getParts().getFlWheel());
+        setColorByDamageLevel(aBackRightDoor, crash.getCarA().getParts().getBrDoor());
+        setColorByDamageLevel(aBackLeftDoor, crash.getCarA().getParts().getBlDoor());
+        setColorByDamageLevel(aFrontRightDoor, crash.getCarA().getParts().getFrDoor());
+        setColorByDamageLevel(aBackWindshield, crash.getCarA().getParts().getbWindshield());
+        setColorByDamageLevel(aFrontWindshield, crash.getCarA().getParts().getfWindshield());
+
+        //B
+        bFirstName.setText(crash.getPersonB().getFirstName());
+        bLastName.setText(crash.getPersonB().getLastName());
+        bAddress.setText(crash.getPersonB().getAddress());
+        bDrivingLicenseNumber.setText(crash.getPersonB().getDrivingLicenseNumber());
+        bDateOfBirth.setValue(crash.getPersonB().getDateOfBirth());
+        bPhone.setText(crash.getPersonB().getTelNum());
+        bInsurer.setText(crash.getCarB().getNameOfInsurer());
+        bCarLicensePlate.setText(crash.getCarB().getLicensePlate());
+        bCarBrand.setText(crash.getCarB().getBrand());
+        bCarType.setText(crash.getCarB().getType());
+        bComment.setText(crash.getCommentB());
+
+        // B car parts
+        setColorByDamageLevel(bHood, crash.getCarB().getParts().getHood());
+        setColorByDamageLevel(bTrunk, crash.getCarB().getParts().getTrunk());
+        setColorByDamageLevel(bRoof, crash.getCarB().getParts().getRoof());
+        setColorByDamageLevel(bBackRightDoor, crash.getCarB().getParts().getBrDoor());
+        setColorByDamageLevel(bBackLeftDoor, crash.getCarB().getParts().getBlDoor());
+        setColorByDamageLevel(bFrontRightDoor, crash.getCarB().getParts().getFrDoor());
+        setColorByDamageLevel(bFrontLeftDoor, crash.getCarB().getParts().getFlDoor());
+        setColorByDamageLevel(bBackRightWheel, crash.getCarB().getParts().getBrWheel());
+        setColorByDamageLevel(bBackLeftWheel, crash.getCarB().getParts().getBlWheel());
+        setColorByDamageLevel(bFrontRightWheel, crash.getCarB().getParts().getFrWheel());
+        setColorByDamageLevel(bFrontLeftWheel, crash.getCarB().getParts().getFlWheel());
+        setColorByDamageLevel(bBackRightDoor, crash.getCarB().getParts().getBrDoor());
+        setColorByDamageLevel(bBackLeftDoor, crash.getCarB().getParts().getBlDoor());
+        setColorByDamageLevel(bFrontRightDoor, crash.getCarB().getParts().getFrDoor());
+        setColorByDamageLevel(bBackWindshield, crash.getCarB().getParts().getbWindshield());
+        setColorByDamageLevel(bFrontWindshield, crash.getCarB().getParts().getfWindshield());
     }
 
 }
