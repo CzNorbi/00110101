@@ -8,6 +8,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Region;
 import javafx.scene.shape.Rectangle;
@@ -211,5 +212,40 @@ public class MainWindowController implements Initializable {
             NewIncidentDialogController controller = fxmlLoader.getController();
             crashes.add(controller.processResult());
         }
+    }
+
+    @FXML
+    void handleButtonGetIncident() {
+        Dialog<ButtonType> dialog = new Dialog<>();
+        dialog.initOwner(mainAnchorPane.getScene().getWindow());
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        dialog.setTitle("Baleset megtekintése");
+        dialog.setHeaderText("Korábbi bejelentett adatok");
+        fxmlLoader.setLocation(getClass().getResource("/view/NewIncidentDialog.fxml"));
+        try {
+            dialog.getDialogPane().setContent(fxmlLoader.load());
+        } catch (IOException e) {
+            System.out.println("Nem sikerült az új ablakot betölteni");
+            e.printStackTrace();
+            return;
+        }
+
+        dialog.getDialogPane().getButtonTypes().add(ButtonType.OK);
+
+        Optional<ButtonType> result = dialog.showAndWait();
+        /*
+        if (result.isPresent() && result.get() == ButtonType.OK)
+        {
+            // Megadott adatok elmentése
+            NewIncidentDialogController controller = fxmlLoader.getController();
+            crashes.add(controller.processResult());
+        }*/
+    }
+
+    // TODO: külön handler helyes implementálása, inicializálás adatokkal
+    @FXML
+    public void handleMouseClick(MouseEvent mouseEvent) {
+        handleButtonGetIncident();
+        //System.out.println("clicked on " + crashListView.getSelectionModel().getSelectedItem());
     }
 }
