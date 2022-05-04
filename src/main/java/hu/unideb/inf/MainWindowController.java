@@ -1,22 +1,15 @@
 package hu.unideb.inf;
 
-import hu.unideb.inf.model.Car;
 import hu.unideb.inf.model.Crash;
-import hu.unideb.inf.model.Person;
-import javafx.beans.property.SimpleListProperty;
 import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.Region;
-import javafx.scene.shape.Rectangle;
 
 import java.io.IOException;
 import java.net.URL;
@@ -46,65 +39,9 @@ public class MainWindowController implements Initializable {
         tableColumnCrashDate.setCellValueFactory(new PropertyValueFactory<>("dateOfCrash"));
     }
 
-    // Car parts:
-
-    @FXML
-    private Rectangle hood;
-
-    @FXML
-    private Rectangle frDoor; // front
-
-    @FXML
-    private Rectangle flDoor;
-
-    @FXML
-    private Rectangle brDoor; // back
-
-    @FXML
-    private Rectangle blDoor;
-
-    @FXML
-    private Rectangle trunk;
-
-    @FXML
-    private Rectangle fWindshield;
-
-    @FXML
-    private Rectangle bWindshield;
-
-    // End of Car parts
-
     @FXML
     private AnchorPane mainAnchorPane;
 
-    @FXML
-    private Label loadDateOfIncidentLabel;
-
-    @FXML
-    private Label loadCarNameLabel;
-
-    @FXML
-    private Label statusLabel;
-
-    @FXML
-    private TextField crashUserName;
-
-    //@FXML
-    //private ChoiceBox<CrashIncident> incidentPicker;
-
-    @FXML
-    private Region statusBack;
-
-    @FXML
-    private TextField crashCarName;
-
-    @FXML
-    private Label loadNameLabel;
-
-    @FXML
-    private DatePicker datePicker;
-
-    // TableView and TableColumns
     @FXML
     private TableView<Crash> crashTableView;
 
@@ -125,101 +62,6 @@ public class MainWindowController implements Initializable {
 
     @FXML
     private TableColumn<Crash, LocalDateTime> tableColumnCrashDate;
-
-    @FXML
-    void handleLoadButtonPushed(ActionEvent event) {
-        // TODO
-    }
-
-    @FXML
-    void handleCrashDate() {
-
-    }
-
-    @FXML
-    void handleCrashName() {
-
-    }
-
-    @FXML
-    void handleCrashCarName() {
-
-    }
-
-    @FXML
-    void handleHoodClicked() {}
-
-    @FXML
-    void handleTrunkClicked() {}
-
-    @FXML
-    void handleFrontRightDoor() {}
-
-    @FXML
-    void handleFrontLeftDoor() {}
-
-    @FXML
-    void handleBackRightDoor() {}
-
-    @FXML
-    void handleBackLeftDoor() {}
-
-    @FXML
-    void handleFrontWindshield() {}
-
-    @FXML
-    void handleBackWindshield() {}
-
-    @FXML
-    void handleRoof() {}
-
-    @FXML
-    void handleInputChange() {
-        statusBack.setStyle("-fx-background-color: #FFC2C2FF;");
-        statusLabel.setText("Not saved");
-    }
-
-
-    // ???
-    @FXML
-    void handleButtonPushed(){
-        boolean valid = true;
-        if (crashUserName.getText().equals("")) {
-            crashUserName.setStyle("-fx-background-color: #ffc2c2;");
-            valid = false;
-        }
-        else {
-            crashUserName.setStyle("-fx-background-color: white;");
-        }
-        if (crashCarName.getText().equals("")) {
-            crashCarName.setStyle("-fx-background-color: #ffc2c2;");
-            valid = false;
-        }
-        else {
-            crashCarName.setStyle("-fx-background-color: white;");
-        }
-        if (datePicker.getValue() == null) {
-            datePicker.getEditor().setStyle("-fx-background-color: #ffc2c2;");
-            valid = false;
-        }
-        else {
-            datePicker.getEditor().setStyle("-fx-background-color: white;");
-        }
-
-        if (valid) {
-            statusBack.setStyle("-fx-background-color: #d7facc;");
-            statusLabel.setText("Saved!");
-            System.out.println("Hello world!!!");
-            // Gomb funkcionalitás
-            // TODO: Megváltozott
-            //incidents.addCrashIncident(new CrashIncident(crashUserName.getText(), crashCarName.getText(), datePicker.getValue()));
-        }
-        else {
-            statusBack.setStyle("-fx-background-color: #FFC2C2FF;");
-            statusLabel.setText("Invalid input!");
-            System.out.println("Not valid input!!!");
-        }
-    }
 
     @FXML
     void handleButtonNewIncident() {
