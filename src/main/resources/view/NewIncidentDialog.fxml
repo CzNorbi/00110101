@@ -170,7 +170,7 @@
       </ScrollPane>
    </content>
    <header>
-      <Label alignment="CENTER" contentDisplay="CENTER" text="Új baleset bejelentés" textAlignment="CENTER">
+      <Label alignment="CENTER" contentDisplay="CENTER" text="Káresemény jelentés" textAlignment="CENTER">
          <font>
             <Font size="24.0" />
          </font>
