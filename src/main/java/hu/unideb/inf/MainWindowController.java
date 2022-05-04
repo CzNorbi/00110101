@@ -20,7 +20,7 @@ import java.util.ResourceBundle;
 
 public class MainWindowController implements Initializable {
 
-    ObservableList<Crash> crashes;
+    public ObservableList<Crash> crashes;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
