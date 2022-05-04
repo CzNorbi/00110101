@@ -28,6 +28,7 @@ public class MainWindowController implements Initializable {
 
         crashListView.setItems(crashes);
         crashListView.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
+        crashListView.getSelectionModel().selectFirst();
     }
 
     // Car parts:
@@ -215,37 +216,34 @@ public class MainWindowController implements Initializable {
     }
 
     @FXML
-    void handleButtonGetIncident() {
-        Dialog<ButtonType> dialog = new Dialog<>();
-        dialog.initOwner(mainAnchorPane.getScene().getWindow());
-        FXMLLoader fxmlLoader = new FXMLLoader();
-        dialog.setTitle("Baleset megtekintése");
-        dialog.setHeaderText("Korábbi bejelentett adatok");
-        fxmlLoader.setLocation(getClass().getResource("/view/NewIncidentDialog.fxml"));
-        try {
-            dialog.getDialogPane().setContent(fxmlLoader.load());
-        } catch (IOException e) {
-            System.out.println("Nem sikerült az új ablakot betölteni");
-            e.printStackTrace();
-            return;
-        }
+    void handleButtonLoadIncident() {
+        Crash selectedCrash = crashListView.getSelectionModel().getSelectedItem();
+        if (selectedCrash != null) {
+            Dialog<ButtonType> dialog = new Dialog<>();
+            dialog.initOwner(mainAnchorPane.getScene().getWindow());
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            dialog.setTitle("Meglévő baleset szerkesztése");
+            dialog.setHeaderText("Használd ezt az ablakot a szerkesztéshez");
+            fxmlLoader.setLocation(getClass().getResource("/view/NewIncidentDialog.fxml"));
+            try {
+                dialog.getDialogPane().setContent(fxmlLoader.load());
+            } catch (IOException e) {
+                System.out.println("Nem sikerült az új ablakot betölteni");
+                e.printStackTrace();
+                return;
+            }
 
-        dialog.getDialogPane().getButtonTypes().add(ButtonType.OK);
+            dialog.getDialogPane().getButtonTypes().add(ButtonType.CANCEL);
+            dialog.getDialogPane().getButtonTypes().add(ButtonType.APPLY);
 
-        Optional<ButtonType> result = dialog.showAndWait();
-        /*
-        if (result.isPresent() && result.get() == ButtonType.OK)
-        {
-            // Megadott adatok elmentése
             NewIncidentDialogController controller = fxmlLoader.getController();
-            crashes.add(controller.processResult());
-        }*/
-    }
+            controller.loadCrash(selectedCrash);
 
-    // TODO: külön handler helyes implementálása, inicializálás adatokkal
-    @FXML
-    public void handleMouseClick(MouseEvent mouseEvent) {
-        handleButtonGetIncident();
-        //System.out.println("clicked on " + crashListView.getSelectionModel().getSelectedItem());
+            Optional<ButtonType> result = dialog.showAndWait();
+            if (result.isPresent() && result.get() == ButtonType.APPLY)
+            {
+                crashes.set(crashes.indexOf(selectedCrash), controller.processResult());
+            }
+        }
     }
 }

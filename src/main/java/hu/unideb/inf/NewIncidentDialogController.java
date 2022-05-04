@@ -430,4 +430,9 @@ public class NewIncidentDialogController {
         return new Crash(personA, personB, carA, carB, aComment.getText(), bComment.getText(), locationOfIncident.getText().trim(), timeOfIncident.getDateTimeValue());
     }
 
+    public void loadCrash(Crash crash) {
+        // TODO betölteni szépen minden mezőt
+        aFirstName.setText(crash.getPersonA().getFirstName());
+    }
+
 }
