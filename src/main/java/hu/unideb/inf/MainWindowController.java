@@ -1,6 +1,11 @@
 package hu.unideb.inf;
 
+import hu.unideb.inf.model.Car;
 import hu.unideb.inf.model.Crash;
+import hu.unideb.inf.model.Person;
+import javafx.beans.property.SimpleListProperty;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -8,13 +13,14 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
-import javafx.scene.input.MouseEvent;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Region;
 import javafx.scene.shape.Rectangle;
 
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDateTime;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
@@ -24,11 +30,20 @@ public class MainWindowController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        // Itt kell az adatbázisból behúzni az adatokat a crashes listába
         crashes = FXCollections.observableArrayList();
 
-        crashListView.setItems(crashes);
-        crashListView.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
-        crashListView.getSelectionModel().selectFirst();
+        crashTableView.setItems(crashes);
+        crashTableView.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
+        crashTableView.getSelectionModel().selectFirst();
+
+        // Populate TableViewColumns
+        tableColumnNameA.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getPersonA().getFirstName()));
+        tableColumnLicensePlateA.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getCarA().getLicensePlate()));
+        tableColumnNameB.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getPersonB().getFirstName()));
+        tableColumnLicensePlateB.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getCarB().getLicensePlate()));
+        tableColumnCrashLocation.setCellValueFactory(new PropertyValueFactory<>("crashAddress"));
+        tableColumnCrashDate.setCellValueFactory(new PropertyValueFactory<>("dateOfCrash"));
     }
 
     // Car parts:
@@ -89,8 +104,27 @@ public class MainWindowController implements Initializable {
     @FXML
     private DatePicker datePicker;
 
+    // TableView and TableColumns
     @FXML
-    private ListView<Crash> crashListView;
+    private TableView<Crash> crashTableView;
+
+    @FXML
+    private TableColumn<Crash, String> tableColumnNameA;
+
+    @FXML
+    private TableColumn<Crash, String> tableColumnLicensePlateA;
+
+    @FXML
+    private TableColumn<Crash, String> tableColumnNameB;
+
+    @FXML
+    private TableColumn<Crash, String> tableColumnLicensePlateB;
+
+    @FXML
+    private TableColumn<Crash, String> tableColumnCrashLocation; // String helyett nem Crash? TableColumn<String, Crash>
+
+    @FXML
+    private TableColumn<Crash, LocalDateTime> tableColumnCrashDate;
 
     @FXML
     void handleLoadButtonPushed(ActionEvent event) {
@@ -217,7 +251,7 @@ public class MainWindowController implements Initializable {
 
     @FXML
     void handleButtonLoadIncident() {
-        Crash selectedCrash = crashListView.getSelectionModel().getSelectedItem();
+        Crash selectedCrash = crashTableView.getSelectionModel().getSelectedItem();
         if (selectedCrash != null) {
             Dialog<ButtonType> dialog = new Dialog<>();
             dialog.initOwner(mainAnchorPane.getScene().getWindow());
