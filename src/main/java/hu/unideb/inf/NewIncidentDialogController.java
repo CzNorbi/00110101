@@ -260,7 +260,7 @@ public class NewIncidentDialogController {
     // A Events
     @FXML
     void handleAHoodClicked(MouseEvent event) {
-        //System.out.println(damageLevel(aHood));
+        System.out.println(damageLevel(aHood));
         aParts.setHood(CarParts.next(aParts.getHood()));
         System.out.println(aParts.getHood());
     }
@@ -309,7 +309,7 @@ public class NewIncidentDialogController {
 
     @FXML
     void handleABackRightWheelClicked(MouseEvent event) {
-        System.out.println(damageLevel(aFrontRightWheel));
+        System.out.println(damageLevel(aBackRightWheel));
         aParts.setBrWheel(CarParts.next(aParts.getBrWheel()));
     }
 
@@ -321,7 +321,7 @@ public class NewIncidentDialogController {
 
     @FXML
     void handleAFrontRightWheelClicked(MouseEvent event) {
-        System.out.println(damageLevel(aBackLeftWheel));
+        System.out.println(damageLevel(aFrontRightWheel));
         aParts.setFrWheel(CarParts.next(aParts.getFrWheel()));
     }
 
@@ -333,7 +333,7 @@ public class NewIncidentDialogController {
 
     @FXML
     void handleAFrontWindshieldClicked(MouseEvent event) {
-        System.out.println(damageLevel(aBackLeftWheel));
+        System.out.println(damageLevel(aFrontWindshield));
         aParts.setfWindshield(CarParts.next(aParts.getfWindshield()));
     }
 
@@ -432,7 +432,33 @@ public class NewIncidentDialogController {
 
     public void loadCrash(Crash crash) {
         // TODO betölteni szépen minden mezőt
+        locationOfIncident.setText(crash.getCrashAddress());
+        timeOfIncident.setDateTimeValue(crash.getDateOfCrash());
+        // A
         aFirstName.setText(crash.getPersonA().getFirstName());
+        aLastName.setText(crash.getPersonA().getLastName());
+        aAddress.setText(crash.getPersonA().getAddress());
+        aDrivingLicenseNumber.setText(crash.getPersonA().getDrivingLicenseNumber());
+        aDateOfBirth.setValue(crash.getPersonA().getDateOfBirth());
+        aPhone.setText(crash.getPersonA().getTelNum());
+        aInsurer.setText(crash.getCarA().getNameOfInsurer());
+        aCarLicensePlate.setText(crash.getCarA().getLicensePlate());
+        aCarBrand.setText(crash.getCarA().getBrand());
+        aCarType.setText(crash.getCarA().getType());
+        aComment.setText(crash.getCommentA());
+
+        //B
+        bFirstName.setText(crash.getPersonB().getFirstName());
+        bLastName.setText(crash.getPersonB().getLastName());
+        bAddress.setText(crash.getPersonB().getAddress());
+        bDrivingLicenseNumber.setText(crash.getPersonB().getDrivingLicenseNumber());
+        bDateOfBirth.setValue(crash.getPersonB().getDateOfBirth());
+        bPhone.setText(crash.getPersonB().getTelNum());
+        bInsurer.setText(crash.getCarB().getNameOfInsurer());
+        bCarLicensePlate.setText(crash.getCarB().getLicensePlate());
+        bCarBrand.setText(crash.getCarB().getBrand());
+        bCarType.setText(crash.getCarB().getType());
+        bComment.setText(crash.getCommentB());
     }
 
 }
