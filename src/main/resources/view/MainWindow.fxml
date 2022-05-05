@@ -17,12 +17,20 @@
                      <children>
                         <Button layoutX="503.0" layoutY="323.0" mnemonicParsing="false" onAction="#handleButtonNewIncident" prefHeight="34.0" prefWidth="129.0" text="ÚJ BEJELENTÉS" />
                         <Button layoutX="503.0" layoutY="279.0" mnemonicParsing="false" onAction="#handleButtonLoadIncident" prefHeight="34.0" prefWidth="129.0" text="BETÖLTÉS" />
-                         <TableView fx:id="crashTableView" layoutX="14.0" layoutY="23.0" prefHeight="334.0" prefWidth="482.0">
+                         <TableView fx:id="crashTableView" layoutX="14.0" layoutY="12.0" prefHeight="345.0" prefWidth="482.0">
                              <columns>
-                                 <TableColumn fx:id="tableColumnNameA" text="Név" />
-                                 <TableColumn fx:id="tableColumnLicensePlateA" text="Rendszám" />
-                                 <TableColumn fx:id="tableColumnNameB" text="Név" />
-                                 <TableColumn fx:id="tableColumnLicensePlateB" text="Rendszám" />
+                                 <TableColumn fx:id="tCA" text="A károsult" prefWidth="160">
+                                     <columns>
+                                         <TableColumn fx:id="tableColumnNameA" text="Név" prefWidth="80"/>
+                                         <TableColumn fx:id="tableColumnLicensePlateA" text="Rendszám" prefWidth="80"/>
+                                     </columns>
+                                 </TableColumn>
+                                 <TableColumn fx:id="tCB" text="B károsult" prefWidth="160">
+                                     <columns>
+                                         <TableColumn fx:id="tableColumnNameB" text="Név" prefWidth="80"/>
+                                         <TableColumn fx:id="tableColumnLicensePlateB" text="Rendszám" prefWidth="80"/>
+                                     </columns>
+                                 </TableColumn>
                                  <TableColumn fx:id="tableColumnCrashLocation" text="Helyszín" />
                                  <TableColumn fx:id="tableColumnCrashDate" text="Időpont" />
                              </columns>
