@@ -5,6 +5,7 @@
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
 <AnchorPane fx:id="mainAnchorPane" prefHeight="400.0" prefWidth="643.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hu.unideb.inf.MainWindowController">
@@ -19,22 +20,23 @@
                         <Button layoutX="503.0" layoutY="279.0" mnemonicParsing="false" onAction="#handleButtonLoadIncident" prefHeight="34.0" prefWidth="129.0" text="BETÖLTÉS" />
                          <TableView fx:id="crashTableView" layoutX="14.0" layoutY="12.0" prefHeight="345.0" prefWidth="482.0">
                              <columns>
-                                 <TableColumn fx:id="tCA" text="A károsult" prefWidth="160">
+                                 <TableColumn fx:id="tCA" prefWidth="160" text="A károsult">
                                      <columns>
-                                         <TableColumn fx:id="tableColumnNameA" text="Név" prefWidth="80"/>
-                                         <TableColumn fx:id="tableColumnLicensePlateA" text="Rendszám" prefWidth="80"/>
+                                         <TableColumn fx:id="tableColumnNameA" prefWidth="80" text="Név" />
+                                         <TableColumn fx:id="tableColumnLicensePlateA" prefWidth="80" text="Rendszám" />
                                      </columns>
                                  </TableColumn>
-                                 <TableColumn fx:id="tCB" text="B károsult" prefWidth="160">
+                                 <TableColumn fx:id="tCB" prefWidth="160" text="B károsult">
                                      <columns>
-                                         <TableColumn fx:id="tableColumnNameB" text="Név" prefWidth="80"/>
-                                         <TableColumn fx:id="tableColumnLicensePlateB" text="Rendszám" prefWidth="80"/>
+                                         <TableColumn fx:id="tableColumnNameB" prefWidth="80" text="Név" />
+                                         <TableColumn fx:id="tableColumnLicensePlateB" prefWidth="80" text="Rendszám" />
                                      </columns>
                                  </TableColumn>
                                  <TableColumn fx:id="tableColumnCrashLocation" text="Helyszín" />
                                  <TableColumn fx:id="tableColumnCrashDate" text="Időpont" />
                              </columns>
                          </TableView>
+                        <ImageView fx:id="img" fitHeight="120.0" fitWidth="141.0" layoutX="499.0" layoutY="150.0" onMouseClicked="#imgClick" pickOnBounds="true" preserveRatio="true" />
                      </children>
                   </AnchorPane>
               </content>

@@ -9,6 +9,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
@@ -30,6 +32,10 @@ public class MainWindowController implements Initializable {
         crashTableView.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
         crashTableView.getSelectionModel().selectFirst();
 
+        // Logo hozzáadása
+        Image logo = new Image("file:logo.png");
+        img.setImage(logo);
+
         // Populate TableViewColumns
         tableColumnNameA.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getPersonA().getLastName() + " " + cellData.getValue().getPersonA().getFirstName()));
         tableColumnLicensePlateA.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getCarA().getLicensePlate()));
@@ -41,6 +47,9 @@ public class MainWindowController implements Initializable {
 
     @FXML
     private AnchorPane mainAnchorPane;
+
+    @FXML
+    private ImageView img;
 
     @FXML
     private TableView<Crash> crashTableView;
