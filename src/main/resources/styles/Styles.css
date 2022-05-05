@@ -1,3 +1,12 @@
+#tCA {
+    -fx-background-color: #3085f5;
+}
+
+#tCB {
+    -fx-background-color: yellow;
+}
+
+/*
 * {
     -fx-primary-color: #e3e3e3;
     -fx-secondary-color: #000000;
@@ -51,4 +60,4 @@
 
 .text-field:focused {
     -fx-background-color: -fx-primary-color, #e7e7e7;
-}
+} */

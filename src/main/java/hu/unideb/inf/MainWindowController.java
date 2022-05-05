@@ -31,8 +31,6 @@ public class MainWindowController implements Initializable {
         crashTableView.getSelectionModel().selectFirst();
 
         // Populate TableViewColumns
-        tCA.setStyle("-fx-background-color: #0e70f0; -fx-stroke: white;");
-        tCB.setStyle("-fx-background-color: yellow;");
         tableColumnNameA.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getPersonA().getLastName() + " " + cellData.getValue().getPersonA().getFirstName()));
         tableColumnLicensePlateA.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getCarA().getLicensePlate()));
         tableColumnNameB.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getPersonB().getLastName() + " " + cellData.getValue().getPersonB().getFirstName()));

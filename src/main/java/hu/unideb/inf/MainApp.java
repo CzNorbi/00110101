@@ -19,7 +19,7 @@ public class MainApp extends Application {
         FXMLLoader loader = new FXMLLoader(MainApp.class.getResource("/view/MainWindow.fxml"));
         Scene scene = new Scene(loader.load());
         // TODO: css ismételt használata
-        // scene.getStylesheets().add("/styles/Styles.css");
+        scene.getStylesheets().add("/styles/Styles.css");
         stage.setTitle("Czier's Incident");
         stage.setScene(scene);
         stage.show();
