@@ -11,6 +11,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
@@ -56,11 +57,6 @@ public class MainWindowController implements Initializable {
 
     @FXML
     private TableColumn<Crash, String> tableColumnNameA;
-
-    @FXML
-    private TableColumn<Crash, String> tCA;
-    @FXML
-    private TableColumn<Crash, String> tCB;
 
     @FXML
     private TableColumn<Crash, String> tableColumnLicensePlateA;

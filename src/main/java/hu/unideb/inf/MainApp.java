@@ -38,6 +38,7 @@ public class MainApp extends Application {
             startDatabase();
         } catch (SQLException ex) {
             Logger.getLogger(MainApp.class.getName()).log(Level.SEVERE, null, ex);
+            stopDatabase();
             return;
         }
         launch(args);
@@ -47,7 +48,7 @@ public class MainApp extends Application {
     private static Server s = new Server();
 
     private static void startDatabase() throws SQLException {
-        s.runTool("-tcp", "-web", "-ifNotExists");
+        //s.runTool("-tcp", "-web", "-ifNotExists");
     }
 
     private static void stopDatabase()  {
