@@ -2,7 +2,7 @@
 ## Szoftverfejlesztés mérnököknek projekt
 
 #### 1.2.1 Bugfix, ui update
-> Last build without database
+> Reintroduced Styles.css & last build without database
 <img width="420" alt="image" src="https://user-images.githubusercontent.com/78929870/167027477-ce9f8b7d-f4d3-452b-8fe1-17f795ca98ce.png">
 
 #### 1.2.0-SNAPSHOT New Crash dialog
