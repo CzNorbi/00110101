@@ -1,6 +1,10 @@
 # 00110101
 ## Szoftverfejlesztés mérnököknek projekt
 
+#### 1.2.1 Bugfix, ui update
+> Last build without database
+<img width="420" alt="image" src="https://user-images.githubusercontent.com/78929870/167027477-ce9f8b7d-f4d3-452b-8fe1-17f795ca98ce.png">
+
 #### 1.2.0-SNAPSHOT New Crash dialog
 > Entering final stages of developement -> dialog cleanup, report view - soon, database read - soon
 <img width="420" alt="image" src="https://user-images.githubusercontent.com/78929870/166199481-b8c9623d-f9f8-4ee2-a767-cca14e2207bb.png">
