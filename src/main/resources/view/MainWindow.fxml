@@ -36,7 +36,7 @@
                                  <TableColumn fx:id="tableColumnCrashDate" text="Időpont" />
                              </columns>
                          </TableView>
-                        <ImageView fx:id="img" fitHeight="120.0" fitWidth="141.0" layoutX="499.0" layoutY="150.0" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView fx:id="img" fitHeight="120.0" fitWidth="129.0" layoutX="507.0" layoutY="149.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" />
                      </children>
                   </AnchorPane>
               </content>
