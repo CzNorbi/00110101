@@ -79,6 +79,9 @@ public class MainWindowController implements Initializable {
             return;
         }
 
+        NewIncidentDialogController controller = fxmlLoader.getController();
+        controller.hideFileUploads();
+
         dialog.getDialogPane().getButtonTypes().add(ButtonType.CANCEL);
         dialog.getDialogPane().getButtonTypes().add(ButtonType.OK);
 
@@ -86,7 +89,6 @@ public class MainWindowController implements Initializable {
         if (result.isPresent() && result.get() == ButtonType.OK)
         {
             // Megadott adatok elmentése
-            NewIncidentDialogController controller = fxmlLoader.getController();
             crashes.add(controller.processResult());
         }
     }
@@ -109,11 +111,12 @@ public class MainWindowController implements Initializable {
                 return;
             }
 
-            dialog.getDialogPane().getButtonTypes().add(ButtonType.CANCEL);
-            dialog.getDialogPane().getButtonTypes().add(ButtonType.APPLY);
-
             NewIncidentDialogController controller = fxmlLoader.getController();
             controller.loadCrash(selectedCrash);
+            controller.hideFileUploads();
+
+            dialog.getDialogPane().getButtonTypes().add(ButtonType.CANCEL);
+            dialog.getDialogPane().getButtonTypes().add(ButtonType.APPLY);
 
             Optional<ButtonType> result = dialog.showAndWait();
             if (result.isPresent() && result.get() == ButtonType.APPLY)

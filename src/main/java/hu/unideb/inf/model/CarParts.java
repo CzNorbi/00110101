@@ -1,8 +1,5 @@
 package hu.unideb.inf.model;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class CarParts {
 
     private Level hood;

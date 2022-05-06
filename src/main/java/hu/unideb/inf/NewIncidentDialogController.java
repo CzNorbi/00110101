@@ -3,19 +3,35 @@ package hu.unideb.inf;
 import hu.unideb.inf.model.*;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.FileChooser;
 
+import javax.imageio.ImageIO;
+import javax.imageio.stream.ImageInputStream;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.List;
 
 public class NewIncidentDialogController {
 
     // CarParts
 
-    CarParts aParts = new CarParts();
-    CarParts bParts = new CarParts();
+    private final CarParts aParts = new CarParts();
+    private final CarParts bParts = new CarParts();
+
+    // Lists of images
+
+    private List<Image> aImages = new ArrayList<>();
+    private List<Image> bImages = new ArrayList<>();
 
     //Incident data
     @FXML
@@ -187,6 +203,20 @@ public class NewIncidentDialogController {
     @FXML
     private Button bFileUploadButton;
 
+    @FXML
+    private Label labelA;
+
+    @FXML
+    private Label labelB;
+
+    // ImageViewer
+
+    @FXML
+    private ImageView imageViewA;
+
+    @FXML
+    private ImageView imageViewB;
+
     // TODO: nem minding level 0 a kezdő sérülés pl.: betöltéskor
     // TODO: Observer, ami változtatja a színt a jelenlegi damage Level alapján
     @FXML
@@ -237,6 +267,11 @@ public class NewIncidentDialogController {
             for (File file : files)
             {
                 aFiles.getItems().add(file.getName());
+                try {
+                    aImages.add(new Image(new FileInputStream(file)));
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
         }
     }
@@ -253,6 +288,11 @@ public class NewIncidentDialogController {
             for (File file : files)
             {
                 bFiles.getItems().add(file.getName());
+                try {
+                    bImages.add(new Image(new FileInputStream(file)));
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
         }
     }
@@ -458,11 +498,10 @@ public class NewIncidentDialogController {
         Car carA = new Car(aCarBrand.getText().trim(), aCarType.getText().trim(), aCarLicensePlate.getText().trim(), aInsurer.getText().trim(), aParts);
         Car carB = new Car(bCarBrand.getText().trim(), bCarType.getText().trim(), bCarLicensePlate.getText().trim(), bInsurer.getText().trim(), bParts);
 
-        return new Crash(personA, personB, carA, carB, aComment.getText(), bComment.getText(), locationOfIncident.getText().trim(), timeOfIncident.getDateTimeValue());
+        return new Crash(personA, personB, carA, carB, aComment.getText(), bComment.getText(), locationOfIncident.getText().trim(), timeOfIncident.getDateTimeValue(), aImages, bImages);
     }
 
     public void loadCrash(Crash crash) {
-        // TODO betölteni szépen minden mezőt
         locationOfIncident.setText(crash.getCrashAddress());
         timeOfIncident.setDateTimeValue(crash.getDateOfCrash());
         // A
@@ -526,6 +565,31 @@ public class NewIncidentDialogController {
         setColorByDamageLevel(bFrontRightDoor, crash.getCarB().getParts().getFrDoor());
         setColorByDamageLevel(bBackWindshield, crash.getCarB().getParts().getbWindshield());
         setColorByDamageLevel(bFrontWindshield, crash.getCarB().getParts().getfWindshield());
+    }
+
+    public void hideImageViews() {
+        imageViewA.setVisible(false);
+        imageViewA.setManaged(false);
+        imageViewA.setVisible(false);
+        imageViewA.setManaged(false);
+    }
+
+    public void hideFileUploads() {
+        // A
+        labelA.setVisible(false);
+        labelA.setManaged(false);
+        aFileUploadButton.setVisible(false);
+        aFileUploadButton.setManaged(false);
+        imageViewA.setVisible(false);
+        imageViewA.setManaged(false);
+
+        // B
+        labelB.setVisible(false);
+        labelB.setManaged(false);
+        bFileUploadButton.setVisible(false);
+        bFileUploadButton.setManaged(false);
+        imageViewB.setVisible(false);
+        imageViewB.setManaged(false);
     }
 
 }
