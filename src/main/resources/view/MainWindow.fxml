@@ -16,8 +16,8 @@
               <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="371.0" prefWidth="631.0">
                      <children>
-                        <Button layoutX="503.0" layoutY="323.0" mnemonicParsing="false" onAction="#handleButtonNewIncident" prefHeight="34.0" prefWidth="129.0" text="ÚJ BEJELENTÉS" />
-                        <Button layoutX="503.0" layoutY="279.0" mnemonicParsing="false" onAction="#handleButtonLoadIncident" prefHeight="34.0" prefWidth="129.0" text="BETÖLTÉS" />
+                        <Button fx:id="newButtonMain" layoutX="503.0" layoutY="323.0" mnemonicParsing="false" onAction="#handleButtonNewIncident" prefHeight="34.0" prefWidth="129.0" text="ÚJ BEJELENTÉS" />
+                        <Button fx:id="loadButtonMain" layoutX="503.0" layoutY="279.0" mnemonicParsing="false" onAction="#handleButtonLoadIncident" prefHeight="34.0" prefWidth="129.0" text="BETÖLTÉS" />
                          <TableView fx:id="crashTableView" layoutX="14.0" layoutY="12.0" prefHeight="345.0" prefWidth="482.0">
                              <columns>
                                  <TableColumn fx:id="tCA" prefWidth="160" text="A károsult">

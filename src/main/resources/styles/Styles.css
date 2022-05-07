@@ -1,63 +1,57 @@
 #tCA {
     -fx-background-color: #3085f5;
+    -fx-text-background-color: #000000;
 }
 
 #tCB {
     -fx-background-color: yellow;
+    -fx-text-background-color: #000000;
 }
 
-/*
+
 * {
-    -fx-primary-color: #e3e3e3;
+    -fx-primary-color: #ffdba6;
     -fx-secondary-color: #000000;
-    -fx-grey-color: #b9b9b9;
+    -fx-grey-color: #c4c4c4;
     -fx-focus-color: -fx-secondary-color;
 }
 
-#mButton {
-    -fx-color: #000000;
-    -fx-opacity: 0.6;
+#loadButtonMain {
+    -fx-color: #424242;
+    -fx-opacity: 0.5;
 }
 
-#mButton:hover {
-    -fx-opacity: 1;
+#loadButtonMain:hover {
+    -fx-opacity: 0.7;
+}
+
+#loadButtonMain:pressed {
+    -fx-opacity: 0.9;
+}
+
+#newButtonMain {
+    -fx-color: #0f5600;
+    -fx-opacity: 0.5;
+}
+
+#newButtonMain:hover {
+    -fx-opacity: 0.7;
+}
+
+#newButtonMain:pressed {
+    -fx-opacity: 0.9;
 }
 
 .root {
-    -fx-font-size: 12pt;
     -fx-font-family: "Arial, Helvetica, sans-serif";
-    -fx-base: #ffe5cb;
-    -fx-background: #fff8f2;
+    -fx-base: #eaeaea;
+    -fx-background: #ffffff;
 }
 
-.date-picker {
+/*
+date-picker {
     -fx-accent: -fx-primary-color;
     -fx-background-color: -fx-grey-color, white;
     -fx-background-insets: 0, 0 0 0 0;
     -fx-background-radius: 0;
-}
-
-#statusBack {
-    -fx-background-color: #ffc9c9;
-    -fx-background-radius: 3px;
-}
-
-.text-field {
-    -fx-accent: -fx-primary-color;
-    -fx-background-color: -fx-grey-color, white;
-    -fx-background-insets: 0, 0 0 1 0;
-    -fx-background-radius: 0;
-}
-
-#hood {
-    -fx-arc-height: 100px;
-    -fx-arc-width: 10px;
-}
-
-#trunk {
-    -fx-arc-height: 100px;
-}
-
-.text-field:focused {
-    -fx-background-color: -fx-primary-color, #e7e7e7;
 } */
