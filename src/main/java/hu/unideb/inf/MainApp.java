@@ -23,6 +23,7 @@ public class MainApp extends Application {
         scene.getStylesheets().add("/styles/Styles.css");
         stage.setTitle("Czier's Incident");
         stage.setScene(scene);
+        stage.setResizable(false);
         stage.show();
     }
 
