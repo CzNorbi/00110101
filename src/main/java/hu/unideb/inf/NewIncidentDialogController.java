@@ -2,6 +2,9 @@ package hu.unideb.inf;
 
 import hu.unideb.inf.model.*;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
@@ -11,6 +14,9 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.FileChooser;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
@@ -30,6 +36,14 @@ public class NewIncidentDialogController {
 
     private final List<Image> aImages = new ArrayList<>();
     private final List<Image> bImages = new ArrayList<>();
+
+    // ImageViewer buttons
+
+    @FXML
+    public Button buttonImageViewerA;
+
+    @FXML
+    public Button buttonImageViewerB;
 
     //Incident data
     @FXML
@@ -479,6 +493,42 @@ public class NewIncidentDialogController {
         }
     }
 
+    public void openImageViewerA(MouseEvent mouseEvent) {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/ImageViewer.fxml"));
+            Parent root1 = (Parent) fxmlLoader.load();
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root1));
+            stage.setTitle("Képek módosítása");
+            stage.setResizable(false);
+            ImageViewerController controller = fxmlLoader.getController();
+            controller.loadImages(aImages);
+            stage.showAndWait();
+            aImages.clear();
+            aImages.addAll(controller.getImages());
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void openImageViewerB(MouseEvent mouseEvent) {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/ImageViewer.fxml"));
+            Parent root1 = (Parent) fxmlLoader.load();
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root1));
+            stage.setTitle("Képek módosítása");
+            stage.setResizable(false);
+            ImageViewerController controller = fxmlLoader.getController();
+            controller.loadImages(bImages);
+            stage.showAndWait();
+            bImages.clear();
+            bImages.addAll(controller.getImages());
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
+    }
+
     //TODO bemenet ellenőrzés
 
     @FXML
@@ -560,55 +610,8 @@ public class NewIncidentDialogController {
         setColorByDamageLevel(bBackWindshield, crash.getCarB().getParts().getbWindshield());
         setColorByDamageLevel(bFrontWindshield, crash.getCarB().getParts().getfWindshield());
 
-        // A images and load first
+        // Images
         aImages.addAll(crash.getImagesA());
-        if (!aImages.isEmpty()) {
-            imageViewA.setFitWidth(318);
-            //imageViewA.setFitHeight(50);
-            imageViewA.setImage(aImages.get(0));
-        }
-
-        // B images and load first
         bImages.addAll(crash.getImagesB());
-        if (!bImages.isEmpty()) {
-            imageViewB.setImage(bImages.get(0));
-            System.out.println("LOADED B IMAGES");
-        }
     }
-
-    public void hideImageViews() {
-        imageViewA.setVisible(false);
-        imageViewA.setManaged(false);
-        imageViewA.setVisible(false);
-        imageViewA.setManaged(false);
-    }
-
-    public void hideFileUploads() {
-        // A
-        labelA.setVisible(false);
-        labelA.setManaged(false);
-        aFileUploadButton.setVisible(false);
-        aFileUploadButton.setManaged(false);
-        aFiles.setVisible(false);
-        aFiles.setManaged(false);
-        imageViewA.setVisible(false);
-        imageViewA.setManaged(false);
-
-        // B
-        labelB.setVisible(false);
-        labelB.setManaged(false);
-        bFileUploadButton.setVisible(false);
-        bFileUploadButton.setManaged(false);
-        bFiles.setVisible(false);
-        bFiles.setManaged(false);
-        imageViewB.setVisible(false);
-        imageViewB.setManaged(false);
-
-        // ImageView show
-        imageViewA.setVisible(true);
-        imageViewA.setManaged(true);
-        imageViewA.setVisible(true);
-        imageViewA.setManaged(true);
-    }
-
 }

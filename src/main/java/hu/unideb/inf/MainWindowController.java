@@ -4,6 +4,8 @@ import hu.unideb.inf.model.Crash;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.Event;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -11,6 +13,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 
+import java.awt.event.MouseEvent;
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDateTime;
@@ -80,7 +83,6 @@ public class MainWindowController implements Initializable {
         }
 
         NewIncidentDialogController controller = fxmlLoader.getController();
-        controller.hideImageViews();
 
         dialog.getDialogPane().getButtonTypes().add(ButtonType.CANCEL);
         dialog.getDialogPane().getButtonTypes().add(ButtonType.OK);
@@ -113,7 +115,6 @@ public class MainWindowController implements Initializable {
 
             NewIncidentDialogController controller = fxmlLoader.getController();
             controller.loadCrash(selectedCrash);
-            controller.hideFileUploads();
 
             dialog.getDialogPane().getButtonTypes().add(ButtonType.CANCEL);
             dialog.getDialogPane().getButtonTypes().add(ButtonType.APPLY);

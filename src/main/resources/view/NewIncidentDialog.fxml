@@ -99,10 +99,7 @@
                                     <Rectangle fx:id="aBackWindshield" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="80.0" layoutX="171.0" layoutY="34.0" onMouseClicked="#handleABackWindshieldClicked" stroke="BLACK" strokeType="INSIDE" width="23.0" />
                                  </children>
                               </AnchorPane>
-                              <Label fx:id="labelA" text="Kép feltöltése:" />
-                              <Button fx:id="aFileUploadButton" mnemonicParsing="false" onMouseClicked="#handleAFileUploadButton" text="Állomány feltöltése" />
-                              <ListView fx:id="aFiles" prefHeight="100.0" prefWidth="200.0" />
-                              <ImageView fx:id="imageViewA" pickOnBounds="true" preserveRatio="true" fitHeight="Infinity" fitWidth="Infinity"/>
+                              <Button fx:id="buttonImageViewerA" mnemonicParsing="false" onMouseClicked="#openImageViewerA" text="Képek" />
                            </children>
                         </VBox>
                      </children>
@@ -160,10 +157,7 @@
                                     <Rectangle fx:id="bBackWindshield" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="80.0" layoutX="171.0" layoutY="34.0" onMouseClicked="#handleBBackWindshieldClicked" stroke="BLACK" strokeType="INSIDE" width="23.0" />
                                  </children>
                               </AnchorPane>
-                              <Label fx:id="labelB" text="Kép feltöltése:" />
-                              <Button fx:id="bFileUploadButton" mnemonicParsing="false" onMouseClicked="#handleBFileUploadButton" text="Állomány feltöltése" />
-                              <ListView fx:id="bFiles" prefHeight="100.0" prefWidth="200.0" />
-                              <ImageView fx:id="imageViewB"/>
+                              <Button fx:id="buttonImageViewerB" mnemonicParsing="false" onMouseClicked="#openImageViewerB" text="Képek" />
                            </children>
                         </VBox>
                      </children>
