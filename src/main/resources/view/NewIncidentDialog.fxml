@@ -18,6 +18,8 @@
 <?import javafx.scene.text.Font?>
 
 <?import hu.unideb.inf.model.DateTimePicker?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
 <DialogPane prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hu.unideb.inf.NewIncidentDialogController">
    <content>
       <ScrollPane minHeight="500.0" minWidth="705.0" prefHeight="1500.0" prefWidth="701.0">
@@ -97,9 +99,7 @@
                                     <Rectangle fx:id="aBackWindshield" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="80.0" layoutX="171.0" layoutY="34.0" onMouseClicked="#handleABackWindshieldClicked" stroke="BLACK" strokeType="INSIDE" width="23.0" />
                                  </children>
                               </AnchorPane>
-                              <Label text="Kép feltöltése:" />
-                              <Button fx:id="aFileUploadButton" mnemonicParsing="false" onMouseClicked="#handleAFileUploadButton" text="Állomány feltöltése" />
-                              <ListView fx:id="aFiles" prefHeight="100.0" prefWidth="200.0" />
+                              <Button fx:id="buttonImageViewerA" mnemonicParsing="false" onMouseClicked="#openImageViewerA" text="Képek" />
                            </children>
                         </VBox>
                      </children>
@@ -157,9 +157,7 @@
                                     <Rectangle fx:id="bBackWindshield" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="80.0" layoutX="171.0" layoutY="34.0" onMouseClicked="#handleBBackWindshieldClicked" stroke="BLACK" strokeType="INSIDE" width="23.0" />
                                  </children>
                               </AnchorPane>
-                              <Label text="Kép feltöltése:" />
-                              <Button fx:id="bFileUploadButton" mnemonicParsing="false" onMouseClicked="#handleBFileUploadButton" text="Állomány feltöltése" />
-                              <ListView fx:id="bFiles" prefHeight="100.0" prefWidth="200.0" />
+                              <Button fx:id="buttonImageViewerB" mnemonicParsing="false" onMouseClicked="#openImageViewerB" text="Képek" />
                            </children>
                         </VBox>
                      </children>

@@ -4,6 +4,8 @@ import hu.unideb.inf.model.Crash;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.Event;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -14,6 +16,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 
+import java.awt.event.MouseEvent;
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDateTime;
@@ -68,7 +71,7 @@ public class MainWindowController implements Initializable {
     private TableColumn<Crash, String> tableColumnLicensePlateB;
 
     @FXML
-    private TableColumn<Crash, String> tableColumnCrashLocation; // String helyett nem Crash? TableColumn<String, Crash>
+    private TableColumn<Crash, String> tableColumnCrashLocation;
 
     @FXML
     private TableColumn<Crash, LocalDateTime> tableColumnCrashDate;
@@ -89,6 +92,8 @@ public class MainWindowController implements Initializable {
             return;
         }
 
+        NewIncidentDialogController controller = fxmlLoader.getController();
+
         dialog.getDialogPane().getButtonTypes().add(ButtonType.CANCEL);
         dialog.getDialogPane().getButtonTypes().add(ButtonType.OK);
 
@@ -96,7 +101,6 @@ public class MainWindowController implements Initializable {
         if (result.isPresent() && result.get() == ButtonType.OK)
         {
             // Megadott adatok elmentése
-            NewIncidentDialogController controller = fxmlLoader.getController();
             crashes.add(controller.processResult());
         }
     }
@@ -119,11 +123,11 @@ public class MainWindowController implements Initializable {
                 return;
             }
 
-            dialog.getDialogPane().getButtonTypes().add(ButtonType.CANCEL);
-            dialog.getDialogPane().getButtonTypes().add(ButtonType.APPLY);
-
             NewIncidentDialogController controller = fxmlLoader.getController();
             controller.loadCrash(selectedCrash);
+
+            dialog.getDialogPane().getButtonTypes().add(ButtonType.CANCEL);
+            dialog.getDialogPane().getButtonTypes().add(ButtonType.APPLY);
 
             Optional<ButtonType> result = dialog.showAndWait();
             if (result.isPresent() && result.get() == ButtonType.APPLY)

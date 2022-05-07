@@ -1,7 +1,10 @@
 package hu.unideb.inf.model;
 
+import javafx.scene.image.Image;
+
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 
 public class Crash {
     private Person personA;
@@ -12,9 +15,11 @@ public class Crash {
     private String commentB;
     private String crashAddress;
     private LocalDateTime dateOfCrash;
-    // TODO: kép tárolása
+    private List<Image> imagesA;
+    private List<Image> imagesB;
 
-    public Crash(Person personA, Person personB, Car carA, Car carB, String commentA, String commentB, String crashAddress, LocalDateTime dateOfCrash) {
+    public Crash(Person personA, Person personB, Car carA, Car carB, String commentA, String commentB, String crashAddress, LocalDateTime dateOfCrash,
+                 List<Image> imagesA, List<Image> imagesB) {
         this.personA = personA;
         this.personB = personB;
         this.carA = carA;
@@ -23,6 +28,8 @@ public class Crash {
         this.commentB = commentB;
         this.crashAddress = crashAddress;
         this.dateOfCrash = dateOfCrash;
+        this.imagesA = imagesA;
+        this.imagesB = imagesB;
     }
 
     public Person getPersonA() {
@@ -87,6 +94,22 @@ public class Crash {
 
     public void setDateOfCrash(LocalDateTime dateOfCrash) {
         this.dateOfCrash = dateOfCrash;
+    }
+
+    public List<Image> getImagesA() {
+        return imagesA;
+    }
+
+    public void setImagesA(List<Image> imagesA) {
+        this.imagesA = imagesA;
+    }
+
+    public List<Image> getImagesB() {
+        return imagesB;
+    }
+
+    public void setImagesB(List<Image> imagesB) {
+        this.imagesB = imagesB;
     }
 
     @Override

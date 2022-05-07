@@ -2,20 +2,48 @@ package hu.unideb.inf;
 
 import hu.unideb.inf.model.*;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.FileChooser;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class NewIncidentDialogController {
 
     // CarParts
 
-    CarParts aParts = new CarParts();
-    CarParts bParts = new CarParts();
+    private final CarParts aParts = new CarParts();
+    private final CarParts bParts = new CarParts();
+
+    // Lists of images
+
+    private final List<Image> aImages = new ArrayList<>();
+    private final List<Image> bImages = new ArrayList<>();
+
+    // ImageViewer buttons
+
+    @FXML
+    public Button buttonImageViewerA;
+
+    @FXML
+    public Button buttonImageViewerB;
 
     //Incident data
     @FXML
@@ -187,6 +215,20 @@ public class NewIncidentDialogController {
     @FXML
     private Button bFileUploadButton;
 
+    @FXML
+    private Label labelA;
+
+    @FXML
+    private Label labelB;
+
+    // ImageViewer
+
+    @FXML
+    private ImageView imageViewA;
+
+    @FXML
+    private ImageView imageViewB;
+
     // TODO: nem minding level 0 a kezdő sérülés pl.: betöltéskor
     // TODO: Observer, ami változtatja a színt a jelenlegi damage Level alapján
     @FXML
@@ -228,15 +270,17 @@ public class NewIncidentDialogController {
     @FXML
     void handleAFileUploadButton(MouseEvent event) {
         FileChooser fc = new FileChooser();
-        fc.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("Image File", "*.jpg"),
-                                        new FileChooser.ExtensionFilter("Image File", "*.png"),
-                                        new FileChooser.ExtensionFilter("Image File", "*.jpeg"));
+        fc.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("ALL", "*.jpg", "*.png", "*.jpeg"),
+                                        new FileChooser.ExtensionFilter("JPG", "*.jpg"),
+                                        new FileChooser.ExtensionFilter("PNG", "*.png"),
+                                        new FileChooser.ExtensionFilter("JPEG", "*.jpeg"));
         List<File> files = fc.showOpenMultipleDialog(null);
 
         if (files != null){
             for (File file : files)
             {
                 aFiles.getItems().add(file.getName());
+                aImages.add(new Image(file.toURI().toString()));
             }
         }
     }
@@ -244,15 +288,17 @@ public class NewIncidentDialogController {
     @FXML
     void handleBFileUploadButton(MouseEvent event) {
         FileChooser fc = new FileChooser();
-        fc.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("Image File", "*.jpg"),
-                                        new FileChooser.ExtensionFilter("Image File", "*.png"),
-                                        new FileChooser.ExtensionFilter("Image File", "*.jpeg"));
+        fc.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("ALL", "*.jpg", "*.png", "*.jpeg"),
+                                        new FileChooser.ExtensionFilter("JPG", "*.jpg"),
+                                        new FileChooser.ExtensionFilter("PNG", "*.png"),
+                                        new FileChooser.ExtensionFilter("JPEG", "*.jpeg"));
         List<File> files = fc.showOpenMultipleDialog(null);
 
         if (files != null){
             for (File file : files)
             {
                 bFiles.getItems().add(file.getName());
+                bImages.add(new Image(file.toURI().toString()));
             }
         }
     }
@@ -447,6 +493,42 @@ public class NewIncidentDialogController {
         }
     }
 
+    public void openImageViewerA(MouseEvent mouseEvent) {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/ImageViewer.fxml"));
+            Parent root1 = (Parent) fxmlLoader.load();
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root1));
+            stage.setTitle("Képek módosítása");
+            stage.setResizable(false);
+            ImageViewerController controller = fxmlLoader.getController();
+            controller.loadImages(aImages);
+            stage.showAndWait();
+            aImages.clear();
+            aImages.addAll(controller.getImages());
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void openImageViewerB(MouseEvent mouseEvent) {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/ImageViewer.fxml"));
+            Parent root1 = (Parent) fxmlLoader.load();
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root1));
+            stage.setTitle("Képek módosítása");
+            stage.setResizable(false);
+            ImageViewerController controller = fxmlLoader.getController();
+            controller.loadImages(bImages);
+            stage.showAndWait();
+            bImages.clear();
+            bImages.addAll(controller.getImages());
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
+    }
+
     //TODO bemenet ellenőrzés
 
     @FXML
@@ -458,13 +540,14 @@ public class NewIncidentDialogController {
         Car carA = new Car(aCarBrand.getText().trim(), aCarType.getText().trim(), aCarLicensePlate.getText().trim(), aInsurer.getText().trim(), aParts);
         Car carB = new Car(bCarBrand.getText().trim(), bCarType.getText().trim(), bCarLicensePlate.getText().trim(), bInsurer.getText().trim(), bParts);
 
-        return new Crash(personA, personB, carA, carB, aComment.getText(), bComment.getText(), locationOfIncident.getText().trim(), timeOfIncident.getDateTimeValue());
+        return new Crash(personA, personB, carA, carB, aComment.getText(), bComment.getText(), locationOfIncident.getText().trim(), timeOfIncident.getDateTimeValue(), aImages, bImages);
     }
 
     public void loadCrash(Crash crash) {
-        // TODO betölteni szépen minden mezőt
+        // Location and date
         locationOfIncident.setText(crash.getCrashAddress());
         timeOfIncident.setDateTimeValue(crash.getDateOfCrash());
+
         // A
         aFirstName.setText(crash.getPersonA().getFirstName());
         aLastName.setText(crash.getPersonA().getLastName());
@@ -526,6 +609,9 @@ public class NewIncidentDialogController {
         setColorByDamageLevel(bFrontRightDoor, crash.getCarB().getParts().getFrDoor());
         setColorByDamageLevel(bBackWindshield, crash.getCarB().getParts().getbWindshield());
         setColorByDamageLevel(bFrontWindshield, crash.getCarB().getParts().getfWindshield());
-    }
 
+        // Images
+        aImages.addAll(crash.getImagesA());
+        bImages.addAll(crash.getImagesB());
+    }
 }

@@ -1,7 +1,5 @@
 package hu.unideb.inf.model;
 
-import java.util.List;
-
 public class Car {
     private String brand;
     private String type;
