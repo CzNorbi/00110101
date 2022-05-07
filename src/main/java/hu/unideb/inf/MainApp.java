@@ -4,6 +4,7 @@ import javafx.application.Application;
 import static javafx.application.Application.launch;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import java.sql.SQLException;
@@ -18,7 +19,7 @@ public class MainApp extends Application {
     public void start(Stage stage) throws Exception {
         FXMLLoader loader = new FXMLLoader(MainApp.class.getResource("/view/MainWindow.fxml"));
         Scene scene = new Scene(loader.load());
-        // TODO: css ismételt használata
+        stage.getIcons().add(new Image("file:icon.png"));
         scene.getStylesheets().add("/styles/Styles.css");
         stage.setTitle("Czier's Incident");
         stage.setScene(scene);
