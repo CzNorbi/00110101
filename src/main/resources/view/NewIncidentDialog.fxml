@@ -102,7 +102,7 @@
                               <Label fx:id="labelA" text="Kép feltöltése:" />
                               <Button fx:id="aFileUploadButton" mnemonicParsing="false" onMouseClicked="#handleAFileUploadButton" text="Állomány feltöltése" />
                               <ListView fx:id="aFiles" prefHeight="100.0" prefWidth="200.0" />
-                              <ImageView fx:id="imageViewA" preserveRatio="true"/>
+                              <ImageView fx:id="imageViewA" pickOnBounds="true" preserveRatio="true" fitHeight="Infinity" fitWidth="Infinity"/>
                            </children>
                         </VBox>
                      </children>
@@ -163,7 +163,7 @@
                               <Label fx:id="labelB" text="Kép feltöltése:" />
                               <Button fx:id="bFileUploadButton" mnemonicParsing="false" onMouseClicked="#handleBFileUploadButton" text="Állomány feltöltése" />
                               <ListView fx:id="bFiles" prefHeight="100.0" prefWidth="200.0" />
-                              <ImageView fx:id="imageViewB" preserveRatio="true"/>
+                              <ImageView fx:id="imageViewB"/>
                            </children>
                         </VBox>
                      </children>

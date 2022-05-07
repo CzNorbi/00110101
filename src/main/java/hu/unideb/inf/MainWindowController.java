@@ -58,7 +58,7 @@ public class MainWindowController implements Initializable {
     private TableColumn<Crash, String> tableColumnLicensePlateB;
 
     @FXML
-    private TableColumn<Crash, String> tableColumnCrashLocation; // String helyett nem Crash? TableColumn<String, Crash>
+    private TableColumn<Crash, String> tableColumnCrashLocation;
 
     @FXML
     private TableColumn<Crash, LocalDateTime> tableColumnCrashDate;
@@ -80,7 +80,7 @@ public class MainWindowController implements Initializable {
         }
 
         NewIncidentDialogController controller = fxmlLoader.getController();
-        controller.hideFileUploads();
+        controller.hideImageViews();
 
         dialog.getDialogPane().getButtonTypes().add(ButtonType.CANCEL);
         dialog.getDialogPane().getButtonTypes().add(ButtonType.OK);

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hu.unideb.inf.ImageViewerController">
+   <children>
+      <ImageView fitHeight="523.0" fitWidth="696.0" layoutX="53.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
+      <Button layoutX="126.0" layoutY="551.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="100.0" text="Előző" onAction="#showNextImage"/>
+      <Button layoutX="276.0" layoutY="551.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="100.0" text="Következő" onAction="#showPreviousImage"/>
+      <Button layoutX="426.0" layoutY="551.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="100.0" text="Töröl" onAction="#deleteImage"/>
+      <Button layoutX="576.0" layoutY="551.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="100.0" text="Hozzáad" onAction="#addImage"/>
+   </children>
+</AnchorPane>

@@ -13,11 +13,9 @@ import javafx.scene.shape.Rectangle;
 import javafx.stage.FileChooser;
 
 import javax.imageio.ImageIO;
-import javax.imageio.stream.ImageInputStream;
+import java.awt.image.BufferedImage;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,8 +28,8 @@ public class NewIncidentDialogController {
 
     // Lists of images
 
-    private List<Image> aImages = new ArrayList<>();
-    private List<Image> bImages = new ArrayList<>();
+    private final List<Image> aImages = new ArrayList<>();
+    private final List<Image> bImages = new ArrayList<>();
 
     //Incident data
     @FXML
@@ -258,20 +256,17 @@ public class NewIncidentDialogController {
     @FXML
     void handleAFileUploadButton(MouseEvent event) {
         FileChooser fc = new FileChooser();
-        fc.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("Image File", "*.jpg"),
-                                        new FileChooser.ExtensionFilter("Image File", "*.png"),
-                                        new FileChooser.ExtensionFilter("Image File", "*.jpeg"));
+        fc.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("ALL", "*.jpg", "*.png", "*.jpeg"),
+                                        new FileChooser.ExtensionFilter("JPG", "*.jpg"),
+                                        new FileChooser.ExtensionFilter("PNG", "*.png"),
+                                        new FileChooser.ExtensionFilter("JPEG", "*.jpeg"));
         List<File> files = fc.showOpenMultipleDialog(null);
 
         if (files != null){
             for (File file : files)
             {
                 aFiles.getItems().add(file.getName());
-                try {
-                    aImages.add(new Image(new FileInputStream(file)));
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+                aImages.add(new Image(file.toURI().toString()));
             }
         }
     }
@@ -279,20 +274,17 @@ public class NewIncidentDialogController {
     @FXML
     void handleBFileUploadButton(MouseEvent event) {
         FileChooser fc = new FileChooser();
-        fc.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("Image File", "*.jpg"),
-                                        new FileChooser.ExtensionFilter("Image File", "*.png"),
-                                        new FileChooser.ExtensionFilter("Image File", "*.jpeg"));
+        fc.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("ALL", "*.jpg", "*.png", "*.jpeg"),
+                                        new FileChooser.ExtensionFilter("JPG", "*.jpg"),
+                                        new FileChooser.ExtensionFilter("PNG", "*.png"),
+                                        new FileChooser.ExtensionFilter("JPEG", "*.jpeg"));
         List<File> files = fc.showOpenMultipleDialog(null);
 
         if (files != null){
             for (File file : files)
             {
                 bFiles.getItems().add(file.getName());
-                try {
-                    bImages.add(new Image(new FileInputStream(file)));
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+                bImages.add(new Image(file.toURI().toString()));
             }
         }
     }
@@ -502,8 +494,10 @@ public class NewIncidentDialogController {
     }
 
     public void loadCrash(Crash crash) {
+        // Location and date
         locationOfIncident.setText(crash.getCrashAddress());
         timeOfIncident.setDateTimeValue(crash.getDateOfCrash());
+
         // A
         aFirstName.setText(crash.getPersonA().getFirstName());
         aLastName.setText(crash.getPersonA().getLastName());
@@ -565,6 +559,21 @@ public class NewIncidentDialogController {
         setColorByDamageLevel(bFrontRightDoor, crash.getCarB().getParts().getFrDoor());
         setColorByDamageLevel(bBackWindshield, crash.getCarB().getParts().getbWindshield());
         setColorByDamageLevel(bFrontWindshield, crash.getCarB().getParts().getfWindshield());
+
+        // A images and load first
+        aImages.addAll(crash.getImagesA());
+        if (!aImages.isEmpty()) {
+            imageViewA.setFitWidth(318);
+            //imageViewA.setFitHeight(50);
+            imageViewA.setImage(aImages.get(0));
+        }
+
+        // B images and load first
+        bImages.addAll(crash.getImagesB());
+        if (!bImages.isEmpty()) {
+            imageViewB.setImage(bImages.get(0));
+            System.out.println("LOADED B IMAGES");
+        }
     }
 
     public void hideImageViews() {
@@ -580,6 +589,8 @@ public class NewIncidentDialogController {
         labelA.setManaged(false);
         aFileUploadButton.setVisible(false);
         aFileUploadButton.setManaged(false);
+        aFiles.setVisible(false);
+        aFiles.setManaged(false);
         imageViewA.setVisible(false);
         imageViewA.setManaged(false);
 
@@ -588,8 +599,16 @@ public class NewIncidentDialogController {
         labelB.setManaged(false);
         bFileUploadButton.setVisible(false);
         bFileUploadButton.setManaged(false);
+        bFiles.setVisible(false);
+        bFiles.setManaged(false);
         imageViewB.setVisible(false);
         imageViewB.setManaged(false);
+
+        // ImageView show
+        imageViewA.setVisible(true);
+        imageViewA.setManaged(true);
+        imageViewA.setVisible(true);
+        imageViewA.setManaged(true);
     }
 
 }
