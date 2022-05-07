@@ -10,18 +10,10 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.shape.Rectangle;
-import javafx.stage.FileChooser;
-import javafx.stage.Modality;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 
-import javax.imageio.ImageIO;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -202,33 +194,6 @@ public class NewIncidentDialogController {
     @FXML
     private Rectangle bTrunk;
 
-    //File upload
-    @FXML
-    private ListView<String> aFiles;
-
-    @FXML
-    private Button aFileUploadButton;
-
-    @FXML
-    private ListView<String> bFiles;
-
-    @FXML
-    private Button bFileUploadButton;
-
-    @FXML
-    private Label labelA;
-
-    @FXML
-    private Label labelB;
-
-    // ImageViewer
-
-    @FXML
-    private ImageView imageViewA;
-
-    @FXML
-    private ImageView imageViewB;
-
     // TODO: nem minding level 0 a kezdő sérülés pl.: betöltéskor
     // TODO: Observer, ami változtatja a színt a jelenlegi damage Level alapján
     @FXML
@@ -265,42 +230,6 @@ public class NewIncidentDialogController {
             level = CarParts.Level.MINOR;
         }
         return level;
-    }
-
-    @FXML
-    void handleAFileUploadButton(MouseEvent event) {
-        FileChooser fc = new FileChooser();
-        fc.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("ALL", "*.jpg", "*.png", "*.jpeg"),
-                                        new FileChooser.ExtensionFilter("JPG", "*.jpg"),
-                                        new FileChooser.ExtensionFilter("PNG", "*.png"),
-                                        new FileChooser.ExtensionFilter("JPEG", "*.jpeg"));
-        List<File> files = fc.showOpenMultipleDialog(null);
-
-        if (files != null){
-            for (File file : files)
-            {
-                aFiles.getItems().add(file.getName());
-                aImages.add(new Image(file.toURI().toString()));
-            }
-        }
-    }
-
-    @FXML
-    void handleBFileUploadButton(MouseEvent event) {
-        FileChooser fc = new FileChooser();
-        fc.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("ALL", "*.jpg", "*.png", "*.jpeg"),
-                                        new FileChooser.ExtensionFilter("JPG", "*.jpg"),
-                                        new FileChooser.ExtensionFilter("PNG", "*.png"),
-                                        new FileChooser.ExtensionFilter("JPEG", "*.jpeg"));
-        List<File> files = fc.showOpenMultipleDialog(null);
-
-        if (files != null){
-            for (File file : files)
-            {
-                bFiles.getItems().add(file.getName());
-                bImages.add(new Image(file.toURI().toString()));
-            }
-        }
     }
 
     // A Events
