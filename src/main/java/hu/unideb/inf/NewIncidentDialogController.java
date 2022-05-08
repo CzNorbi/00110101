@@ -532,7 +532,24 @@ public class NewIncidentDialogController {
 
     boolean isValidPhoneNumber(TextField tf)
     {
+        if (isEmptyTextField(tf))
+        {
+            return false;
+        }
 
+        String phoneNumber = tf.getText().trim();
+
+        if (phoneNumber.length() != 11 || phoneNumber.startsWith("06") == false)
+        {
+            return false;
+        }
+
+        for (char c: phoneNumber.toCharArray()) {
+            if (Character.isDigit(c) == false)
+            {
+                return false;
+            }
+        }
         return true;
     }
 
