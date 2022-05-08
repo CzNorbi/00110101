@@ -6,6 +6,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.control.SelectionMode;
@@ -32,6 +33,8 @@ public class ImageViewerController implements Initializable {
 
     @FXML
     public ListView<File> listView;
+    public Button rmImg;
+    public Button addImg;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

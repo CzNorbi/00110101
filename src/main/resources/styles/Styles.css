@@ -17,6 +17,7 @@
 }
 
 #buttonImageViewerA, #buttonImageViewerB {
+    -fx-padding: 10px;
     -fx-color: #002256;
     -fx-opacity: 0.5;
 }
