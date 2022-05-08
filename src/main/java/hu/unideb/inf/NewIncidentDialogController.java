@@ -526,7 +526,30 @@ public class NewIncidentDialogController {
 
     boolean isValidDrivingLicenseNumber(TextField tf)
     {
-        // TODO
+        if (isEmptyTextField(tf))
+        {
+            return false;
+        }
+
+        char[] chars = tf.getText().trim().toCharArray();
+
+        if (chars.length != 8)
+        {
+            return false;
+        }
+
+        if (!Character.isLetter(chars[0]) || !Character.isLetter(chars[1]))
+        {
+            return false;
+        }
+
+        for (int i = 2; i <= 8; i++)
+        {
+            if (Character.isDigit(chars[i]) == false)
+            {
+                return false;
+            }
+        }
         return true;
     }
 
