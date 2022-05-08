@@ -532,7 +532,7 @@ public class NewIncidentDialogController {
 
     boolean isValidPhoneNumber(TextField tf)
     {
-        // TODO
+
         return true;
     }
 

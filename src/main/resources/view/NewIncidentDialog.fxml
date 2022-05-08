@@ -59,10 +59,10 @@
                         </Label>
                         <VBox prefHeight="900.0" prefWidth="318.0" style="-fx-background-color: #FFFFFF">
                            <children>
-                              <Label alignment="CENTER_LEFT" text="Keresztnév:" />
-                              <TextField fx:id="aFirstName" />
                               <Label alignment="CENTER_LEFT" text="Vezetéknév:" />
                               <TextField fx:id="aLastName" />
+                              <Label alignment="CENTER_LEFT" text="Keresztnév:" />
+                              <TextField fx:id="aFirstName" />
                               <Label alignment="CENTER_LEFT" text="Születési dátum:" />
                               <DatePicker fx:id="aDateOfBirth" />
                               <Label alignment="CENTER_LEFT" text="Lakcím:" />
@@ -70,7 +70,7 @@
                               <Label alignment="CENTER_LEFT" text="Jogosítvány szám:" />
                               <TextField fx:id="aDrivingLicenseNumber" />
                               <Label alignment="CENTER_LEFT" text="Telefon:" />
-                              <TextField fx:id="aPhone" />
+                              <TextField fx:id="aPhone" promptText="06123456789"/>
                               <Label alignment="CENTER_LEFT" text="Jármű gyártmánya:" />
                               <TextField fx:id="aCarBrand" />
                               <Label alignment="CENTER_LEFT" text="Jármű típusa:" />
@@ -117,10 +117,10 @@
                         </Label>
                         <VBox prefHeight="900.0" prefWidth="318.0" style="-fx-background-color: #FFFFFF">
                            <children>
-                              <Label alignment="CENTER_LEFT" text="Keresztnév:" />
-                              <TextField fx:id="bFirstName" />
                               <Label alignment="CENTER_LEFT" text="Vezetéknév:" />
                               <TextField fx:id="bLastName" />
+                              <Label alignment="CENTER_LEFT" text="Keresztnév:" />
+                              <TextField fx:id="bFirstName" />
                               <Label alignment="CENTER_LEFT" text="Születési dátum:" />
                               <DatePicker fx:id="bDateOfBirth" />
                               <Label alignment="CENTER_LEFT" text="Lakcím:" />
@@ -128,7 +128,7 @@
                               <Label alignment="CENTER_LEFT" text="Jogosítvány szám:" />
                               <TextField fx:id="bDrivingLicenseNumber" />
                               <Label alignment="CENTER_LEFT" text="Telefon:" />
-                              <TextField fx:id="bPhone" />
+                              <TextField fx:id="bPhone" promptText="06123456789"/>
                               <Label alignment="CENTER_LEFT" text="Jármű gyártmánya:" />
                               <TextField fx:id="bCarBrand" />
                               <Label alignment="CENTER_LEFT" text="Jármű típusa:" />
