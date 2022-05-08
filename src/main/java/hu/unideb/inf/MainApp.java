@@ -1,16 +1,11 @@
 package hu.unideb.inf;
 
+import hu.unideb.inf.model.FileCrashDAO;
 import javafx.application.Application;
-import static javafx.application.Application.launch;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
-
-import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import org.h2.tools.Server;
 
 
 public class MainApp extends Application {
@@ -35,26 +30,9 @@ public class MainApp extends Application {
      *
      * @param args the command line arguments
      */
+
     public static void main(String[] args) {
-        try {
-            startDatabase();
-        } catch (SQLException ex) {
-            Logger.getLogger(MainApp.class.getName()).log(Level.SEVERE, null, ex);
-            stopDatabase();
-            return;
-        }
         launch(args);
-        stopDatabase();
-    }
-
-    private static Server s = new Server();
-
-    private static void startDatabase() throws SQLException {
-        //s.runTool("-tcp", "-web", "-ifNotExists");
-    }
-
-    private static void stopDatabase()  {
-        s.shutdown();
     }
 
 }

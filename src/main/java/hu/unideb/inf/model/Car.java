@@ -1,6 +1,8 @@
 package hu.unideb.inf.model;
 
-public class Car {
+import java.io.Serializable;
+
+public class Car implements Serializable {
     private String brand;
     private String type;
     private String licensePlate;

@@ -2,11 +2,12 @@ package hu.unideb.inf.model;
 
 import javafx.scene.image.Image;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 
-public class Crash {
+public class Crash implements Serializable {
     private Person personA;
     private Person personB;
     private Car carA;
