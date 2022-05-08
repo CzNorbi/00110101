@@ -524,6 +524,18 @@ public class NewIncidentDialogController {
         return true;
     }
 
+    boolean isValidDrivingLicenseNumber(TextField tf)
+    {
+        // TODO
+        return true;
+    }
+
+    boolean isValidPhoneNumber(TextField tf)
+    {
+        // TODO
+        return true;
+    }
+
     boolean isEmptyDateTimePicker(DateTimePicker dp)
     {
         if (dp.getValue() == null) {
@@ -537,6 +549,16 @@ public class NewIncidentDialogController {
     }
 
     boolean checkInput() {
+        if (isEmptyDateTimePicker(timeOfIncident) || isEmptyTextArea(locationOfIncident) || isEmptyTextField(aFirstName) ||
+                isEmptyTextField(aLastName) || isEmptyTextField(bFirstName) || isEmptyTextField(bLastName) ||
+                isEmptyTextArea(aAddress) || isEmptyTextArea(bAddress) || isEmptyTextArea(aInsurer) || isEmptyTextArea(bInsurer) ||
+                isEmptyDatePicker(aDateOfBirth) || isEmptyDatePicker(bDateOfBirth) || isEmptyTextField(aCarBrand) ||
+                isEmptyTextField(aCarType) || isEmptyTextField(bCarBrand) || isEmptyTextField(bCarType) || !isValidPhoneNumber(aPhone) ||
+                !isValidPhoneNumber(bPhone) || !isValidDrivingLicenseNumber(aDrivingLicenseNumber) || !isValidDrivingLicenseNumber(bDrivingLicenseNumber) ||
+                !isValidLicenesePlate(aCarLicensePlate) || !isValidLicenesePlate(bCarLicensePlate)) {
+            return false;
+        }
+
         return true;
     }
 
