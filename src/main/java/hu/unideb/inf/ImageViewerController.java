@@ -1,5 +1,7 @@
 package hu.unideb.inf;
 
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -12,13 +14,18 @@ import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
 
 import java.io.File;
+import java.io.IOException;
 import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.StandardCopyOption;
 import java.util.List;
 import java.util.ResourceBundle;
 
 public class ImageViewerController implements Initializable {
 
     private final ObservableList<File> files = FXCollections.observableArrayList();
+    private final String path = "src/main/resources/images/";
 
     @FXML
     public ImageView imageView;
@@ -35,8 +42,16 @@ public class ImageViewerController implements Initializable {
         listView.setItems(files);
         listView.getSelectionModel().selectFirst();
 
-        listView.getSelectionModel().selectedItemProperty().addListener((observableValue, oldValue, newValue)
-                -> imageView.setImage(new Image(newValue.toURI().toString())));
+        listView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<File>() {
+            @Override
+            public void changed(ObservableValue<? extends File> observableValue, File oldValue, File newValue) {
+                if (newValue != null) {
+                    imageView.setImage(new Image(newValue.toURI().toString()));
+                } else {
+                    imageView.setImage(null);
+                }
+            }
+        });
 
         listView.setCellFactory(param -> new ListCell<>() {
             @Override
@@ -56,16 +71,26 @@ public class ImageViewerController implements Initializable {
     public void deleteFile() {
         File file = listView.getSelectionModel().getSelectedItem();
         files.remove(file);
+        //noinspection ResultOfMethodCallIgnored
+        file.delete();
     }
 
     @FXML
     public void addFile() {
         FileChooser fc = new FileChooser();
         fc.getExtensionFilters().add(new FileChooser.ExtensionFilter("JPG, PNG, JPEG", "*.jpg", "*.png", "*.jpeg"));
-        List<File> uploaded = fc.showOpenMultipleDialog(null);
-        
-        if (!uploaded.isEmpty()) {
-            files.addAll(uploaded);
+        List<File> filesToStore = fc.showOpenMultipleDialog(null);
+
+        if (!filesToStore.isEmpty()) {
+            for (File file :
+                    filesToStore) {
+                try {
+                    Path targetPath = Files.copy(file.toPath(), (new File(path + file.getName()).toPath()), StandardCopyOption.REPLACE_EXISTING);
+                    files.add(targetPath.toFile());
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            }
         }
     }
 

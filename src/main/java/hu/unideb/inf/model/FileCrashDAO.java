@@ -14,7 +14,7 @@ public class FileCrashDAO implements CrashDAO {
              ObjectInputStream ois = new ObjectInputStream(fis);) {
             crashes = (List<Crash>)ois.readObject();
         } catch (IOException | ClassNotFoundException e) {
-            crashes = new ArrayList<>();
+            crashes = new ArrayList<Crash>();
         }
     }
 
