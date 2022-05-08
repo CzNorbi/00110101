@@ -9,6 +9,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
@@ -427,6 +428,7 @@ public class NewIncidentDialogController {
             Stage stage = new Stage();
             stage.setScene(new Scene(root1));
             stage.setTitle("Képek módosítása");
+            stage.getIcons().add(new Image("file:icon.png"));
             stage.setResizable(false);
             ImageViewerController controller = fxmlLoader.getController();
             controller.loadFiles(aFiles);
@@ -445,6 +447,7 @@ public class NewIncidentDialogController {
             Stage stage = new Stage();
             stage.setScene(new Scene(root1));
             stage.setTitle("Képek módosítása");
+            stage.getIcons().add(new Image("file:icon.png"));
             stage.setResizable(false);
             ImageViewerController controller = fxmlLoader.getController();
             controller.loadFiles(bFiles);

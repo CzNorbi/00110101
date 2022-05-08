@@ -15,10 +15,10 @@ public class MainApp extends Application {
         FXMLLoader loader = new FXMLLoader(MainApp.class.getResource("/view/MainWindow.fxml"));
         Scene scene = new Scene(loader.load());
         stage.getIcons().add(new Image("file:icon.png"));
+        stage.setResizable(false);
         scene.getStylesheets().add("/styles/Styles.css");
         stage.setTitle("Czier's Incident");
         stage.setScene(scene);
-        stage.setResizable(false);
         stage.show();
     }
 
