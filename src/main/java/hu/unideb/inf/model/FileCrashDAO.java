@@ -10,7 +10,7 @@ public class FileCrashDAO implements CrashDAO {
 
     public FileCrashDAO() {
         // Deserializáció
-        try (FileInputStream fis = new FileInputStream("crashes.ser");
+        try (FileInputStream fis = new FileInputStream("src/main/resources/data/crashes.ser");
              ObjectInputStream ois = new ObjectInputStream(fis);) {
             crashes = (List<Crash>)ois.readObject();
         } catch (IOException | ClassNotFoundException e) {
@@ -20,7 +20,7 @@ public class FileCrashDAO implements CrashDAO {
 
     private void serialize() {
         // Serializáció
-        try (FileOutputStream fos = new FileOutputStream("crashes.ser");
+        try (FileOutputStream fos = new FileOutputStream("src/main/resources/data/crashes.ser");
              ObjectOutputStream oos = new ObjectOutputStream(fos);) {
             oos.writeObject(crashes);
         } catch (IOException e) {
