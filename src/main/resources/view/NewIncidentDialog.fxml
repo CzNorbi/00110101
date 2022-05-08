@@ -76,7 +76,7 @@
                               <Label alignment="CENTER_LEFT" text="Jármű típusa:" />
                               <TextField fx:id="aCarType" />
                               <Label alignment="CENTER_LEFT" text="Rendszám:" />
-                              <TextField fx:id="aCarLicensePlate" />
+                              <TextField fx:id="aCarLicensePlate" promptText="ABC-123"/>
                               <Label alignment="CENTER_LEFT" text="Felelőségbiztosító:" />
                               <TextArea fx:id="aInsurer" prefHeight="64.0" />
                               <Label alignment="CENTER_LEFT" text="Megjegyzések:" />
@@ -134,7 +134,7 @@
                               <Label alignment="CENTER_LEFT" text="Jármű típusa:" />
                               <TextField fx:id="bCarType" />
                               <Label alignment="CENTER_LEFT" text="Rendszám:" />
-                              <TextField fx:id="bCarLicensePlate" />
+                              <TextField fx:id="bCarLicensePlate" promptText="ABC-123"/>
                               <Label alignment="CENTER_LEFT" text="Felelőségbiztosító:" />
                               <TextArea fx:id="bInsurer" prefHeight="64.0" />
                               <Label alignment="CENTER_LEFT" text="Megjegyzések:" />

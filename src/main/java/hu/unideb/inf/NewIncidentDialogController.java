@@ -459,6 +459,86 @@ public class NewIncidentDialogController {
     }
 
     //TODO bemenet ellenőrzés
+    boolean isEmptyTextField(TextField tf)
+    {
+        if (tf.getText().trim().isEmpty()) {
+            tf.setStyle("-fx-fill: #ff8080;");
+            return true;
+        }
+        else {
+            tf.setStyle("-fx-fill: white;");
+            return false;
+        }
+    }
+
+    boolean isEmptyTextArea(TextArea ta)
+    {
+        if (ta.getText().trim().isEmpty()) {
+            ta.setStyle("-fx-fill: #ff8080;");
+            return true;
+        }
+        else {
+            ta.setStyle("-fx-fill: white;");
+            return false;
+        }
+    }
+
+    boolean isEmptyDatePicker(DatePicker dp)
+    {
+        if (dp.getValue() == null) {
+            dp.setStyle("-fx-fill: #ff8080;");
+            return true;
+        }
+        else {
+            dp.setStyle("-fx-fill: white;");
+            return false;
+        }
+    }
+
+    boolean isValidLicenesePlate(TextField tf)
+    {
+        String lp = tf.getText().trim();
+
+        if (lp.isEmpty())
+        {
+            tf.setStyle("-fx-fill: #ff8080;");
+            return false;
+        }
+
+        if (lp.length() != 7)
+        {
+            tf.setStyle("-fx-fill: #ff8080;");
+            return false;
+        }
+
+        char[] chars = lp.toCharArray();
+        if ((Character.isLetter(chars[0]) == false) || (Character.isLetter(chars[1]) == false) || (Character.isLetter(chars[2]) == false) ||
+                (Character.isDigit(chars[4]) == false) || (Character.isDigit(chars[5]) == false) || (Character.isDigit(chars[6]) == false) ||
+                (chars[3] != '-'))
+        {
+            tf.setStyle("-fx-fill: #ff8080;");
+            return false;
+        }
+
+        tf.setStyle("-fx-fill: white;");
+        return true;
+    }
+
+    boolean isEmptyDateTimePicker(DateTimePicker dp)
+    {
+        if (dp.getValue() == null) {
+            dp.setStyle("-fx-fill: #ff8080;");;
+            return true;
+        }
+        else {
+            dp.setStyle("-fx-fill: white;");
+            return false;
+        }
+    }
+
+    boolean checkInput() {
+        return true;
+    }
 
     @FXML
     public Crash processResult() {
