@@ -68,7 +68,7 @@
                               <Label alignment="CENTER_LEFT" text="Lakcím:" />
                               <TextArea fx:id="aAddress" prefHeight="64.0" />
                               <Label alignment="CENTER_LEFT" text="Jogosítvány szám:" />
-                              <TextField fx:id="aDrivingLicenseNumber" />
+                              <TextField fx:id="aDrivingLicenseNumber" promptText="AB123456"/>
                               <Label alignment="CENTER_LEFT" text="Telefon:" />
                               <TextField fx:id="aPhone" promptText="06123456789"/>
                               <Label alignment="CENTER_LEFT" text="Jármű gyártmánya:" />
@@ -126,7 +126,7 @@
                               <Label alignment="CENTER_LEFT" text="Lakcím:" />
                               <TextArea fx:id="bAddress" prefHeight="64.0" />
                               <Label alignment="CENTER_LEFT" text="Jogosítvány szám:" />
-                              <TextField fx:id="bDrivingLicenseNumber" />
+                              <TextField fx:id="bDrivingLicenseNumber" promptText="AB123456"/>
                               <Label alignment="CENTER_LEFT" text="Telefon:" />
                               <TextField fx:id="bPhone" promptText="06123456789"/>
                               <Label alignment="CENTER_LEFT" text="Jármű gyártmánya:" />

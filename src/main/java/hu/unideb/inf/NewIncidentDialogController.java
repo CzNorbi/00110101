@@ -528,6 +528,7 @@ public class NewIncidentDialogController {
     {
         if (isEmptyTextField(tf))
         {
+            tf.setStyle("-fx-fill: #ff8080;");
             return false;
         }
 
@@ -535,21 +536,26 @@ public class NewIncidentDialogController {
 
         if (chars.length != 8)
         {
+            tf.setStyle("-fx-fill: #ff8080;");
             return false;
         }
 
         if (!Character.isLetter(chars[0]) || !Character.isLetter(chars[1]))
         {
+            tf.setStyle("-fx-fill: #ff8080;");
             return false;
         }
 
-        for (int i = 2; i <= 8; i++)
+        for (int i = 2; i < 8; i++)
         {
             if (Character.isDigit(chars[i]) == false)
             {
+                tf.setStyle("-fx-fill: #ff8080;");
                 return false;
             }
         }
+
+        tf.setStyle("-fx-fill: white;");
         return true;
     }
 
@@ -557,6 +563,7 @@ public class NewIncidentDialogController {
     {
         if (isEmptyTextField(tf))
         {
+            tf.setStyle("-fx-fill: #ff8080;");
             return false;
         }
 
@@ -564,15 +571,19 @@ public class NewIncidentDialogController {
 
         if (phoneNumber.length() != 11 || phoneNumber.startsWith("06") == false)
         {
+            tf.setStyle("-fx-fill: #ff8080;");
             return false;
         }
 
         for (char c: phoneNumber.toCharArray()) {
             if (Character.isDigit(c) == false)
             {
+                tf.setStyle("-fx-fill: #ff8080;");
                 return false;
             }
         }
+
+        tf.setStyle("-fx-fill: white;");
         return true;
     }
 
