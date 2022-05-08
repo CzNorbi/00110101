@@ -16,6 +16,15 @@
     -fx-focus-color: -fx-secondary-color;
 }
 
+#buttonImageViewerA, #buttonImageViewerB {
+    -fx-color: #002256;
+    -fx-opacity: 0.5;
+}
+
+#buttonImageViewerA:hover, #buttonImageViewerB:hover {
+    -fx-opacity: 0.7;
+}
+
 #loadButtonMain {
     -fx-color: #424242;
     -fx-opacity: 0.5;
