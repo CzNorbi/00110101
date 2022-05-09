@@ -20,6 +20,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
@@ -83,6 +84,15 @@ public class MainWindowController implements Initializable {
 
     @FXML
     private TableColumn<Crash, LocalDateTime> tableColumnCrashDate;
+
+    @FXML
+    void handleImgClick() {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Verzió: 1.3.0");
+        alert.setHeaderText(null);
+        alert.setContentText("Fejlesztők: Czier Norbert, Zelei Péter, Szabó Gedeon, Dorsonszky Máté\nKárbejelentő\nDátum: 2022.05.09");
+        alert.showAndWait();
+    }
 
     @FXML
     void handleButtonNewIncident() {
