@@ -64,7 +64,11 @@ public class ImageViewerController implements Initializable {
                 if (b || file == null) {
                     setText(null);
                 } else {
-                    setText(file.getName());
+                    if (file.getName().length() >= 13) {
+                        setText(file.getName().substring(13));
+                    } else {
+                        setText(file.getName());
+                    }
                 }
             }
         });
@@ -88,7 +92,7 @@ public class ImageViewerController implements Initializable {
             for (File file :
                     filesToStore) {
                 try {
-                    Path targetPath = Files.copy(file.toPath(), (new File(path  + file.getName()).toPath()), StandardCopyOption.REPLACE_EXISTING);
+                    Path targetPath = Files.copy(file.toPath(), (new File(path + System.currentTimeMillis() + file.getName()).toPath()), StandardCopyOption.REPLACE_EXISTING);
                     files.add(targetPath.toFile());
                 } catch (IOException e) {
                     throw new RuntimeException(e);
