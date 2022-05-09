@@ -90,7 +90,7 @@ public class MainWindowController implements Initializable {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Verzió: 1.3.0");
         alert.setHeaderText(null);
-        alert.setContentText("Fejlesztők: Czier Norbert, Zelei Péter, Szabó Gedeon, Dorsonszky Máté\nKárbejelentő\nDátum: 2022.05.09");
+        alert.setContentText("Fejlesztők: Czier Norbert, Dorsonszky Máté, Szabó Gedeon, Zelei Péter \nKárbejelentő\nDátum: 2022.05.09");
         alert.showAndWait();
     }
 
@@ -161,5 +161,12 @@ public class MainWindowController implements Initializable {
                 crashDAO.updateCrash(selectedCrash, controller.processResult());
             }
         }
+    }
+
+    public void handleButtonDeleteIncident(ActionEvent actionEvent) {
+        Crash crashToDelete = crashTableView.getSelectionModel().getSelectedItem();
+        crashes.remove(crashToDelete);
+        crashDAO.deleteCrash(crashToDelete);
+        // TODO: Hozzárendelt fájlok eltávolítása
     }
 }

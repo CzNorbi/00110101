@@ -17,7 +17,7 @@
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="371.0" prefWidth="631.0">
                      <children>
                         <Button fx:id="newButtonMain" layoutX="555.0" layoutY="361.0" mnemonicParsing="false" onAction="#handleButtonNewIncident" prefHeight="34.0" prefWidth="129.0" text="ÚJ BEJELENTÉS" />
-                        <Button fx:id="loadButtonMain" layoutX="555.0" layoutY="317.0" mnemonicParsing="false" onAction="#handleButtonLoadIncident" prefHeight="34.0" prefWidth="129.0" text="BETÖLTÉS" />
+                        <Button fx:id="loadButtonMain" layoutX="555.0" layoutY="322.0" mnemonicParsing="false" onAction="#handleButtonLoadIncident" prefHeight="34.0" prefWidth="66.0" text="LOAD" />
                          <TableView fx:id="crashTableView" layoutX="14.0" layoutY="12.0" prefHeight="383.0" prefWidth="530.0">
                              <columns>
                                  <TableColumn fx:id="tCA" prefWidth="150.0" text="A károsult">
@@ -36,7 +36,8 @@
                                  <TableColumn fx:id="tableColumnCrashDate" prefWidth="84.66665649414062" text="Időpont" />
                              </columns>
                          </TableView>
-                        <ImageView fx:id="img" fitHeight="120.0" fitWidth="129.0" layoutX="555.0" layoutY="182.0" nodeOrientation="INHERIT" onMouseClicked="#handleImgClick" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView fx:id="img" fitHeight="120.0" fitWidth="129.0" layoutX="555.0" layoutY="192.0" nodeOrientation="INHERIT" onMouseClicked="#handleImgClick" pickOnBounds="true" preserveRatio="true" />
+                        <Button fx:id="deleteButtonMain" layoutX="626.0" layoutY="322.0" mnemonicParsing="false" onAction="#handleButtonDeleteIncident" prefHeight="34.0" prefWidth="57.0" text="DELETE" />
                      </children>
                   </AnchorPane>
               </content>

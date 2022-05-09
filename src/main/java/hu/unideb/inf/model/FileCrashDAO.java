@@ -38,7 +38,7 @@ public class FileCrashDAO implements CrashDAO {
 
     @Override
     public void deleteCrash(Crash c) {
-        if (!crashes.contains(c)) {
+        if (crashes.contains(c)) {
             crashes.remove(c);
             serialize();
         }

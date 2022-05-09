@@ -26,16 +26,21 @@
     -fx-opacity: 0.7;
 }
 
+#deleteButtonMain {
+    -fx-color: #ff0d0d;
+    -fx-opacity: 0.5;
+}
+
 #loadButtonMain {
     -fx-color: #424242;
     -fx-opacity: 0.5;
 }
 
-#loadButtonMain:hover {
+#loadButtonMain:hover, #deleteButtonMain:hover {
     -fx-opacity: 0.7;
 }
 
-#loadButtonMain:pressed {
+#loadButtonMain:pressed, #deleteButtonMain:pressed  {
     -fx-opacity: 0.9;
 }
 
