@@ -1,12 +1,12 @@
 package hu.unideb.inf.model;
 
-import javafx.scene.image.Image;
-
+import java.io.File;
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 
-public class Crash {
+public class Crash implements Serializable {
     private Person personA;
     private Person personB;
     private Car carA;
@@ -15,11 +15,11 @@ public class Crash {
     private String commentB;
     private String crashAddress;
     private LocalDateTime dateOfCrash;
-    private List<Image> imagesA;
-    private List<Image> imagesB;
+    private List<File> filesA;
+    private List<File> filesB;
 
     public Crash(Person personA, Person personB, Car carA, Car carB, String commentA, String commentB, String crashAddress, LocalDateTime dateOfCrash,
-                 List<Image> imagesA, List<Image> imagesB) {
+                 List<File> filesA, List<File> filesB) {
         this.personA = personA;
         this.personB = personB;
         this.carA = carA;
@@ -28,8 +28,8 @@ public class Crash {
         this.commentB = commentB;
         this.crashAddress = crashAddress;
         this.dateOfCrash = dateOfCrash;
-        this.imagesA = imagesA;
-        this.imagesB = imagesB;
+        this.filesA = filesA;
+        this.filesB = filesB;
     }
 
     public Person getPersonA() {
@@ -96,20 +96,20 @@ public class Crash {
         this.dateOfCrash = dateOfCrash;
     }
 
-    public List<Image> getImagesA() {
-        return imagesA;
+    public List<File> getFilesA() {
+        return filesA;
     }
 
-    public void setImagesA(List<Image> imagesA) {
-        this.imagesA = imagesA;
+    public void setFilesA(List<File> filesA) {
+        this.filesA = filesA;
     }
 
-    public List<Image> getImagesB() {
-        return imagesB;
+    public List<File> getFilesB() {
+        return filesB;
     }
 
-    public void setImagesB(List<Image> imagesB) {
-        this.imagesB = imagesB;
+    public void setFilesB(List<File> filesB) {
+        this.filesB = filesB;
     }
 
     @Override

@@ -1,6 +1,8 @@
 package hu.unideb.inf.model;
 
-public class CarParts {
+import java.io.Serializable;
+
+public class CarParts implements Serializable {
 
     private Level hood;
     private Level frDoor;

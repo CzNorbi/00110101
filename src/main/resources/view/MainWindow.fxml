@@ -8,7 +8,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane fx:id="mainAnchorPane" prefHeight="400.0" prefWidth="643.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hu.unideb.inf.MainWindowController">
+<AnchorPane fx:id="mainAnchorPane" prefHeight="435.0" prefWidth="695.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hu.unideb.inf.MainWindowController">
     <children>
         <TabPane prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <tabs>
@@ -16,27 +16,27 @@
               <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="371.0" prefWidth="631.0">
                      <children>
-                        <Button layoutX="503.0" layoutY="323.0" mnemonicParsing="false" onAction="#handleButtonNewIncident" prefHeight="34.0" prefWidth="129.0" text="ÚJ BEJELENTÉS" />
-                        <Button layoutX="503.0" layoutY="279.0" mnemonicParsing="false" onAction="#handleButtonLoadIncident" prefHeight="34.0" prefWidth="129.0" text="BETÖLTÉS" />
-                         <TableView fx:id="crashTableView" layoutX="14.0" layoutY="12.0" prefHeight="345.0" prefWidth="482.0">
+                        <Button fx:id="newButtonMain" layoutX="555.0" layoutY="361.0" mnemonicParsing="false" onAction="#handleButtonNewIncident" prefHeight="34.0" prefWidth="129.0" text="ÚJ BEJELENTÉS" />
+                        <Button fx:id="loadButtonMain" layoutX="555.0" layoutY="317.0" mnemonicParsing="false" onAction="#handleButtonLoadIncident" prefHeight="34.0" prefWidth="129.0" text="BETÖLTÉS" />
+                         <TableView fx:id="crashTableView" layoutX="14.0" layoutY="12.0" prefHeight="383.0" prefWidth="530.0">
                              <columns>
-                                 <TableColumn fx:id="tCA" prefWidth="160" text="A károsult">
+                                 <TableColumn fx:id="tCA" prefWidth="150.0" text="A károsult">
                                      <columns>
-                                         <TableColumn fx:id="tableColumnNameA" prefWidth="80" text="Név" />
-                                         <TableColumn fx:id="tableColumnLicensePlateA" prefWidth="80" text="Rendszám" />
+                                         <TableColumn fx:id="tableColumnNameA" prefWidth="95.00000286102295" text="Név" />
+                                         <TableColumn fx:id="tableColumnLicensePlateA" text="Rendszám" />
                                      </columns>
                                  </TableColumn>
-                                 <TableColumn fx:id="tCB" prefWidth="160" text="B károsult">
+                                 <TableColumn fx:id="tCB" prefWidth="150.0" text="B károsult">
                                      <columns>
-                                         <TableColumn fx:id="tableColumnNameB" prefWidth="80" text="Név" />
-                                         <TableColumn fx:id="tableColumnLicensePlateB" prefWidth="80" text="Rendszám" />
+                                         <TableColumn fx:id="tableColumnNameB" prefWidth="95.0" text="Név" />
+                                         <TableColumn fx:id="tableColumnLicensePlateB" prefWidth="80.00001525878906" text="Rendszám" />
                                      </columns>
                                  </TableColumn>
-                                 <TableColumn fx:id="tableColumnCrashLocation" text="Helyszín" />
-                                 <TableColumn fx:id="tableColumnCrashDate" text="Időpont" />
+                                 <TableColumn fx:id="tableColumnCrashLocation" prefWidth="92.0" text="Helyszín" />
+                                 <TableColumn fx:id="tableColumnCrashDate" prefWidth="84.66665649414062" text="Időpont" />
                              </columns>
                          </TableView>
-                        <ImageView fx:id="img" fitHeight="120.0" fitWidth="141.0" layoutX="499.0" layoutY="150.0" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView fx:id="img" fitHeight="120.0" fitWidth="129.0" layoutX="555.0" layoutY="182.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" />
                      </children>
                   </AnchorPane>
               </content>

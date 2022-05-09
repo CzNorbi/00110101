@@ -14,6 +14,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,8 +27,8 @@ public class NewIncidentDialogController {
 
     // Lists of images
 
-    private final List<Image> aImages = new ArrayList<>();
-    private final List<Image> bImages = new ArrayList<>();
+    private final List<File> aFiles = new ArrayList<>();
+    private final List<File> bFiles = new ArrayList<>();
 
     // ImageViewer buttons
 
@@ -194,8 +195,6 @@ public class NewIncidentDialogController {
     @FXML
     private Rectangle bTrunk;
 
-    // TODO: nem minding level 0 a kezdő sérülés pl.: betöltéskor
-    // TODO: Observer, ami változtatja a színt a jelenlegi damage Level alapján
     @FXML
     CarParts.Level damageLevel(Rectangle carPart)
     {
@@ -429,12 +428,13 @@ public class NewIncidentDialogController {
             Stage stage = new Stage();
             stage.setScene(new Scene(root1));
             stage.setTitle("Képek módosítása");
+            stage.getIcons().add(new Image("file:icon.png"));
             stage.setResizable(false);
             ImageViewerController controller = fxmlLoader.getController();
-            controller.loadImages(aImages);
+            controller.loadFiles(aFiles);
             stage.showAndWait();
-            aImages.clear();
-            aImages.addAll(controller.getImages());
+            aFiles.clear();
+            aFiles.addAll(controller.getFiles());
         } catch(Exception e) {
             e.printStackTrace();
         }
@@ -447,12 +447,13 @@ public class NewIncidentDialogController {
             Stage stage = new Stage();
             stage.setScene(new Scene(root1));
             stage.setTitle("Képek módosítása");
+            stage.getIcons().add(new Image("file:icon.png"));
             stage.setResizable(false);
             ImageViewerController controller = fxmlLoader.getController();
-            controller.loadImages(bImages);
+            controller.loadFiles(bFiles);
             stage.showAndWait();
-            bImages.clear();
-            bImages.addAll(controller.getImages());
+            bFiles.clear();
+            bFiles.addAll(controller.getFiles());
         } catch(Exception e) {
             e.printStackTrace();
         }
@@ -715,7 +716,7 @@ public class NewIncidentDialogController {
         Car carA = new Car(aCarBrand.getText().trim(), aCarType.getText().trim(), aCarLicensePlate.getText().trim(), aInsurer.getText().trim(), aParts);
         Car carB = new Car(bCarBrand.getText().trim(), bCarType.getText().trim(), bCarLicensePlate.getText().trim(), bInsurer.getText().trim(), bParts);
 
-        return new Crash(personA, personB, carA, carB, aComment.getText(), bComment.getText(), locationOfIncident.getText().trim(), timeOfIncident.getDateTimeValue(), aImages, bImages);
+        return new Crash(personA, personB, carA, carB, aComment.getText(), bComment.getText(), locationOfIncident.getText().trim(), timeOfIncident.getDateTimeValue(), aFiles, bFiles);
     }
 
     public void loadCrash(Crash crash) {
@@ -786,7 +787,7 @@ public class NewIncidentDialogController {
         setColorByDamageLevel(bFrontWindshield, crash.getCarB().getParts().getfWindshield());
 
         // Images
-        aImages.addAll(crash.getImagesA());
-        bImages.addAll(crash.getImagesB());
+        aFiles.addAll(crash.getFilesA());
+        bFiles.addAll(crash.getFilesB());
     }
 }

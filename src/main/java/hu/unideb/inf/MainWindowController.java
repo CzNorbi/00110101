@@ -1,12 +1,17 @@
 package hu.unideb.inf;
 
+import hu.unideb.inf.MainApp;
+
 import hu.unideb.inf.model.Crash;
+import hu.unideb.inf.model.FileCrashDAO;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+
 import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.event.EventHandler;
+
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -14,7 +19,6 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
@@ -25,12 +29,16 @@ import java.util.ResourceBundle;
 
 public class MainWindowController implements Initializable {
 
-    public ObservableList<Crash> crashes;
+    private ObservableList<Crash> crashes;
+    private FileCrashDAO crashDAO;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        // Itt kell az adatbázisból behúzni az adatokat a crashes listába
+        crashDAO = new FileCrashDAO();
         crashes = FXCollections.observableArrayList();
+
+        // Adatok betöltése
+        crashes.setAll(crashDAO.getCrashes());
 
         crashTableView.setItems(crashes);
         crashTableView.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
@@ -108,6 +116,7 @@ public class MainWindowController implements Initializable {
         {
             // Megadott adatok elmentése
             crashes.add(controller.processResult());
+            crashDAO.saveCrash(controller.processResult());
         }
     }
 
@@ -139,6 +148,7 @@ public class MainWindowController implements Initializable {
             if (result.isPresent() && result.get() == ButtonType.APPLY)
             {
                 crashes.set(crashes.indexOf(selectedCrash), controller.processResult());
+                crashDAO.updateCrash(selectedCrash, controller.processResult());
             }
         }
     }
