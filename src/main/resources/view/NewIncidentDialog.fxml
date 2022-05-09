@@ -50,8 +50,6 @@
                               <TextField fx:id="aLastName" />
                               <Label alignment="CENTER_LEFT" text="Keresztnév:" />
                               <TextField fx:id="aFirstName" prefWidth="40.0" />
-                              <Label alignment="CENTER_LEFT" text="Keresztnév:" />
-                              <TextField fx:id="aFirstName" />
                               <Label alignment="CENTER_LEFT" text="Születési dátum:" />
                               <DatePicker fx:id="aDateOfBirth" />
                               <Label alignment="CENTER_LEFT" text="Lakcím:" />
