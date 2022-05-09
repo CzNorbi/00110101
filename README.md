@@ -1,8 +1,16 @@
 # 00110101
 ## Szoftverfejlesztés mérnököknek projekt
 
+#### 1.3.0 Milestone update
+> Serialization fix & ui updates
+<img width="420" alt="image" src="https://user-images.githubusercontent.com/78929870/167359318-13b13df9-c464-487b-aafa-2a53cae4e4c1.png">
+
+#### 1.2.2 ImageView added to crashes
+> Added images
+<img width="420" alt="image" src="https://user-images.githubusercontent.com/78929870/167358792-8aad915d-6817-4b58-a9c3-78c275214002.png">
+
 #### 1.2.1 Bugfix, ui update
-> Reintroduced Styles.css & last build without database
+> Reintroduced Styles.css & last build without persistence
 <img width="420" alt="image" src="https://user-images.githubusercontent.com/78929870/167027477-ce9f8b7d-f4d3-452b-8fe1-17f795ca98ce.png">
 
 #### 1.2.0-SNAPSHOT New Crash dialog
