@@ -23,7 +23,7 @@
                <children>
                   <VBox prefHeight="0.0" prefWidth="330.0">
                      <children>
-                         <Label prefHeight="18.0" prefWidth="207.0" text=" Baleset időpontja(Dátum, óra, perc): " />
+                         <Label prefHeight="18.0" prefWidth="300.0" text=" Baleset időpontja(Dátum, óra, perc): " />
                         <DateTimePicker fx:id="timeOfIncident" prefHeight="26.0" prefWidth="202.0" />
                      </children>
                   </VBox>
