@@ -165,8 +165,18 @@ public class MainWindowController implements Initializable {
 
     public void handleButtonDeleteIncident(ActionEvent actionEvent) {
         Crash crashToDelete = crashTableView.getSelectionModel().getSelectedItem();
-        crashes.remove(crashToDelete);
-        crashDAO.deleteCrash(crashToDelete);
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Káresemény törlése");
+        alert.setHeaderText("Korábban tárolt káresemény törlése");
+        alert.setContentText("Biztos az eltávolításban?");
+
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.get() == ButtonType.OK){
+            crashes.remove(crashToDelete);
+            crashDAO.deleteCrash(crashToDelete);
+        } else {
+            // ... puki
+        }
         // TODO: Hozzárendelt fájlok eltávolítása
     }
 }
