@@ -459,7 +459,253 @@ public class NewIncidentDialogController {
         }
     }
 
-    //TODO bemenet ellenőrzés
+    // bemenet ellenőrzés
+    boolean isEmptyTextField(TextField tf)
+    {
+        if (tf.getText().trim().isEmpty()) {
+            tf.setStyle("-fx-background-color: #ff8080;");
+            return true;
+        }
+        else {
+            tf.setStyle("-fx-background-color: white;");
+            return false;
+        }
+    }
+
+    boolean isEmptyTextArea(TextArea ta)
+    {
+        if (ta.getText().trim().isEmpty()) {
+            ta.setStyle("-fx-control-inner-background: #ff8080;");
+            return true;
+        }
+        else {
+            ta.setStyle("-fx-control-inner-background: white;");
+            return false;
+        }
+    }
+
+    boolean isEmptyDatePicker(DatePicker dp)
+    {
+        if (dp.getValue() == null) {
+            dp.setStyle("-fx-control-inner-background: #ff8080;");
+            return true;
+        }
+        else {
+            dp.setStyle("-fx-control-inner-background: white;");
+            return false;
+        }
+    }
+
+    boolean isEmptyDateTimePicker(DateTimePicker dp)
+    {
+        if (dp.getValue() == null) {
+            dp.setStyle("-fx-control-inner-background: #ff8080;");;
+            return true;
+        }
+        else {
+            dp.setStyle("-fx-control-inner-background: white;");
+            return false;
+        }
+    }
+
+    boolean isValidLicensePlate(TextField tf)
+    {
+        String lp = tf.getText().trim();
+
+        if (lp.isEmpty())
+        {
+            tf.setStyle("-fx-background-color: #ff8080;");
+            return false;
+        }
+
+        if (lp.length() != 7)
+        {
+            tf.setStyle("-fx-background-color: #ff8080;");
+            return false;
+        }
+
+        char[] chars = lp.toCharArray();
+        if ((Character.isLetter(chars[0]) == false) || (Character.isLetter(chars[1]) == false) || (Character.isLetter(chars[2]) == false) ||
+                (Character.isDigit(chars[4]) == false) || (Character.isDigit(chars[5]) == false) || (Character.isDigit(chars[6]) == false) ||
+                (chars[3] != '-'))
+        {
+            tf.setStyle("-fx-background-color: #ff8080;");
+            return false;
+        }
+
+        tf.setStyle("-fx-background-color: white;");
+        return true;
+    }
+
+    boolean isValidDrivingLicenseNumber(TextField tf)
+    {
+        if (isEmptyTextField(tf))
+        {
+            tf.setStyle("-fx-background-color: #ff8080;");
+            return false;
+        }
+
+        char[] chars = tf.getText().trim().toCharArray();
+
+        if (chars.length != 8)
+        {
+            tf.setStyle("-fx-background-color: #ff8080;");
+            return false;
+        }
+
+        if (!Character.isLetter(chars[0]) || !Character.isLetter(chars[1]))
+        {
+            tf.setStyle("-fx-background-color: #ff8080;");
+            return false;
+        }
+
+        for (int i = 2; i < 8; i++)
+        {
+            if (Character.isDigit(chars[i]) == false)
+            {
+                tf.setStyle("-fx-background-color: #ff8080;");
+                return false;
+            }
+        }
+
+        tf.setStyle("-fx-background-color: white;");
+        return true;
+    }
+
+    boolean isValidPhoneNumber(TextField tf)
+    {
+        if (isEmptyTextField(tf))
+        {
+            tf.setStyle("-fx-background-color: #ff8080;");
+            return false;
+        }
+
+        String phoneNumber = tf.getText().trim();
+
+        if (phoneNumber.length() != 11 || phoneNumber.startsWith("06") == false)
+        {
+            tf.setStyle("-fx-background-color: #ff8080;");
+            return false;
+        }
+
+        for (char c: phoneNumber.toCharArray()) {
+            if (Character.isDigit(c) == false)
+            {
+                tf.setStyle("-fx-background-color: #ff8080;");
+                return false;
+            }
+        }
+
+        tf.setStyle("-fx-background-color: white;");
+        return true;
+    }
+
+    boolean checkInput() {
+        boolean isValid = true;
+        if (isEmptyDateTimePicker(timeOfIncident))
+        {
+            isValid = false;
+        }
+        if (isEmptyTextArea(locationOfIncident))
+        {
+            isValid = false;
+        }
+        if (isEmptyTextField(aFirstName))
+        {
+            isValid = false;
+        }
+        if (isEmptyTextField(aLastName))
+        {
+            isValid = false;
+        }
+        if (isEmptyTextField(bFirstName))
+        {
+            isValid = false;
+        }
+        if (isEmptyTextField(bLastName))
+        {
+            isValid = false;
+        }
+        if (isEmptyTextArea(aAddress))
+        {
+            isValid = false;
+        }
+        if (isEmptyTextArea(bAddress))
+        {
+            isValid = false;
+        }
+        if (isEmptyTextArea(aInsurer))
+        {
+            isValid = false;
+        }
+        if (isEmptyTextArea(bInsurer))
+        {
+            isValid = false;
+        }
+        if (isEmptyDatePicker(aDateOfBirth))
+        {
+            isValid = false;
+        }
+        if (isEmptyDatePicker(bDateOfBirth))
+        {
+            isValid = false;
+        }
+        if (isEmptyTextField(aCarType))
+        {
+            isValid = false;
+        }
+        if (isEmptyTextField(aCarBrand))
+        {
+            isValid = false;
+        }
+        if (isEmptyTextField(bCarBrand))
+        {
+            isValid = false;
+        }
+        if (isEmptyTextField(bCarType))
+        {
+            isValid = false;
+        }
+        if (!isValidPhoneNumber(aPhone))
+        {
+            isValid = false;
+        }
+        if (!isValidPhoneNumber(bPhone))
+        {
+            isValid = false;
+        }
+        if (!isValidDrivingLicenseNumber(aDrivingLicenseNumber))
+        {
+            isValid = false;
+        }
+        if (!isValidDrivingLicenseNumber(bDrivingLicenseNumber))
+        {
+            isValid = false;
+        }
+        if (!isValidLicensePlate(aCarLicensePlate))
+        {
+            isValid = false;
+        }
+        if (!isValidLicensePlate(bCarLicensePlate))
+        {
+            isValid = false;
+        }
+
+
+    /*
+        if isEmptyDateTimePicker(timeOfIncident) || isEmptyTextArea(locationOfIncident) || isEmptyTextField(aFirstName) ||
+                isEmptyTextField(aLastName) || isEmptyTextField(bFirstName) || isEmptyTextField(bLastName) ||
+                isEmptyTextArea(aAddress) || isEmptyTextArea(bAddress) || isEmptyTextArea(aInsurer) || isEmptyTextArea(bInsurer) ||
+                isEmptyDatePicker(aDateOfBirth) || isEmptyDatePicker(bDateOfBirth) || isEmptyTextField(aCarBrand) ||
+                isEmptyTextField(aCarType) || isEmptyTextField(bCarBrand) || isEmptyTextField(bCarType) || !isValidPhoneNumber(aPhone) ||
+                !isValidPhoneNumber(bPhone) || !isValidDrivingLicenseNumber(aDrivingLicenseNumber) || !isValidDrivingLicenseNumber(bDrivingLicenseNumber) ||
+                !isValidLicensePlate(aCarLicensePlate) || !isValidLicensePlate(bCarLicensePlate)) {
+            isValid = false;
+            }
+    */
+
+        return isValid;
+    }
 
     @FXML
     public Crash processResult() {
