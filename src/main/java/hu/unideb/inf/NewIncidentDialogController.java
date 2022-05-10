@@ -472,7 +472,7 @@ public class NewIncidentDialogController {
         }
     }
 
-    boolean isEmptyTextArea(TextArea ta)
+    public boolean isEmptyTextArea(TextArea ta)
     {
         if (ta.getText().trim().isEmpty()) {
             ta.setStyle("-fx-control-inner-background: #ff8080;");
