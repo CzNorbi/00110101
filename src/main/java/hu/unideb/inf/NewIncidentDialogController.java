@@ -460,7 +460,7 @@ public class NewIncidentDialogController {
     }
 
     // bemenet ellenőrzés
-    boolean isEmptyTextField(TextField tf)
+    public boolean isEmptyTextField(TextField tf)
     {
         if (tf.getText().trim().isEmpty()) {
             tf.setStyle("-fx-background-color: #ff8080;");
