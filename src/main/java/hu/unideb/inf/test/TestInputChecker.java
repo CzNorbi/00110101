@@ -1,28 +1,21 @@
 package hu.unideb.inf.test;
 
-import java.time.Duration;
-import java.util.concurrent.TimeUnit;
-import hu.unideb.inf.NewIncidentDialogController;
+import java.io.File;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.List;
+
 import hu.unideb.inf.model.Car;
 import hu.unideb.inf.model.CarParts;
-import javafx.scene.control.TextField;
-import org.hibernate.internal.build.AllowSysOut;
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.Assertions;
+import hu.unideb.inf.model.Crash;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
+
+import hu.unideb.inf.model.Person;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.Timeout;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.ValueSource;
-import static org.mockito.BDDMockito.given;
-import org.mockito.Mock;
-import static org.mockito.Mockito.*;
-import org.mockito.MockitoAnnotations;
-import javafx.scene.control.TextField;
+
+import javax.persistence.Persistence;
 
 public class TestInputChecker
 {
@@ -45,6 +38,29 @@ public class TestInputChecker
         assertEquals(testCar.getLicensePlate(), testLP);
         assertEquals(testCar.getNameOfInsurer(), testInsurer);
 
-        System.out.println("OK");
+        System.out.println("OK testCar");
+    }
+
+    @Test
+    public static  void testCrash(){
+        Person personA = new Person("Teszt", "Elek", LocalDate.of(2002, 03, 15),
+                "AB890734","Kassai Ut 26", "06304444333");
+        Person personB = new Person("Mikorka", "Kalman", LocalDate.of(2002,03,15),
+                "CD890678", "Kassai Ut 26", "06304444333");
+        Car carA = new Car("BMW", "M3", "ASD-123", "NN", new CarParts());
+        Car carB = new Car("Audi", "A6", "DSA-321", "Casco", new CarParts());
+        String commentA = "Semmi.";
+        String commentB = "Semmi.";
+        String crashAddr = "Kassai Ut 26";
+        LocalDateTime date = LocalDateTime.now();
+        List<File> filesA = null;
+        List<File> filesB = null;
+
+        Crash testCrash = new Crash(personA, personB, carA, carB, commentA, commentB,
+                        crashAddr, date, filesA, filesB);
+
+        assertEquals(testCrash.getPersonA(), personA);
+        assertEquals(testCrash.getPersonB(), personB);
+
     }
 }
