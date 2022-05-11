@@ -21,6 +21,7 @@ public class TestInputChecker
 {
     public static void main(String[] args) {
         testCar();
+        testCrash();
     }
 
     @Test
@@ -61,6 +62,15 @@ public class TestInputChecker
 
         assertEquals(testCrash.getPersonA(), personA);
         assertEquals(testCrash.getPersonB(), personB);
+        assertEquals(testCrash.getCarA(), carA);
+        assertEquals(testCrash.getCarB(), carB);
+        assertEquals(testCrash.getCommentA(), commentA);
+        assertEquals(testCrash.getCommentB(), commentB);
+        assertEquals(testCrash.getCrashAddress(), crashAddr);
+        assertEquals(testCrash.getDateOfCrash(), date);
+        assertEquals(testCrash.getFilesA(), filesA);
+        assertEquals(testCrash.getFilesB(), filesB);
 
+        System.out.println("CrashTest OK");
     }
 }
