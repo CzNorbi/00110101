@@ -3,7 +3,10 @@ package hu.unideb.inf.test;
 import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 import hu.unideb.inf.NewIncidentDialogController;
+import hu.unideb.inf.model.Car;
+import hu.unideb.inf.model.CarParts;
 import javafx.scene.control.TextField;
+import org.hibernate.internal.build.AllowSysOut;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
@@ -21,15 +24,27 @@ import static org.mockito.Mockito.*;
 import org.mockito.MockitoAnnotations;
 import javafx.scene.control.TextField;
 
-public class TestInputChecker {
-    @BeforeEach
-    public static void setUp() {
-        TextField testTf1 = new TextField("");
-        TextField testTf2 = new TextField("Proba");
+public class TestInputChecker
+{
+    public static void main(String[] args) {
+        testCar();
     }
+
     @Test
-    public static void testEmptyTextField(TextField tf){
+    public static void testCar() {
+        String testBrand = "Peugeot";
+        String testType = "307";
+        String testLP = "ABC-007";
+        String testInsurer = "nn";
+        CarParts testPart = new CarParts();
 
+        Car testCar = new Car(testBrand, testType, testLP, testInsurer, testPart);
 
+        assertEquals(testCar.getBrand(), testBrand);
+        assertEquals(testCar.getType(), testType);
+        assertEquals(testCar.getLicensePlate(), testLP);
+        assertEquals(testCar.getNameOfInsurer(), testInsurer);
+
+        System.out.println("OK");
     }
 }
