@@ -18,10 +18,33 @@ import org.junit.jupiter.api.Test;
 import javax.persistence.Persistence;
 
 public class TestInputChecker
-{
+{ // Majd ide dolgozz tovabb Mate aztan bemergeljuk a mainbe
     public static void main(String[] args) {
+        testPerson();
         testCar();
         testCrash();
+    }
+
+    @Test
+    public static void testPerson(){
+        String testFirstName = "Vicc";
+        String testLastName = "Elek";
+        LocalDate testDateOfBirth = LocalDate.of(2002,03, 15);
+        String testDrivingLicenseNumber = "AB689654";
+        String testAddress = "Kassai Ut 26";
+        String testTelNum = "06204567898";
+
+        Person testPerson = new Person(testFirstName, testLastName, testDateOfBirth,
+                testDrivingLicenseNumber, testAddress, testTelNum);
+
+        assertEquals(testFirstName, testPerson.getFirstName());
+        assertEquals(testLastName, testPerson.getLastName());
+        assertEquals(testDateOfBirth, testPerson.getDateOfBirth());
+        assertEquals(testDrivingLicenseNumber, testPerson.getDrivingLicenseNumber());
+        assertEquals(testAddress, testPerson.getAddress());
+        assertEquals(testTelNum,testPerson.getTelNum());
+        
+
     }
 
     @Test
@@ -29,7 +52,7 @@ public class TestInputChecker
         String testBrand = "Peugeot";
         String testType = "307";
         String testLP = "ABC-007";
-        String testInsurer = "nn";
+        String testInsurer = "NN";
         CarParts testPart = new CarParts();
 
         Car testCar = new Car(testBrand, testType, testLP, testInsurer, testPart);
@@ -73,4 +96,5 @@ public class TestInputChecker
 
         System.out.println("CrashTest OK");
     }
+
 }
