@@ -150,6 +150,7 @@ public class MainWindowController implements Initializable {
 
             NewIncidentDialogController controller = fxmlLoader.getController();
             controller.loadCrash(selectedCrash);
+            controller.disableEdit();
 
 
             dialog.getDialogPane().getButtonTypes().add(ButtonType.CANCEL);

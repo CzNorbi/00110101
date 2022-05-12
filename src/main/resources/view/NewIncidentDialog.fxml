@@ -69,7 +69,7 @@
                               <Label alignment="CENTER_LEFT" text="Megjegyzések:" />
                               <TextArea fx:id="aComment" prefHeight="64.0" />
                               <Label alignment="CENTER_LEFT" text="Sérült részek:" />
-                              <AnchorPane prefHeight="150.0" prefWidth="300.0" style="-fx-border-color: BLACK">
+                              <AnchorPane fx:id="anchorPaneA" prefHeight="150.0" prefWidth="300.0" style="-fx-border-color: BLACK">
                                  <children>
                                     <Rectangle fx:id="aHood" arcHeight="5.0" arcWidth="5.0" fill="ALICEBLUE" height="80.0" layoutX="50" layoutY="34.0" onMouseClicked="#handleAHoodClicked" stroke="BLACK" strokeType="INSIDE" width="55.0" />
                                     <Rectangle fx:id="aFrontRightDoor" arcHeight="5.0" arcWidth="5.0" fill="#ffffff" height="15.0" layoutX="104.0" layoutY="20" onMouseClicked="#handleAFrontRightDoorClicked" stroke="BLACK" strokeType="INSIDE" width="45.0" />
@@ -130,7 +130,7 @@
                               <Label alignment="CENTER_LEFT" text="Megjegyzések:" />
                               <TextArea fx:id="bComment" prefHeight="64.0" />
                               <Label alignment="CENTER_LEFT" text="Sérült részek:" />
-                              <AnchorPane prefHeight="150.0" prefWidth="300.0" style="-fx-border-color: BLACK">
+                              <AnchorPane fx:id="anchorPaneB" prefHeight="150.0" prefWidth="300.0" style="-fx-border-color: BLACK">
                                  <children>
                                     <Rectangle fx:id="bHood" arcHeight="5.0" arcWidth="5.0" fill="ALICEBLUE" height="80.0" layoutX="50" layoutY="34.0" onMouseClicked="#handleBHoodClicked" stroke="BLACK" strokeType="INSIDE" width="55.0" />
                                     <Rectangle fx:id="bFrontRightDoor" arcHeight="5.0" arcWidth="5.0" fill="#f0f8ff" height="15.0" layoutX="104.0" layoutY="20" onMouseClicked="#handleBFrontRightDoorClicked" stroke="BLACK" strokeType="INSIDE" width="45.0" />

@@ -11,6 +11,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
@@ -195,6 +196,12 @@ public class NewIncidentDialogController {
 
     @FXML
     private Rectangle bTrunk;
+
+    @FXML
+    private AnchorPane anchorPaneA;
+
+    @FXML
+    private AnchorPane anchorPaneB;
 
     @FXML
     CarParts.Level damageLevel(Rectangle carPart)
@@ -790,5 +797,10 @@ public class NewIncidentDialogController {
         // Images
         aFiles.addAll(crash.getFilesA());
         bFiles.addAll(crash.getFilesB());
+    }
+
+    public void disableEdit() {
+        anchorPaneA.setMouseTransparent(true);
+        anchorPaneB.setMouseTransparent(true);
     }
 }
