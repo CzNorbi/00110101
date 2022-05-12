@@ -46,8 +46,12 @@ public class FileCrashDAO implements CrashDAO {
 
     @Override
     public void updateCrash(Crash oldCrash, Crash newCrash) {
-        crashes.remove(oldCrash);
-        crashes.add(newCrash);
+        try {
+            crashes.remove(crashes.indexOf(oldCrash));
+            crashes.add(newCrash);
+        } catch (IndexOutOfBoundsException e) {
+            e.printStackTrace();
+        }
         serialize();
     }
 
