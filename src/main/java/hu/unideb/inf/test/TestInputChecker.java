@@ -43,8 +43,8 @@ public class TestInputChecker
         assertEquals(testDrivingLicenseNumber, testPerson.getDrivingLicenseNumber());
         assertEquals(testAddress, testPerson.getAddress());
         assertEquals(testTelNum,testPerson.getTelNum());
-        
 
+        System.out.println("OK testPerson");
     }
 
     @Test
@@ -94,7 +94,7 @@ public class TestInputChecker
         assertEquals(testCrash.getFilesA(), filesA);
         assertEquals(testCrash.getFilesB(), filesB);
 
-        System.out.println("CrashTest OK");
+        System.out.println("OK crashTest");
     }
 
 }
