@@ -7,11 +7,11 @@
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<DialogPane prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hu.unideb.inf.NewIncidentDialogController">
+<DialogPane prefHeight="600.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hu.unideb.inf.NewIncidentDialogController">
    <content>
       <ScrollPane minHeight="500.0" minWidth="705.0" prefHeight="1500.0" prefWidth="701.0">
          <content>
-            <GridPane alignment="TOP_CENTER" prefHeight="814.0" prefWidth="660.0">
+            <GridPane fx:id="gridPane" alignment="TOP_CENTER" prefHeight="814.0" prefWidth="660.0">
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />

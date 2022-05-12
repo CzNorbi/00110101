@@ -125,8 +125,8 @@ public class MainWindowController implements Initializable {
         if (result.isPresent() && result.get() == ButtonType.OK)
         {
             // Megadott adatok elmentése
-            crashes.add(controller.processResult());
             crashDAO.saveCrash(controller.processResult());
+            crashes.setAll(crashDAO.getCrashes());
         }
     }
 
@@ -150,16 +150,12 @@ public class MainWindowController implements Initializable {
 
             NewIncidentDialogController controller = fxmlLoader.getController();
             controller.loadCrash(selectedCrash);
+            controller.disableInteract();
+
 
             dialog.getDialogPane().getButtonTypes().add(ButtonType.CANCEL);
-            dialog.getDialogPane().getButtonTypes().add(ButtonType.APPLY);
 
             Optional<ButtonType> result = dialog.showAndWait();
-            if (result.isPresent() && result.get() == ButtonType.APPLY)
-            {
-                crashes.set(crashes.indexOf(selectedCrash), controller.processResult());
-                crashDAO.updateCrash(selectedCrash, controller.processResult());
-            }
         }
     }
 
@@ -172,8 +168,8 @@ public class MainWindowController implements Initializable {
 
         Optional<ButtonType> result = alert.showAndWait();
         if (result.get() == ButtonType.OK){
-            crashes.remove(crashToDelete);
             crashDAO.deleteCrash(crashToDelete);
+            crashes.setAll(crashDAO.getCrashes());
         } else {
             // ... puki
         }
