@@ -88,9 +88,9 @@ public class MainWindowController implements Initializable {
     @FXML
     void handleImgClick() {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Verzió: 1.3.0");
+        alert.setTitle("Verzió: 1.3.1");
         alert.setHeaderText(null);
-        alert.setContentText("Fejlesztők: Czier Norbert, Dorsonszky Máté, Szabó Gedeon, Zelei Péter \nKárbejelentő\nDátum: 2022.05.09");
+        alert.setContentText("Fejlesztők: Czier Norbert, Dorsonszky Máté, Szabó Gedeon, Zelei Péter \nKárbejelentő\nDátum: 2022.05.12");
         alert.showAndWait();
     }
 
@@ -150,7 +150,6 @@ public class MainWindowController implements Initializable {
 
             NewIncidentDialogController controller = fxmlLoader.getController();
             controller.loadCrash(selectedCrash);
-            controller.disableInteract();
 
 
             dialog.getDialogPane().getButtonTypes().add(ButtonType.CANCEL);

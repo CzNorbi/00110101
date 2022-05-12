@@ -197,9 +197,6 @@ public class NewIncidentDialogController {
     private Rectangle bTrunk;
 
     @FXML
-    private GridPane gridPane;
-
-    @FXML
     CarParts.Level damageLevel(Rectangle carPart)
     {
         CarParts.Level level = CarParts.Level.NONE;
@@ -793,11 +790,5 @@ public class NewIncidentDialogController {
         // Images
         aFiles.addAll(crash.getFilesA());
         bFiles.addAll(crash.getFilesB());
-    }
-
-    public void disableInteract() {
-        gridPane.setMouseTransparent(true);
-        buttonImageViewerA.setMouseTransparent(false);
-        buttonImageViewerB.setMouseTransparent(false);
     }
 }
